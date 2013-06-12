@@ -485,7 +485,7 @@
         topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
         [UIView commitAnimations];
         
-        [mapButton setImage:[UIImage imageNamed:@"map-button-selected"] forState:UIControlStateNormal];
+        [mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
         isMapMode = NO;
     }
     
@@ -804,7 +804,7 @@
         CGRect pickerFrame = self.pickerView.frame;
         pickerFrame.origin.y = [[UIScreen mainScreen] applicationFrame].size.height - self.pickerView.frame.size.height;
 
-        [UIView animateWithDuration:1
+        [UIView animateWithDuration:0.2
                          animations:^
         {
             self.pickerView.frame = pickerFrame;
