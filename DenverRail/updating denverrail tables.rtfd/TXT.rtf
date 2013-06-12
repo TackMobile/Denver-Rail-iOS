@@ -1,0 +1,158 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww18800\viewh16600\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 updated feb 15 2013\
+\
+1. download and unzip the google transit zip file in any directory.\
+http://www.rtd-denver.com/GoogleFeeder/ \
+\
+1b. Do a chmod a+rw on all files in the directory unzipped above\
+1c. make sure mysql is running - see pref pane\
+\
+2a. Drop the schedule and schedulenonames tables and delete everything in the tables referenced below (in bold without the .txt). MySQL query browser\
+	
+\f1 drop table schedulenonames, schedule\
+then\
+	delete from stop_times\
+	delete from stops\
+	delete from trips\
+
+\f0 \
+2b. (if needed) The tables below (bottom of this doc) should already exist in a database called denverrail. If they do not, the create table statements are included at the end of this document. In either case make sure the columns are in the right order (should match .txt document order).\
+\
+2c. Run the below commands from the directory used in step 1.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\i \cf0 Note: The mysql password should be blank for the following steps\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\i0 \cf0 \
+STOP TIMES (takes 1-2 seconds):\
+ /usr/local/mysql/bin/mysqlimport --local --fields-optionally-enclosed-by='"' --fields-terminated-by=, --lines-terminated-by='\\r\\n' --ignore-lines=1 --user=root --password denverrail 
+\b stop_times.txt
+\b0 \
+\
+TRIPS (takes less than a second):\
+ /usr/local/mysql/bin/mysqlimport --local --fields-optionally-enclosed-by='"' --fields-terminated-by=, --lines-terminated-by='\\r\\n' --ignore-lines=1 --user=root --password denverrail 
+\b trips.txt
+\b0 \
+\
+STOPS (takes less than a second):\
+ /usr/local/mysql/bin/mysqlimport --local --fields-optionally-enclosed-by='"' --fields-terminated-by=, --lines-terminated-by='\\r\\n' --ignore-lines=1 --user=root --password denverrail 
+\b stops.txt\
+
+\b0 \
+3. Run the following queries to get the table we need:\
+\
+to create an intermediate table (runs single threaded takes a minute or so on a 2.2GHz i7 w/ SSD, takes 2 min 10.36 sec on a 3.3GHz i5 w/5600 rpm drive ***W-Line uses 103 instead of 101***):\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 create table schedulenonames as select trips.service_id, stop_times.stop_id, stop_times.departure_time, trips.route_id, trips.direction_id from trips, stop_times where (trips.route_id like "101%" or trips.route_id like "103%") and stop_times.trip_id = trips.trip_id;\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0 \cf0 to create the final table with stop names (10-15 seconds or so, 32.52 seconds on 3.3GHz i5 w/5600 rpm drive):
+\f1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 create table schedule as select distinct schedulenonames.service_id, schedulenonames.route_id, schedulenonames.direction_id, stops.stop_name, schedulenonames.departure_time, schedulenonames.stop_id from schedulenonames, stops where schedulenonames.stop_id = stops.stop_id;\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0 \cf0 4. Set union station name to the same (nb and sb have different names) using update table command.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 update schedule set stop_name = 'Union Station' where stop_name like '%union%'
+\f0 \
+\
+5. Find & replace ":" with nothing in departuretime field so it can be compared\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f2 \cf0 update schedule set departure_time = replace(departure_time, ':', '');\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0 \cf0 5b. Update the day of week to what the app expects (ONE AT A TIME)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf0 update schedule set service_id = 'SA' where service_id like 'SA%';\
+update schedule set service_id = 'WK' where service_id like 'WK%';\
+update schedule set service_id = 'SU' where service_id like 'SU%';\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0 \cf0 5c. Check that the stop names match the app - they tend to be a moving target (compare results below with the array in the app delegate)\
+	
+\f1 select distinct stop_name from schedule order by stop_name
+\f0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+6a. Export the schedule table to csv (using mysql query browser,
+\b  File --> export resultset --> as csv
+\b0 \'85, query browser depreciated. Use command select * from schedule into out file '~/tmp/schedule.csv' fields terminated by ',' enclosed by '"' lines terminated by '\\n')\
+	
+\f1 select * from schedule
+\f0 \
+6b. Import it into sqlite using SQLite Manager firefox extension by creating a new database called schedules.sqlite and importing the csv file (import wizard) into a table called "
+\b schedule
+\b0 " which needs to have the structure inducted in the table below. 
+\i Make sure to check the box indicating the first row has the column names.
+\i0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 {{\NeXTGraphic Screen Shot 2013-02-15 at 11.44.05 PM.png \width4380 \height4000
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+\
+\
+7. create an index on the sqlite table tailored to our query: ** If create index wizard does not work run the command threw execute sql **\
+\
+create index main_query_idx on schedule (departure_time, route_id)\
+\
+For the jan 2011 timetable it imported 23926 rows/stops.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 may 2011 23911\
+jan 2012 22724\
+may 2012 22728\
+oct 2012 22769\
+jan 2013 22329\
+may 2013 30332\
+--------------------------\
+NOTE: CREATE TABLE statements for initial tables if they aren't already present:\
+\
+CREATE TABLE `stop_times` (\
+  `trip_id` int(11) DEFAULT NULL,\
+  `arrival_time` varchar(15) DEFAULT NULL,\
+  `departure_time` varchar(15) DEFAULT NULL,\
+  `stop_id` int(11) DEFAULT NULL,\
+  `stop_sequence` int(11) DEFAULT NULL,\
+  `stop_headsign` int(11) DEFAULT NULL,\
+  `pickup_type` int(11) DEFAULT NULL,\
+  `drop_off_type` int(11) DEFAULT NULL,\
+  `shape_dist_traveled` int(11) DEFAULT NULL\
+) ENGINE=MyISAM DEFAULT CHARSET=latin1\
+\
+CREATE TABLE `stops` (\
+  `stop_id` varchar(20) DEFAULT NULL,\
+  `stop_name` varchar(40) DEFAULT NULL,\
+  `stop_desc` varchar(40) DEFAULT NULL,\
+  `stop_lat` float DEFAULT NULL,\
+  `stop_lon` float DEFAULT NULL,\
+  `zone_id` varchar(15) DEFAULT NULL,\
+  `stop_url` varchar(30) DEFAULT NULL,\
+  `location_type` varchar(15) DEFAULT NULL\
+) ENGINE=MyISAM DEFAULT CHARSET=latin1\
+\
+CREATE TABLE `trips` (\
+  `route_id` varchar(10) DEFAULT NULL,\
+  `service_id` varchar(10) DEFAULT NULL,\
+  `trip_id` int(11) DEFAULT NULL,\
+  `trip_headsign` varchar(40) DEFAULT NULL,\
+  `direction_id` int(11) DEFAULT NULL,\
+`block_id` varchar(20) DEFAULT NULL,\
+  `shape_id` varchar(20) DEFAULT NULL\
+) ENGINE=MyISAM DEFAULT CHARSET=latin1\
+}

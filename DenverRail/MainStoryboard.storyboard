@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="mfC-Sg-xCn">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Base View Controller-->
+        <scene sceneID="UxP-Hh-bDS">
+            <objects>
+                <viewController id="mfC-Sg-xCn" customClass="BaseViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gGH-me-jVQ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="KZJ-5p-oo6">
+                                <rect key="frame" x="0.0" y="44" width="320" height="417"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mfC-Sg-xCn" id="CNo-2T-1xL"/>
+                                </connections>
+                            </webView>
+                            <view contentMode="scaleToFill" id="JbT-s9-p1f">
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="white-background.png" id="KWk-7c-hK3">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="list-background.png" id="Hgd-X2-gv4">
+                                        <rect key="frame" x="20" y="40" width="280" height="357"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" id="Jal-hA-Q8z">
+                                        <rect key="frame" x="0.0" y="-46" width="320" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top-cap.png" id="JqB-nt-nam">
+                                                <rect key="frame" x="9" y="55" width="302" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Distance Away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f40-pe-xdv">
+                                                <rect key="frame" x="37" y="69" width="103" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yUo-2M-IcW">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="timeSelectTapped"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" image="timebar.png">
+                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="timeSelectTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="glm-Fa-OE5"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weekday" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="FDo-1d-QqH">
+                                                <rect key="frame" x="21" y="12" width="100" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.15636957909999999" green="0.15636957909999999" blue="0.15636957909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <size key="shadowOffset" width="0.0" height="1"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3:30 PM" lineBreakMode="tailTruncation" minimumFontSize="10" id="O5r-3R-Vi6">
+                                                <rect key="frame" x="200" y="12" width="100" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.15636957909999999" green="0.15636957909999999" blue="0.15636957909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <size key="shadowOffset" width="0.0" height="1"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="50W-1e-ygC">
+                                                <rect key="frame" x="139" y="69" width="100" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="distanceLabel"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="compass-arrow.png" id="UAr-5u-MzY">
+                                                <rect key="frame" x="273" y="70" width="16" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" label="arrow"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" label="topSection"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="middle.png" id="3Yc-q7-TJi">
+                                        <rect key="frame" x="9" y="52" width="302" height="331"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" id="8ZA-a2-mnc">
+                                        <rect key="frame" x="151" y="358" width="19" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" label="buttonDivider"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottom-cap.png" id="VTw-b2-r64">
+                                        <rect key="frame" x="9" y="383" width="302" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Ab-Fd-sbm">
+                                        <rect key="frame" x="20" y="351" width="142" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="nbButton"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                        <state key="normal" title="Northbound" backgroundImage="bottom-bar-left-button.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="bottom-bar-left-button-selected.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="northboundTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="a09-aM-DdQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iif-dv-60t">
+                                        <rect key="frame" x="162" y="351" width="138" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                        <state key="normal" title="Southbound" backgroundImage="bottom-bar-right-button.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="bottom-bar-right-button-selected.png"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="southboundTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="rVs-St-j7y"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="shadow.png" id="OoG-AQ-URB">
+                                        <rect key="frame" x="20" y="345" width="280" height="5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" label="Top Level Slider"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="lightboard-background.png" id="e9H-Mc-F8M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MpM-Oa-yaZ">
+                                <rect key="frame" x="6" y="6" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="mapButton"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="map-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="map-button-selected.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mapTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="sLm-JI-tLa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2hF-Fn-Yhh">
+                                <rect key="frame" x="248" y="6" width="65" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="autoTapped" label="autoButton"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="auto-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="auto-off-button.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="autoTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="zg3-jh-DYl"/>
+                                </connections>
+                            </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" id="i6m-ld-nv8">
+                                <rect key="frame" x="60" y="0.0" width="183" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1oy-dr-E74">
+                                <rect key="frame" x="61" y="3" width="182" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchTapped" destination="mfC-Sg-xCn" eventType="touchUpInside" id="nQ1-9C-aK6"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="wWX-ex-Gal">
+                                <rect key="frame" x="0.0" y="568" width="320" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" id="Pro-ZA-Frs">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem title="Now" id="mgx-0X-afs">
+                                                <attributedString key="userComments">
+                                                    <fragment content="datePickerNowTapped">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="toolTip"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <connections>
+                                                    <action selector="datePickerNowTapped" destination="mfC-Sg-xCn" id="8XT-cx-LpD"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="yU7-b0-lfc"/>
+                                            <barButtonItem title="Done" id="udv-mB-3RC">
+                                                <attributedString key="userComments">
+                                                    <fragment content="datePickerDoneTapped">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="toolTip"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <connections>
+                                                    <action selector="datePickerDoneTapped" destination="mfC-Sg-xCn" id="JR3-Na-y9P"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <pickerView contentMode="scaleToFill" id="n7b-PM-bLq">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="216"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <accessibility key="accessibilityConfiguration" label="datePIcker"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="mfC-Sg-xCn" id="6zC-Wd-SX2"/>
+                                            <outlet property="delegate" destination="mfC-Sg-xCn" id="81o-7G-by3"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="arrow" destination="UAr-5u-MzY" id="XXh-Uc-ubK"/>
+                        <outlet property="autoButton" destination="2hF-Fn-Yhh" id="2iL-CB-bTY"/>
+                        <outlet property="backgroundTop" destination="Hgd-X2-gv4" id="Rum-RZ-qeS"/>
+                        <outlet property="bottomCapImageView" destination="VTw-b2-r64" id="Bb1-cQ-dZx"/>
+                        <outlet property="buttonDivider" destination="8ZA-a2-mnc" id="yzR-gQ-7WD"/>
+                        <outlet property="datePicker" destination="n7b-PM-bLq" id="AhX-8G-DZx"/>
+                        <outlet property="dayOfWeekLabel" destination="FDo-1d-QqH" id="mA1-0b-Jr5"/>
+                        <outlet property="distanceLabel" destination="50W-1e-ygC" id="0MH-7m-Vg5"/>
+                        <outlet property="mapButton" destination="MpM-Oa-yaZ" id="Fus-eZ-VcB"/>
+                        <outlet property="middleSection" destination="3Yc-q7-TJi" id="xNE-zX-o2M"/>
+                        <outlet property="nbButton" destination="0Ab-Fd-sbm" id="Uix-vi-byn"/>
+                        <outlet property="pdfWebView" destination="KZJ-5p-oo6" id="Pb7-Z2-yVN"/>
+                        <outlet property="pickerView" destination="wWX-ex-Gal" id="fpD-Oz-C1G"/>
+                        <outlet property="sbButton" destination="iif-dv-60t" id="rhl-WA-0Xu"/>
+                        <outlet property="shadowAboveButtons" destination="OoG-AQ-URB" id="zix-bd-fV3"/>
+                        <outlet property="stationNameView" destination="i6m-ld-nv8" id="MF3-Sd-vk3"/>
+                        <outlet property="timeLabel" destination="O5r-3R-Vi6" id="CA4-qz-2hO"/>
+                        <outlet property="topLevelSlider" destination="JbT-s9-p1f" id="HHY-Bh-PPR"/>
+                        <outlet property="topSection" destination="Jal-hA-Q8z" id="CkZ-nB-lWa"/>
+                        <outlet property="whiteBackground" destination="KWk-7c-hK3" id="xDl-9e-BVL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DD7-aa-gZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378" y="104"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="auto-button.png" width="65" height="31"/>
+        <image name="auto-off-button.png" width="65" height="31"/>
+        <image name="bottom-bar-left-button-selected.png" width="140" height="38"/>
+        <image name="bottom-bar-left-button.png" width="140" height="38"/>
+        <image name="bottom-bar-right-button-selected.png" width="139" height="38"/>
+        <image name="bottom-bar-right-button.png" width="139" height="38"/>
+        <image name="bottom-cap.png" width="302" height="24"/>
+        <image name="compass-arrow.png" width="16" height="20"/>
+        <image name="lightboard-background.png" width="320" height="44"/>
+        <image name="list-background.png" width="280" height="375"/>
+        <image name="map-button-selected.png" width="51" height="31"/>
+        <image name="map-button.png" width="51" height="31"/>
+        <image name="middle.png" width="302" height="331"/>
+        <image name="shadow.png" width="280" height="6"/>
+        <image name="timebar.png" width="320" height="46"/>
+        <image name="top-cap.png" width="302" height="43"/>
+        <image name="white-background.png" width="320" height="416"/>
+    </resources>
+    <classes>
+        <class className="BaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="autoTapped"/>
+                <relationship kind="action" name="datePickerDoneTapped"/>
+                <relationship kind="action" name="datePickerNowTapped"/>
+                <relationship kind="action" name="hideSearch:"/>
+                <relationship kind="action" name="mapTapped"/>
+                <relationship kind="action" name="northboundTapped"/>
+                <relationship kind="action" name="searchTapped"/>
+                <relationship kind="action" name="southboundTapped"/>
+                <relationship kind="action" name="timeSelectTapped"/>
+                <relationship kind="outlet" name="arrow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="autoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="backgroundTop" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="bottomCapImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="buttonDivider" candidateClass="UIView"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="dayOfWeekLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="listBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mapScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="middleSection" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nbButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pdfWebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="sbButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shadowAboveButtons" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="stationNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topLevelSlider" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topSection" candidateClass="UIView"/>
+                <relationship kind="outlet" name="wbButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="whiteBackground" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
