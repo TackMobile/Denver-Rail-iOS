@@ -112,6 +112,7 @@
     } else if (closestStation.southOnly){
         _isNorth = NO;
     }
+    
     [self updateCellsWithStation:closestStation date:[NSDate date] direction:_isNorth];
 }
 
@@ -144,8 +145,19 @@
 
 // Updates the cells with a specific station and direction
 - (void)updateCellsWithStation:(Station *)_station date:(NSDate *)_date direction:(BOOL)_isNorth {
-   
-    NSArray *stops = [TimetableSearchUtility getTimetableWithDate:_date andStation:_station directionIsNorth:_isNorth];
+    
+    NSArray *stops;
+    
+    /*
+    // Database uses 0 for north and 1 for south directions. For east and west stations it is 0 for east and 1 for west. 
+    // In the app we want the west button on the left and east on the right, so we reverse the direction bool for those 
+    // stations. 
+    */
+    if (_station.eastWest) {
+        stops = [TimetableSearchUtility getTimetableWithDate:_date andStation:_station directionIsNorth:!_isNorth];
+    } else {
+        stops = [TimetableSearchUtility getTimetableWithDate:_date andStation:_station directionIsNorth:_isNorth];
+    }
     
     [self playFlipsSound];
     
@@ -347,8 +359,8 @@
         [view removeFromSuperview];
     }
 }
-
-// Play the flipping sound 
+#warning play the flip sound 
+// Play the flipping sound
 - (void)playFlipsSound {
     BOOL playSounds = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).playSounds;
     

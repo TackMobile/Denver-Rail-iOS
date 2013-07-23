@@ -11,9 +11,9 @@
 #import "WhistleBlowerController.h"
 #import <AudioToolbox/AudioServices.h>
 
-NSString *kPlaySoundsKey = @"playSoundsKey";
-NSString *kPreferencesSetKey = @"prefsSet";
-NSString *kPreferencesSetValue = @"prefsSet";
+NSString static *kPlaySoundsKey = @"playSoundsKey";
+NSString static *kPreferencesSetKey = @"prefsSet";
+NSString static *kPreferencesSetValue = @"prefsSet";
 
 @implementation AppDelegate
 
@@ -37,9 +37,10 @@ NSString *kPreferencesSetValue = @"prefsSet";
     return YES;
 }
 
-// Plays a sound when the application becomes active
+// Checks sound when application comes from foreground 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    self.playSounds = [[NSUserDefaults standardUserDefaults] boolForKey:kPlaySoundsKey];
+    [self initializePreferences];
+    NSLog(@" Play sounds is %@", (self.playSounds ? @"ON" : @"OFF")); 
     [self configureAudioSession];
 }
 
@@ -57,17 +58,15 @@ NSString *kPreferencesSetValue = @"prefsSet";
     UInt32 propertySize = sizeof(otherAudioIsPlaying);    
     AudioSessionGetProperty(kAudioSessionProperty_OtherAudioIsPlaying, &propertySize, &otherAudioIsPlaying);
     
-    // If other audio is playing other than your own
-    if (otherAudioIsPlaying && !self.playSounds) {
+    if (otherAudioIsPlaying && self.playSounds) {
         
-        // Let our sounds blend with theirs in a beautiful melody. Turn off the train whistle.
+        // Let our sounds blend with theirs in a beautiful melody. 
         UInt32 category = kAudioSessionCategory_AmbientSound;
         AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
         
         self.whistleBlower.on = NO;
-        
-    // If there is no audio playing 
-    } else {
+
+    } else if(self.playSounds) {
         
         // Enable playing and recording in the audio session so the Train whistle sillyness can take place.
         UInt32 category = kAudioSessionCategory_PlayAndRecord;
@@ -79,6 +78,8 @@ NSString *kPreferencesSetValue = @"prefsSet";
         AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(defaultToSpeaker), &defaultToSpeaker);
         
         self.whistleBlower.on = YES;
+    } else {
+        self.whistleBlower.on = NO; 
     }
 }
 
@@ -191,39 +192,38 @@ NSString *kPreferencesSetValue = @"prefsSet";
                                                          latitude:39.736664 logitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
 }
 
-// Sets up the preferences
+// Sets up the audio preferences
 - (void) initializePreferences {
     NSString *prefsInitializedString = [[NSUserDefaults standardUserDefaults] stringForKey:kPreferencesSetKey];
     
-    // If the preferences have never been set before
-    if (prefsInitializedString == nil) {
         NSString *pathStr = [[NSBundle mainBundle] bundlePath];
 		NSString *settingsBundlePath = [pathStr stringByAppendingPathComponent:@"Settings.bundle"];
 		NSString *finalPath = [settingsBundlePath stringByAppendingPathComponent:@"Root.plist"];
         
 		NSDictionary *settingsDict = [NSDictionary dictionaryWithContentsOfFile:finalPath];
 		NSArray *prefSpecifierArray = [settingsDict objectForKey:@"PreferenceSpecifiers"];
-        
+    
         NSNumber *playSoundDefault;
         
 		NSDictionary *prefItem;
 		for (prefItem in prefSpecifierArray) {
+           
 			NSString *keyValueStr = [prefItem objectForKey:@"Key"];
 			id defaultValue = [prefItem objectForKey:@"DefaultValue"];
-			
 			if ([keyValueStr isEqualToString:kPlaySoundsKey]) {
                 playSoundDefault = defaultValue;
+              
 			}
 		}
         
 		NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:playSoundDefault, kPlaySoundsKey, nil];
-        
+      
 		[[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 
         [[NSUserDefaults standardUserDefaults] setValue:kPreferencesSetKey forKey:kPreferencesSetKey];
-    }
-    self.playSounds = [[NSUserDefaults standardUserDefaults] boolForKey:kPlaySoundsKey];
+
+        self.playSounds = [[NSUserDefaults standardUserDefaults] boolForKey:kPlaySoundsKey];
 }
 
 @end

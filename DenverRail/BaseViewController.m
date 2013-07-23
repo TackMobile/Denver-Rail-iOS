@@ -777,11 +777,15 @@
     [comps setYear:2013];
     [comps setMonth:1];
     [comps setCalendar:cal];
-    if (isPM)
-        [comps setHour:hour+12];
-    else
-        [comps setHour:hour];
     
+    if (isPM && hour != 12) {
+        [comps setHour:hour+12];
+    } else if (!isPM && hour == 12) {
+        [comps setHour:0]; 
+    } else {
+        [comps setHour:hour];
+    }
+   
     [comps setMinute:minute];
     if (dayOfWeek == 0)
         [comps setDay:2];

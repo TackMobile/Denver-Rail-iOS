@@ -17,7 +17,7 @@
     return [self getTimetableWithDate:[NSDate new] andStation:station directionIsNorth:isNorth];
 }
 
-// Gets the time stations of the station where the user selects the date and direction
+// Gets the time stations of the station with date and direction
 +(NSArray *)getTimetableWithDate:(NSDate *)date andStation:(Station *)station directionIsNorth:(BOOL)isNorth {
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -26,7 +26,7 @@
     NSInteger weekday = [dateComponents weekday];
 
     NSString *scheduleCode = @"WK";
-
+    
     if (weekday == 7)
         scheduleCode = @"SA";
     else if (weekday == 1 || [TimetableSearchUtility isHoliday:date])
