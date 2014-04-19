@@ -23,11 +23,13 @@
 @synthesize currentManualDate, currentManualStation;
 @synthesize audioPlayer;
 
-// Always starts in auto mode, northbound
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         locationManager = [LocationManager instance];
+        
+        // Always starts in auto mode, northbound
         isAutoMode = YES;
         isNorthAuto = YES;
         
@@ -71,23 +73,6 @@
     // Set the initial manual station to the current location if it hasn't been set before
     if (!self.currentManualStation)
         self.currentManualStation = locationManager.closestStation;
-    
-    // If in auto mode
-    if (isAutoMode) {
-        
-        // Keep database queries spaced out and not running immediately after one that was just executed
-        NSDate *lastUpdate;
-        NSDate *tryUpdate = [NSDate date];
-      
-        NSInteger time = [tryUpdate timeIntervalSinceReferenceDate] - [lastUpdate timeIntervalSinceReferenceDate];
-    
-        // If it needs to be set for the firs them or if it is not immediately after one that executed
-        if (firstLoc || time > 4000000000) {
-            [self updateCellsAutoMode];
-            lastUpdate = [NSDate date];
-            firstLoc = NO;
-        }
-    }
 }
 
 // This should be called when the station, mode, or direction changes, and every 10 seconds when in auto mode

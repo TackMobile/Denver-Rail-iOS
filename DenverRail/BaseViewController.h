@@ -27,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bottomCapImageView;
 @property (strong, nonatomic) IBOutlet UIImageView * shadowAboveButtons;
 
+// Store all content in this subview that will adjust if statusbar is there or not
+@property (weak, nonatomic) IBOutlet UIView *contentSubView;
 
 @property (weak) IBOutlet UIImageView *backgroundTop;
 @property (weak) IBOutlet UIImageView *arrow;

@@ -17,7 +17,7 @@
 @synthesize searchBoxTextField, tableView;
 @synthesize delegate;
 @synthesize allStations, matchingStations;
-@synthesize viewRect, tableRect;
+
 
 // When the view is loaded
 - (void)viewDidLoad {
@@ -32,12 +32,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    // Tableview size at start
-    tableRect = self.tableView.frame;
-    
-    // Adjust the table if 4 inch screen
-    if ([[UIScreen mainScreen] applicationFrame].size.height > 480)
-        tableRect.size.height += 89;
 }
 
 // Show keyboard for search
@@ -125,15 +119,26 @@
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    // Size of the whole view used for adjusted table for keyboard
-    viewRect = self.view.frame;
-    viewRect.size.height -= kbSize.height + 68;
-    [self.tableView setFrame:viewRect];
+    // Adjust tableview height for the keyboard
+    CGRect tableRect = CGRectMake(0,
+                                  CGRectGetMinY(self.tableView.frame),
+                                  CGRectGetWidth(self.tableView.frame),
+                                  CGRectGetHeight(self.tableView.frame) - kbSize.height);
+    [self.tableView setFrame:tableRect];
+    
 }
 
 // Called when the UIKeyboardDidHide notification is sent
 - (void)keyboardWillHide:(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    // Adjust tableview height for the keyboard
+    CGRect tableRect = CGRectMake(0,
+                                  CGRectGetMinY(self.tableView.frame),
+                                  CGRectGetWidth(self.tableView.frame),
+                                  CGRectGetHeight(self.tableView.frame) + kbSize.height);
     [self.tableView setFrame:tableRect];
+    
 }
 
 // When the view is unloaded

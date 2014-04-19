@@ -21,7 +21,6 @@
 @property (weak) IBOutlet UITableView *tableView;
 @property (weak) NSArray *allStations;
 @property (strong) NSMutableArray *matchingStations;
-@property CGRect viewRect, tableRect;
 
 - (IBAction)doneEditing:(UITextField *)_textField;
 - (IBAction)textFieldChanged:(id)sender;

@@ -17,6 +17,9 @@
 // When the controller is first called
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor blackColor]; 
+    
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
     self.view.frame = [UIScreen mainScreen].bounds;
@@ -35,8 +38,12 @@
     // Setup and load the search view controller
     self.searchViewController = [[SearchViewController alloc] initWithNibName:nil bundle:nil];
     self.searchViewController.delegate = self;
-    self.searchViewController.view.frame = CGRectMake(0, 44, 320, [[UIScreen mainScreen] applicationFrame].size.height); 
-    [self.view insertSubview:self.searchViewController.view belowSubview:self.pdfWebView];
+    self.searchViewController.view.frame = CGRectMake(0,
+                                                      CGRectGetMinY(self.contentSubView.frame) + CGRectGetHeight(self.stationNameView.frame),
+                                                      CGRectGetWidth(self.contentSubView.frame),
+                                                      CGRectGetHeight(self.contentSubView.frame) - CGRectGetHeight(self.stationNameView.frame));
+    
+    [self.contentSubView insertSubview:self.searchViewController.view belowSubview:self.pdfWebView];
     
     // Load the map
     [mapScrollView setContentSize:CGSizeMake(600, 822)];
@@ -49,7 +56,7 @@
     // Setup and begin the flicker timer
     for (int i=0; i<6; i++) {
         UIImageView *brokenLED = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"broken-LED"]];
-        [self.view addSubview:brokenLED];
+        [self.contentSubView addSubview:brokenLED];
         [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(placeBrokenLED:) userInfo:brokenLED repeats:NO];
     }
     
@@ -64,12 +71,27 @@
     
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    // Have the main view that holds everything adjust for status bar
+    self.contentSubView.frame = CGRectMake(0,
+                                           self.topLayoutGuide.length,
+                                           CGRectGetWidth(self.view.frame),
+                                           CGRectGetHeight(self.view.frame) - self.topLayoutGuide.length);
+}
+
 // Notifying when the view will appear
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
     // Adjust for 4 inch iPhones
     [self adjustForFourInchScreen];
+}
+
+// Change the status bar contrast
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 // Make UI adjustments for larger iPhone screens
