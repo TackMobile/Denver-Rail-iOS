@@ -610,7 +610,7 @@
     [self hideSearch:nil];
 }
 
-// When th auto button pressed
+// When the auto button pressed
 -(void)toggleManualMode {
     
     BOOL locationDenied = [[NSUserDefaults standardUserDefaults] boolForKey:@"locationDenied"];
@@ -773,9 +773,10 @@
     
     switch (dayOfWeek) {
         case 0: dayOfWeekLabel.text = @"Weekday"; break;
-        case 1: dayOfWeekLabel.text = @"Saturday"; break;
-        case 2: dayOfWeekLabel.text = @"Sunday"; break;
-        case 3: dayOfWeekLabel.text = @"Holiday";
+        case 1: dayOfWeekLabel.text = @"Friday"; break;
+        case 2: dayOfWeekLabel.text = @"Saturday"; break;
+        case 3: dayOfWeekLabel.text = @"Sunday"; break;
+        case 4: dayOfWeekLabel.text = @"Holiday";
     }
     
     NSString *minuteString = nil;
@@ -859,7 +860,7 @@
 // Number of rows per wheel 
 - (NSInteger)pickerView: (UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger) component  { 
 	switch (component) {
-		case 0: return 4;
+		case 0: return 5;
 		case 1: return 12;
 		case 2: return 60;
 		case 3: return 2;
@@ -886,9 +887,10 @@
 		case 0:
 			switch (row) {
 				case 0: return @"Weekday";
-				case 1: return @"Saturday";
-				case 2: return @"Sunday";
-				case 3: return @"Holiday";
+                case 1: return @"Friday";
+				case 2: return @"Saturday";
+				case 3: return @"Sunday";
+				case 4: return @"Holiday";
 			}
             
         // Hour

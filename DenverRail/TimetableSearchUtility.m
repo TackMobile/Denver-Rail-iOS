@@ -25,10 +25,12 @@
     NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
     NSInteger weekday = [dateComponents weekday];
 
-    NSString *scheduleCode = @"WK";
+    NSString *scheduleCode = @"MT";
     
     if (weekday == 7)
         scheduleCode = @"SA";
+    else if (weekday == 6)
+        scheduleCode = @"F";
     else if (weekday == 1 || [TimetableSearchUtility isHoliday:date])
         scheduleCode = @"SU";
     

@@ -148,7 +148,7 @@ NSString static *kPreferencesSetValue = @"prefsSet";
                                                          latitude:39.736608 logitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
       [self.stations addObject:[[Station alloc] initWithImageName:@"hampden-southmoor" columnName:@"Southmoor Station"
                                                          latitude:39.6485 logitude:-104.91628 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"i25-broadway" columnName:@"Hwy I-25 & Broadway Stn"
+      [self.stations addObject:[[Station alloc] initWithImageName:@"i25-broadway" columnName:@"I-25 & Broadway Station"
                                                          latitude:39.701523 logitude:-104.990158 southOnly:NO northOnly:NO eastWest:NO]];
       [self.stations addObject:[[Station alloc] initWithImageName:@"jeffco-golden" columnName:@"Jeffco Government Center Station"
                                                          latitude:39.726640 logitude:-105.201728 southOnly:NO northOnly:NO eastWest:YES]];
