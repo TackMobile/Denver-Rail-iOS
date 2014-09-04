@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		271E50E91739654C001945DC /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 271E50E81739654C001945DC /* schedules.sqlite */; };
+		1F1670A619B90A7B00685EFA /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1F1670A519B90A7B00685EFA /* schedules.sqlite */; };
 		27476072173D6A4300302EAF /* updating denverrail tables.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 27476071173D6A4300302EAF /* updating denverrail tables.rtfd */; };
 		27F49DAD174285550064BFA0 /* FMDB-MIT-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */; };
 		27F49DB21742A62E0064BFA0 /* w-line-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAE1742A62E0064BFA0 /* w-line-circle.png */; };
@@ -247,7 +247,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		271E50E81739654C001945DC /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
+		1F1670A519B90A7B00685EFA /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		27476071173D6A4300302EAF /* updating denverrail tables.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "updating denverrail tables.rtfd"; sourceTree = "<group>"; };
 		27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "FMDB-MIT-License.txt"; sourceTree = "<group>"; };
 		27F49DAE1742A62E0064BFA0 /* w-line-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle.png"; sourceTree = "<group>"; };
@@ -838,7 +838,7 @@
 				27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */,
 				39E7F0E814DE05F0007C8617 /* DenverRail-Info.plist */,
 				39E7F0E914DE05F0007C8617 /* InfoPlist.strings */,
-				271E50E81739654C001945DC /* schedules.sqlite */,
+				1F1670A519B90A7B00685EFA /* schedules.sqlite */,
 				39E7F0EC14DE05F0007C8617 /* main.m */,
 				27476071173D6A4300302EAF /* updating denverrail tables.rtfd */,
 				39EFA083153535DE00A2A9E0 /* Common.m */,
@@ -1039,6 +1039,7 @@
 				39E732C014E4A1080051CBF3 /* evans@2x.png in Resources */,
 				39E732C114E4A1080051CBF3 /* hampden-southmoor@2x.png in Resources */,
 				39E732C214E4A1080051CBF3 /* i25-broadway.png in Resources */,
+				1F1670A619B90A7B00685EFA /* schedules.sqlite in Resources */,
 				39E732C314E4A1080051CBF3 /* i25-broadway@2x.png in Resources */,
 				39E732C414E4A1080051CBF3 /* lincoln.png in Resources */,
 				39E732C514E4A1080051CBF3 /* lincoln@2x.png in Resources */,
@@ -1113,7 +1114,6 @@
 				96CD2BED16C05F5F00CC0DC3 /* list-background@2x.png in Resources */,
 				96CD2BEF16C0613800CC0DC3 /* list-background-568h@2x.png in Resources */,
 				968F938116CC6E5A00B8EE7D /* Default-568h@2x.png in Resources */,
-				271E50E91739654C001945DC /* schedules.sqlite in Resources */,
 				27476072173D6A4300302EAF /* updating denverrail tables.rtfd in Resources */,
 				27F49DAD174285550064BFA0 /* FMDB-MIT-License.txt in Resources */,
 				27F49DB21742A62E0064BFA0 /* w-line-circle.png in Resources */,
