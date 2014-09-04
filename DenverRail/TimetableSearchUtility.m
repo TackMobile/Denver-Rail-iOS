@@ -30,7 +30,7 @@
     if (weekday == 7)
         scheduleCode = @"SA";
     else if (weekday == 6)
-        scheduleCode = @"F";
+        scheduleCode = @"FR";
     else if (weekday == 1 || [TimetableSearchUtility isHoliday:date])
         scheduleCode = @"SU";
     
