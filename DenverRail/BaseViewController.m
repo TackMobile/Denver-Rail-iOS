@@ -10,7 +10,7 @@
 
 @implementation BaseViewController
 @synthesize topSection, middleSection, topLevelSlider, mapScrollView, currentTimer, pickerView, datePicker, dayOfWeekLabel, timeLabel, distanceLabel;
-@synthesize autoButton, mapButton, svc, locationManager, stationNameView, currentStation, stationNameImageViewToAnimate, nbButton, sbButton, wbButton, arrow;
+@synthesize autoButton, mapButton, scheduleViewController, locationManager, stationNameView, currentStation, stationNameImageViewToAnimate, nbButton, sbButton, wbButton, arrow;
 @synthesize pdfWebView, backgroundTop;
 @synthesize searchViewController, stationToReturnToAfterSearchCancelled, lastUsedManualStation;
 
@@ -18,22 +18,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blackColor]; 
-    
+    self.view.backgroundColor = [UIColor blackColor];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-
     self.view.frame = [UIScreen mainScreen].bounds;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDenied) name:@"locationDenied" object:nil];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationApproved) name:@"locationApproved" object:nil];
+	
     // Default modes
     isAutoMode = YES;
     isMapMode = NO;
     
     // Add the schedule view to the view
-    self.svc = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
-    self.svc.view.frame = CGRectMake(24, 52, self.svc.view.frame.size.width, [[UIScreen mainScreen] applicationFrame].size.height - 122);
-    [self.topLevelSlider insertSubview:self.svc.view belowSubview:middleSection];
+    self.scheduleViewController = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
+    self.scheduleViewController.view.frame = CGRectMake(24, 52, self.scheduleViewController.view.frame.size.width, [[UIScreen mainScreen] applicationFrame].size.height - 122);
+    [self.topLevelSlider insertSubview:self.scheduleViewController.view belowSubview:middleSection];
     
     // Setup and load the search view controller
     self.searchViewController = [[SearchViewController alloc] initWithNibName:nil bundle:nil];
@@ -158,13 +157,20 @@
 
 // Location Denied button was pressed
 - (void)locationDenied {
+	NSLog(@"LOCATION SERVICE ACCESS DENIED");
     self.arrow.hidden = YES;
     self.distanceLabel.hidden = YES;
-    NSLog(@"Location denied!");
     autoButton.alpha = .4;
     
     // This will either switch to manual mode, or do nothing if we're already there
     [self toggleManualMode];
+}
+
+- (void)locationApproved {
+	NSLog(@"LOCATION SERVICE ACCESS APPOROVED");
+	self.arrow.hidden = NO;
+	self.distanceLabel.hidden = NO;
+	autoButton.alpha = 1;
 }
 
 // If the webView for the map failed to load
@@ -242,7 +248,7 @@
     [self.stationNameView addSubview:iv];
     
     // Swap back to the previous display
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFireMethod:) userInfo:self.currentStation repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerFireMethod:) userInfo:self.currentStation repeats:NO];
 }
 
 // Shows the searched station
@@ -433,7 +439,7 @@
 
     NSLog(@"north %i south %i", self.nbButton.selected, self.sbButton.selected);
 
-    [self.svc updateCellsWithDirection:isNorth];
+    [self.scheduleViewController updateCellsWithDirection:isNorth];
 }
 
 // When the southbound/eastbound button pressed
@@ -446,7 +452,7 @@
 
     NSLog(@"north %i south %i", self.nbButton.selected, self.sbButton.selected);
 
-    [self.svc updateCellsWithDirection:isNorth];
+    [self.scheduleViewController updateCellsWithDirection:isNorth];
 }
 
 // When the map button is pressed
@@ -549,9 +555,9 @@
     // Check to make sure the right buttons are for that selected station
     [self checkButtons:_station];
     
-    self.svc.currentManualStation = _station;
-    [self.svc updateCellsWithDirection:isNorth];
-    [self.svc updateCellsManualMode];
+    self.scheduleViewController.currentManualStation = _station;
+    [self.scheduleViewController updateCellsWithDirection:isNorth];
+    [self.scheduleViewController updateCellsManualMode];
 }
 
 // Checks to see if the selected station shows the right buttons. Some need to have
@@ -632,7 +638,7 @@
     // Switch to manual mode
     if (isAutoMode) {
         isAutoMode = NO;
-        self.svc.isAutoMode = NO;
+        self.scheduleViewController.isAutoMode = NO;
         
         BOOL searchWillAppear = [[NSUserDefaults standardUserDefaults] boolForKey:@"searchWillAppear"];
         
@@ -640,7 +646,7 @@
             [self showTapToSearch];
         
         // Set the picker and current date to now if it hasn't been set before
-        if (!self.svc.currentManualDate) {
+        if (!self.scheduleViewController.currentManualDate) {
             [self datePickerNowTapped];
             [self updateManualDateLabels];
         }
@@ -658,17 +664,17 @@
                                          backgroundTop.frame.size.height - screenAdjust);
         
         // Move the schedule view down 46 pixels and make smaller. 48 if 4 inch screen
-        self.svc.view.frame = CGRectMake(24,
-                                         self.svc.view.frame.origin.y + screenAdjust,
-                                         self.svc.view.frame.size.width,
-                                         self.svc.view.frame.size.height - screenAdjust);
+        self.scheduleViewController.view.frame = CGRectMake(24,
+                                         self.scheduleViewController.view.frame.origin.y + screenAdjust,
+                                         self.scheduleViewController.view.frame.size.width,
+                                         self.scheduleViewController.view.frame.size.height - screenAdjust);
         [UIView commitAnimations];
 
         if (searchWillAppear) {
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"searchWillAppear"];
         } else if (!locationDenied) {
             [self checkButtons:currentStation];
-            [self.svc updateCellsManualMode];
+            [self.scheduleViewController updateCellsManualMode];
         }
         
         [autoButton setImage:[UIImage imageNamed:@"auto-off-button"] forState:UIControlStateNormal];
@@ -676,7 +682,7 @@
     // Switch to auto mode
     } else if (!locationDenied) {
         isAutoMode = YES;
-        self.svc.isAutoMode = YES;
+        self.scheduleViewController.isAutoMode = YES;
 
         [self hidePickerView];
         [UIView beginAnimations:nil context:nil];
@@ -688,13 +694,13 @@
                                          backgroundTop.frame.size.height + screenAdjust);
         
         // Move the schedule view back up 46 pixels and enlarge 46 pixels
-        self.svc.view.frame = CGRectMake(24,
-                                         self.svc.view.frame.origin.y - screenAdjust,
-                                         self.svc.view.frame.size.width,
-                                         self.svc.view.frame.size.height + screenAdjust);
+        self.scheduleViewController.view.frame = CGRectMake(24,
+                                         self.scheduleViewController.view.frame.origin.y - screenAdjust,
+                                         self.scheduleViewController.view.frame.size.width,
+                                         self.scheduleViewController.view.frame.size.height + screenAdjust);
         [UIView commitAnimations];
         
-        [self.svc updateCellsAutoMode];
+        [self.scheduleViewController updateCellsAutoMode];
         
         [autoButton setImage:[UIImage imageNamed:@"auto-button"] forState:UIControlStateNormal];
         
@@ -760,7 +766,7 @@
 -(IBAction)datePickerDoneTapped {
     [self hidePickerView];
     [self updateManualDateLabels];
-    [self.svc updateCellsManualMode];
+    [self.scheduleViewController updateCellsManualMode];
 }
 
 // Update the manual date labels for manual mode
@@ -819,7 +825,7 @@
     
     NSDate *md = [cal dateFromComponents:comps];
 
-    self.svc.currentManualDate = md;
+    self.scheduleViewController.currentManualDate = md;
 }
 
 // Display the time picker

@@ -46,7 +46,7 @@
 @property (weak) IBOutlet UIPickerView *datePicker;
 
 // Schedule view class for displaying times 
-@property (strong) ScheduleViewController *svc;
+@property (strong) ScheduleViewController *scheduleViewController;
 
 // Singleton location manager for getting automatic location
 @property (weak) LocationManager *locationManager; 
@@ -96,6 +96,7 @@
 -(void)showTapToSearch;
 -(void)showSearch;
 -(void)locationDenied;
+-(void)locationApproved;
 -(void)checkButtons:(Station *)_station;
 
 @end
