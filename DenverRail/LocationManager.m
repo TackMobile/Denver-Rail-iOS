@@ -33,7 +33,7 @@ static LocationManager *sharedSingleton;
         sharedSingleton.locationManager.delegate = sharedSingleton;
         sharedSingleton.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         sharedSingleton.locationManager.distanceFilter = 50;
-
+		[sharedSingleton.locationManager requestWhenInUseAuthorization];
         [sharedSingleton.locationManager startUpdatingLocation];
         
         if ([CLLocationManager headingAvailable]) {
