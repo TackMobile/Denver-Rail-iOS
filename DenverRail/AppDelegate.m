@@ -26,14 +26,14 @@ NSString static *kPreferencesSetValue = @"prefsSet";
 // Starts the application 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     [self initializePreferences];
     [self initializeAudio];
     [self initStations];
     
-    [TestFlight takeOff:@"8c164a2e084013eae880e49cf6a4e005_NTU1MTAyMDEyLTAzLTIyIDE4OjE2OjE5LjAzNzQ2OA"];
-        
+//    [TestFlight takeOff:@"8c164a2e084013eae880e49cf6a4e005_NTU1MTAyMDEyLTAzLTIyIDE4OjE2OjE5LjAzNzQ2OA"];
+	
     return YES;
 }
 
@@ -46,36 +46,50 @@ NSString static *kPreferencesSetValue = @"prefsSet";
 
 // Initializes the audio for the first time
 - (void)initializeAudio {
-    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+//    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+	[AVAudioSession sharedInstance];
     self.whistleBlower = [[WhistleBlowerController alloc] init];
     [self configureAudioSession];
-    AudioSessionSetActive(YES);
+//    AudioSessionSetActive(YES);
+	NSError *error = [[NSError alloc] init];
+	[[AVAudioSession sharedInstance] setActive:YES error:&error];
 }
 
 // Configures the audio session
 - (void) configureAudioSession {
-    UInt32 otherAudioIsPlaying;
-    UInt32 propertySize = sizeof(otherAudioIsPlaying);    
-    AudioSessionGetProperty(kAudioSessionProperty_OtherAudioIsPlaying, &propertySize, &otherAudioIsPlaying);
-    
-    if (otherAudioIsPlaying && self.playSounds) {
-        
-        // Let our sounds blend with theirs in a beautiful melody. 
-        UInt32 category = kAudioSessionCategory_AmbientSound;
-        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
+//    UInt32 otherAudioIsPlaying;
+//    UInt32 propertySize = sizeof(otherAudioIsPlaying);
+//	  AudioSessionGetProperty(kAudioSessionProperty_OtherAudioIsPlaying, &propertySize, &otherAudioIsPlaying);
+	
+	BOOL isPlayingWithOthers = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
+	NSError *error = [[NSError alloc] init];
+	
+//	if (otherAudioIsPlaying && self.playSounds) {
+    if (isPlayingWithOthers && self.playSounds) {
+		
+        // Let our sounds blend with theirs in a beautiful melody.
+//        UInt32 category = kAudioSessionCategory_AmbientSound;
+//        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
+		
+		[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
         
         self.whistleBlower.on = NO;
 
     } else if(self.playSounds) {
         
         // Enable playing and recording in the audio session so the Train whistle sillyness can take place.
-        UInt32 category = kAudioSessionCategory_PlayAndRecord;
-        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
-        UInt32 allowMixing = true; 
-        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(allowMixing), &allowMixing);
-        
-        UInt32 defaultToSpeaker = kAudioSessionProperty_OverrideCategoryDefaultToSpeaker;
-        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(defaultToSpeaker), &defaultToSpeaker);
+//        UInt32 category = kAudioSessionCategory_PlayAndRecord;
+//        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
+		[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+		
+//        UInt32 allowMixing = true; 
+//        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(allowMixing), &allowMixing);
+//		[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+		
+//        UInt32 defaultToSpeaker = kAudioSessionProperty_OverrideCategoryDefaultToSpeaker;
+//        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(defaultToSpeaker), &defaultToSpeaker);
+		
+		[[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
         
         self.whistleBlower.on = YES;
     } else {
@@ -194,8 +208,8 @@ NSString static *kPreferencesSetValue = @"prefsSet";
 
 // Sets up the audio preferences
 - (void) initializePreferences {
-    NSString *prefsInitializedString = [[NSUserDefaults standardUserDefaults] stringForKey:kPreferencesSetKey];
-    
+//    NSString *prefsInitializedString = [[NSUserDefaults standardUserDefaults] stringForKey:kPreferencesSetKey];
+	
         NSString *pathStr = [[NSBundle mainBundle] bundlePath];
 		NSString *settingsBundlePath = [pathStr stringByAppendingPathComponent:@"Settings.bundle"];
 		NSString *finalPath = [settingsBundlePath stringByAppendingPathComponent:@"Root.plist"];
