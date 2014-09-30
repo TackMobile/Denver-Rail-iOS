@@ -33,17 +33,11 @@ static LocationManager *sharedSingleton;
         sharedSingleton.locationManager.delegate = sharedSingleton;
         sharedSingleton.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         sharedSingleton.locationManager.distanceFilter = 50;
-		[sharedSingleton.locationManager requestWhenInUseAuthorization];
-        [sharedSingleton.locationManager startUpdatingLocation];
+		
+		// Attempt to fire up location services based on availability and authorization
+		[sharedSingleton activateLocationServices];
         
-        if ([CLLocationManager headingAvailable]) {
-            [sharedSingleton.locationManager startUpdatingHeading];
-        } else {
-            NSLog(@"heading info not available");
-        }
-        
-        NSLog(@"location manager initialized");
-        
+        NSLog(@"LOCATION MANAGER INITIALIZED");
     }
 }
 
@@ -51,6 +45,10 @@ static LocationManager *sharedSingleton;
 + (LocationManager *)instance {
     return sharedSingleton;
 }
+
+#pragma mark -
+#pragma mark CLLocationManagerDelegate methods
+#pragma mark -
 
 // Updates the heading for location 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
@@ -76,6 +74,83 @@ static LocationManager *sharedSingleton;
     
     NSLog(@"new location");
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+	
+	if ([error code] == kCLErrorDenied) {
+		[self locationServicesNotAvailable];
+	}
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+	if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+		[self locationServicesAvailable];
+	}
+}
+
+#pragma mark -
+#pragma mark Activating and deactivating location services methods
+#pragma mark -
+
+- (void)activateLocationServices {
+	
+	// Ensure location services are enabled
+	if ([CLLocationManager locationServicesEnabled]) {
+		
+		switch ([CLLocationManager authorizationStatus]) {
+			case kCLAuthorizationStatusNotDetermined:
+			{
+				// User has not been asked to approve access. Ask them.
+				[sharedSingleton.locationManager requestWhenInUseAuthorization];
+				break;
+			}
+			case kCLAuthorizationStatusRestricted:
+			case kCLAuthorizationStatusDenied:
+			{
+				// App is not authorized to use location services
+				[self locationServicesNotAvailable];
+				break;
+			}
+			case kCLAuthorizationStatusAuthorized:
+			case kCLAuthorizationStatusAuthorizedWhenInUse:
+			{
+				// Location services are available and app is allowed to use them
+				[self locationServicesAvailable];
+				break;
+			}
+		}
+		
+	} else {
+		
+		// Location services are not available
+		[self locationServicesNotAvailable];
+	}
+}
+
+- (void)locationServicesNotAvailable {
+	
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"locationDenied"];
+	[sharedSingleton.locationManager stopUpdatingHeading];
+	[sharedSingleton.locationManager stopUpdatingLocation];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"locationDenied" object:nil];
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Note" message:@"The application cannot determine your location. Auto mode is disabled."
+												   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+}
+
+- (void)locationServicesAvailable {
+	
+	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"locationDenied"];
+	[sharedSingleton.locationManager startUpdatingLocation];
+	[sharedSingleton.locationManager startUpdatingHeading];
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"locationApproved" object:nil];
+}
+
+#pragma mark -
+#pragma mark Heading and distance methods
+#pragma mark -
 
 // Shows the display heading calibration
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
@@ -157,18 +232,4 @@ static LocationManager *sharedSingleton;
     return bearing;
 }
 
-// If the location manager fails 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    
-    if ([error code] == kCLErrorDenied) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"locationDenied"];
-        [sharedSingleton.locationManager stopUpdatingHeading];
-        [sharedSingleton.locationManager stopUpdatingLocation];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"locationDenied" object:nil];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Note" message:@"The application cannot determine your location. Auto mode is disabled."
-                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
-}
 @end
