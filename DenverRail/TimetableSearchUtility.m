@@ -169,7 +169,7 @@
     NSInteger day = [dateComponents day];
     NSInteger month = [dateComponents month];
     NSInteger weekday = [dateComponents weekday];
-    NSInteger weekOfMonth = [dateComponents week];
+    NSInteger weekOfMonth = [dateComponents weekOfYear];
 
     // New years
     if (day == 1 && month == 1)
