@@ -60,6 +60,7 @@
 		39226D8814E11B3B00ADF82A /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8114E11B3B00ADF82A /* FMDatabasePool.m */; };
 		39226D8914E11B3B00ADF82A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8314E11B3B00ADF82A /* FMDatabaseQueue.m */; };
 		39226D8A14E11B3B00ADF82A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8514E11B3B00ADF82A /* FMResultSet.m */; };
+		393F638B19E2F7BA00F5C250 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */; };
 		3958FA071535FB42002496B7 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EFA083153535DE00A2A9E0 /* Common.m */; };
 		395DFF7914E0683D004E7F58 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DFF7814E0683D004E7F58 /* libsqlite3.0.dylib */; };
 		3967516E15338D06002DF8C4 /* tap-to-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3967516C15338D06002DF8C4 /* tap-to-edit.png */; };
@@ -307,6 +308,7 @@
 		39226D8314E11B3B00ADF82A /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		39226D8414E11B3B00ADF82A /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		39226D8514E11B3B00ADF82A /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		395DFF7814E0683D004E7F58 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		3967516C15338D06002DF8C4 /* tap-to-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-to-edit.png"; sourceTree = "<group>"; };
 		3967516D15338D06002DF8C4 /* tap-to-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-to-edit@2x.png"; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				9672835716B986DD000BECE6 /* Icon-Small@2x.png */,
 				39DF567014E8BC840075CE8D /* Icon-114.png */,
 				39DF566E14E8BC800075CE8D /* Icon-57.png */,
+				393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */,
 				39EC48EF15227D48009D6649 /* Icon-512.png */,
 				39E7F0E614DE05F0007C8617 /* DenverRail */,
 				39E7F0DF14DE05F0007C8617 /* Frameworks */,
@@ -1089,6 +1092,7 @@
 				39A13C63152F9B5C005CB307 /* search.png in Resources */,
 				39A13C64152F9B5C005CB307 /* search@2x.png in Resources */,
 				39A13C67152F9DB1005CB307 /* white-background@2x.png in Resources */,
+				393F638B19E2F7BA00F5C250 /* Icon-60@2x.png in Resources */,
 				39A13C68152F9DB1005CB307 /* white-background.png in Resources */,
 				39A13C6A152FAEFE005CB307 /* Default.png in Resources */,
 				39A13C6C152FAF3F005CB307 /* Default@2x.png in Resources */,
@@ -1309,8 +1313,8 @@
 		39E7F0FC14DE05F0007C8617 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tack Mobile LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tack Mobile LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
 				INFOPLIST_FILE = "DenverRail/DenverRail-Info.plist";
@@ -1321,8 +1325,8 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96842640-2616-4F4E-A608-1C1A287D3125";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "96842640-2616-4F4E-A608-1C1A287D3125";
+				PROVISIONING_PROFILE = "779fcbef-c8c6-4caf-883f-4aa70576d6ad";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "779fcbef-c8c6-4caf-883f-4aa70576d6ad";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
