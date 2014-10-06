@@ -61,6 +61,7 @@
 		39226D8914E11B3B00ADF82A /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8314E11B3B00ADF82A /* FMDatabaseQueue.m */; };
 		39226D8A14E11B3B00ADF82A /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 39226D8514E11B3B00ADF82A /* FMResultSet.m */; };
 		393F638B19E2F7BA00F5C250 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */; };
+		393F638D19E2FC0E00F5C250 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 393F638C19E2FC0E00F5C250 /* Icon-60.png */; };
 		3958FA071535FB42002496B7 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EFA083153535DE00A2A9E0 /* Common.m */; };
 		395DFF7914E0683D004E7F58 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DFF7814E0683D004E7F58 /* libsqlite3.0.dylib */; };
 		3967516E15338D06002DF8C4 /* tap-to-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 3967516C15338D06002DF8C4 /* tap-to-edit.png */; };
@@ -309,6 +310,7 @@
 		39226D8414E11B3B00ADF82A /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		39226D8514E11B3B00ADF82A /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		393F638C19E2FC0E00F5C250 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		395DFF7814E0683D004E7F58 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		3967516C15338D06002DF8C4 /* tap-to-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-to-edit.png"; sourceTree = "<group>"; };
 		3967516D15338D06002DF8C4 /* tap-to-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-to-edit@2x.png"; sourceTree = "<group>"; };
@@ -784,6 +786,7 @@
 				9672835716B986DD000BECE6 /* Icon-Small@2x.png */,
 				39DF567014E8BC840075CE8D /* Icon-114.png */,
 				39DF566E14E8BC800075CE8D /* Icon-57.png */,
+				393F638C19E2FC0E00F5C250 /* Icon-60.png */,
 				393F638A19E2F7BA00F5C250 /* Icon-60@2x.png */,
 				39EC48EF15227D48009D6649 /* Icon-512.png */,
 				39E7F0E614DE05F0007C8617 /* DenverRail */,
@@ -1152,6 +1155,7 @@
 				371FE58C175949460066BFD5 /* garrison@2x.png in Resources */,
 				371FE58E1759494B0066BFD5 /* garrison.png in Resources */,
 				371FE590175949530066BFD5 /* federal-center@2x.png in Resources */,
+				393F638D19E2FC0E00F5C250 /* Icon-60.png in Resources */,
 				371FE592175949580066BFD5 /* federal-center.png in Resources */,
 				371FE5941759495D0066BFD5 /* decatur-federal@2x.png in Resources */,
 				371FE596175949620066BFD5 /* decatur-federal.png in Resources */,
