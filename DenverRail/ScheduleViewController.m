@@ -198,7 +198,7 @@
                 break;
         }
         
-        NSString *lineGraphicName = [NSString stringWithFormat:@"%@-line-%@", line, _isNorth ? @"circle": @"square"];
+        NSString *lineGraphicName = [NSString stringWithFormat:@"%@-line-%@%@", line, _isNorth ? @"circle": @"square", currentStop.isHighlighted ? @"-red" : @""];
         UIImageView *lineGraphic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:lineGraphicName]];
         
         // Center the lineGraphic

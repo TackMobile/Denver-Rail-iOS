@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F1670A619B90A7B00685EFA /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1F1670A519B90A7B00685EFA /* schedules.sqlite */; };
 		27476072173D6A4300302EAF /* updating denverrail tables.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 27476071173D6A4300302EAF /* updating denverrail tables.rtfd */; };
 		27F49DAD174285550064BFA0 /* FMDB-MIT-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */; };
 		27F49DB21742A62E0064BFA0 /* w-line-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAE1742A62E0064BFA0 /* w-line-circle.png */; };
@@ -240,10 +239,11 @@
 		96DFA38116B8916F004BB933 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DFA37D16B8916F004BB933 /* libTestFlight.a */; };
 		96DFA38216B8916F004BB933 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37E16B8916F004BB933 /* README.md */; };
 		96DFA38316B8916F004BB933 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37F16B8916F004BB933 /* release_notes.md */; };
-		B69F92E31B66EE9E004BAC22 /* w-line-circle-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B69F92DF1B66EE9E004BAC22 /* w-line-circle-red.png */; };
-		B69F92E41B66EE9E004BAC22 /* w-line-circle-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B69F92E01B66EE9E004BAC22 /* w-line-circle-red@2x.png */; };
-		B69F92E51B66EE9E004BAC22 /* w-line-square-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B69F92E11B66EE9E004BAC22 /* w-line-square-red.png */; };
-		B69F92E61B66EE9E004BAC22 /* w-line-square-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B69F92E21B66EE9E004BAC22 /* w-line-square-red@2x.png */; };
+		B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B67CD0EA1B6828DD004823B1 /* schedules.sqlite */; };
+		B67EE6031B67E1CF00F0A49A /* w-line-circle-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE5FF1B67E1CF00F0A49A /* w-line-circle-red@2x.png */; };
+		B67EE6041B67E1CF00F0A49A /* w-line-square-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE6001B67E1CF00F0A49A /* w-line-square-red.png */; };
+		B67EE6051B67E1CF00F0A49A /* w-line-circle-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE6011B67E1CF00F0A49A /* w-line-circle-red.png */; };
+		B67EE6061B67E1CF00F0A49A /* w-line-square-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE6021B67E1CF00F0A49A /* w-line-square-red@2x.png */; };
 		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
 		EA544B23153B840500362759 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA544B22153B840500362759 /* Settings.bundle */; };
@@ -256,7 +256,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F1670A519B90A7B00685EFA /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		27476071173D6A4300302EAF /* updating denverrail tables.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "updating denverrail tables.rtfd"; sourceTree = "<group>"; };
 		27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "FMDB-MIT-License.txt"; sourceTree = "<group>"; };
 		27F49DAE1742A62E0064BFA0 /* w-line-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle.png"; sourceTree = "<group>"; };
@@ -509,10 +508,11 @@
 		96DFA37E16B8916F004BB933 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		96DFA37F16B8916F004BB933 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		96DFA38016B8916F004BB933 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		B69F92DF1B66EE9E004BAC22 /* w-line-circle-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle-red.png"; sourceTree = "<group>"; };
-		B69F92E01B66EE9E004BAC22 /* w-line-circle-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle-red@2x.png"; sourceTree = "<group>"; };
-		B69F92E11B66EE9E004BAC22 /* w-line-square-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square-red.png"; sourceTree = "<group>"; };
-		B69F92E21B66EE9E004BAC22 /* w-line-square-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square-red@2x.png"; sourceTree = "<group>"; };
+		B67CD0EA1B6828DD004823B1 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
+		B67EE5FF1B67E1CF00F0A49A /* w-line-circle-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle-red@2x.png"; sourceTree = "<group>"; };
+		B67EE6001B67E1CF00F0A49A /* w-line-square-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square-red.png"; sourceTree = "<group>"; };
+		B67EE6011B67E1CF00F0A49A /* w-line-circle-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle-red.png"; sourceTree = "<group>"; };
+		B67EE6021B67E1CF00F0A49A /* w-line-square-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square-red@2x.png"; sourceTree = "<group>"; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -630,10 +630,10 @@
 				27F49DAF1742A62E0064BFA0 /* w-line-circle@2x.png */,
 				27F49DB01742A62E0064BFA0 /* w-line-square.png */,
 				27F49DB11742A62E0064BFA0 /* w-line-square@2x.png */,
-				B69F92DF1B66EE9E004BAC22 /* w-line-circle-red.png */,
-				B69F92E01B66EE9E004BAC22 /* w-line-circle-red@2x.png */,
-				B69F92E11B66EE9E004BAC22 /* w-line-square-red.png */,
-				B69F92E21B66EE9E004BAC22 /* w-line-square-red@2x.png */,
+				B67EE5FF1B67E1CF00F0A49A /* w-line-circle-red@2x.png */,
+				B67EE6001B67E1CF00F0A49A /* w-line-square-red.png */,
+				B67EE6011B67E1CF00F0A49A /* w-line-circle-red.png */,
+				B67EE6021B67E1CF00F0A49A /* w-line-square-red@2x.png */,
 				39E638AD14E3462C006FC1D6 /* d-line-square@2x.png */,
 				39E638B714E3462C006FC1D6 /* e-line-circle.png */,
 				39E638B614E3462C006FC1D6 /* e-line-circle@2x.png */,
@@ -853,8 +853,8 @@
 				27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */,
 				39E7F0E814DE05F0007C8617 /* DenverRail-Info.plist */,
 				39E7F0E914DE05F0007C8617 /* InfoPlist.strings */,
-				1F1670A519B90A7B00685EFA /* schedules.sqlite */,
 				39E7F0EC14DE05F0007C8617 /* main.m */,
+				B67CD0EA1B6828DD004823B1 /* schedules.sqlite */,
 				27476071173D6A4300302EAF /* updating denverrail tables.rtfd */,
 				39EFA083153535DE00A2A9E0 /* Common.m */,
 				39E7F0EE14DE05F0007C8617 /* DenverRail-Prefix.pch */,
@@ -1001,7 +1001,6 @@
 				39E638E314E3462C006FC1D6 /* h-line-circle@2x.png in Resources */,
 				39E638E414E3462C006FC1D6 /* h-line-circle.png in Resources */,
 				39E638E514E3462C006FC1D6 /* f-line-circle@2x.png in Resources */,
-				B69F92E31B66EE9E004BAC22 /* w-line-circle-red.png in Resources */,
 				39E638E614E3462C006FC1D6 /* f-line-circle.png in Resources */,
 				39E638E714E3462C006FC1D6 /* e-line-circle@2x.png in Resources */,
 				39E638E814E3462C006FC1D6 /* e-line-circle.png in Resources */,
@@ -1021,8 +1020,8 @@
 				39E638F514E3462C006FC1D6 /* bottom-cap@2x.png in Resources */,
 				39E638F614E3462C006FC1D6 /* middle@2x.png in Resources */,
 				39E638F714E3462C006FC1D6 /* bottom-cap.png in Resources */,
-				B69F92E61B66EE9E004BAC22 /* w-line-square-red@2x.png in Resources */,
 				39E638F814E3462C006FC1D6 /* middle.png in Resources */,
+				B67EE6061B67E1CF00F0A49A /* w-line-square-red@2x.png in Resources */,
 				39E638F914E3462C006FC1D6 /* top-cap@2x.png in Resources */,
 				39E638FA14E3462C006FC1D6 /* top-cap.png in Resources */,
 				39E638FB14E3462C006FC1D6 /* compass-arrow@2x.png in Resources */,
@@ -1065,6 +1064,7 @@
 				39E732B214E4A1080051CBF3 /* colfax-auraria@2x.png in Resources */,
 				39E732B314E4A1080051CBF3 /* colorado.png in Resources */,
 				39E732B414E4A1080051CBF3 /* colorado@2x.png in Resources */,
+				B67EE6051B67E1CF00F0A49A /* w-line-circle-red.png in Resources */,
 				39E732B514E4A1080051CBF3 /* convention-center.png in Resources */,
 				39E732B614E4A1080051CBF3 /* convention-center@2x.png in Resources */,
 				39E732B714E4A1080051CBF3 /* county-line.png in Resources */,
@@ -1077,7 +1077,6 @@
 				39E732C014E4A1080051CBF3 /* evans@2x.png in Resources */,
 				39E732C114E4A1080051CBF3 /* hampden-southmoor@2x.png in Resources */,
 				39E732C214E4A1080051CBF3 /* i25-broadway.png in Resources */,
-				1F1670A619B90A7B00685EFA /* schedules.sqlite in Resources */,
 				39E732C314E4A1080051CBF3 /* i25-broadway@2x.png in Resources */,
 				39E732C414E4A1080051CBF3 /* lincoln.png in Resources */,
 				39E732C514E4A1080051CBF3 /* lincoln@2x.png in Resources */,
@@ -1089,7 +1088,6 @@
 				39E732CB14E4A1080051CBF3 /* louisiana-pearl@2x.png in Resources */,
 				39E732CC14E4A1080051CBF3 /* mile-high@2x.png in Resources */,
 				39E732CD14E4A1080051CBF3 /* nine-mile.png in Resources */,
-				B69F92E51B66EE9E004BAC22 /* w-line-square-red.png in Resources */,
 				39E732CE14E4A1080051CBF3 /* nine-mile@2x.png in Resources */,
 				39E732CF14E4A1080051CBF3 /* orchard.png in Resources */,
 				39E732D014E4A1080051CBF3 /* orchard@2x.png in Resources */,
@@ -1114,7 +1112,6 @@
 				39EC491115228633009D6649 /* list-background-top@2x.png in Resources */,
 				39D99D2D152BC56200F3C2AE /* SearchViewController.xib in Resources */,
 				399C26F2152CBDFC008EC58F /* search-line.png in Resources */,
-				B69F92E41B66EE9E004BAC22 /* w-line-circle-red@2x.png in Resources */,
 				399C26F3152CBDFC008EC58F /* search-line@2x.png in Resources */,
 				399C26F9152CBEE6008EC58F /* white-button@2x.png in Resources */,
 				399C26FA152CBEE6008EC58F /* white-button.png in Resources */,
@@ -1137,6 +1134,7 @@
 				39EA31871532440900DAD220 /* flips3.aac in Resources */,
 				3967516E15338D06002DF8C4 /* tap-to-edit.png in Resources */,
 				3967516F15338D06002DF8C4 /* tap-to-edit@2x.png in Resources */,
+				B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */,
 				EADBE1C515368EDB00D88451 /* loud_long_whistle.caf in Resources */,
 				EADBE1C615368EDB00D88451 /* medium_whistle.caf in Resources */,
 				EADBE1C715368EDB00D88451 /* short_whistle.caf in Resources */,
@@ -1186,6 +1184,8 @@
 				371FE5821759491F0066BFD5 /* lakewood-wadsworth.png in Resources */,
 				371FE584175949290066BFD5 /* knox@2x.png in Resources */,
 				371FE586175949310066BFD5 /* knox.png in Resources */,
+				B67EE6031B67E1CF00F0A49A /* w-line-circle-red@2x.png in Resources */,
+				B67EE6041B67E1CF00F0A49A /* w-line-square-red.png in Resources */,
 				371FE5881759493A0066BFD5 /* jeffco-golden@2x.png in Resources */,
 				371FE58A175949400066BFD5 /* jeffco-golden.png in Resources */,
 				371FE58C175949460066BFD5 /* garrison@2x.png in Resources */,
