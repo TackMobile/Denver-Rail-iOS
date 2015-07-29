@@ -198,7 +198,7 @@
                 break;
         }
         
-        NSString *lineGraphicName = [NSString stringWithFormat:@"%@-line-%@%@", line, _isNorth ? @"circle": @"square", currentStop.isHighlighted ? @"-red" : @""];
+        NSString *lineGraphicName = [NSString stringWithFormat:@"%@-line-%@", line, _isNorth ? @"circle": @"square"];
         UIImageView *lineGraphic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:lineGraphicName]];
         
         // Center the lineGraphic
@@ -232,9 +232,9 @@
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
             [dateFormatter setDateFormat:@"h:mm aa"];
-            
-            absoluteTimeLabel.text = [dateFormatter stringFromDate:currentStop.date];
-            
+          
+          absoluteTimeLabel.text = [NSString stringWithFormat:@"%@%@", [dateFormatter stringFromDate:currentStop.date], currentStop.isHighlighted ? @"*" : @""];
+          
             [cellBg addSubview:absoluteTimeLabel];
             
         // If in manual mode display differently
@@ -247,9 +247,9 @@
             absoluteTimeLabel.frame = CGRectMake(34, 5, 150, 24);
             absoluteTimeLabel.backgroundColor = [UIColor clearColor];
             absoluteTimeLabel.font = [UIFont boldSystemFontOfSize:16];
-            
-            absoluteTimeLabel.text = [dateFormatter stringFromDate:currentStop.date];
-            [cellBg addSubview:absoluteTimeLabel];       
+          
+            absoluteTimeLabel.text = [NSString stringWithFormat:@"%@%@", [dateFormatter stringFromDate:currentStop.date], currentStop.isHighlighted ? @"*" : @""];
+            [cellBg addSubview:absoluteTimeLabel];
         }
         
         [newCells addObject:cellView];

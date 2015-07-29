@@ -240,10 +240,6 @@
 		96DFA38216B8916F004BB933 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37E16B8916F004BB933 /* README.md */; };
 		96DFA38316B8916F004BB933 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37F16B8916F004BB933 /* release_notes.md */; };
 		B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B67CD0EA1B6828DD004823B1 /* schedules.sqlite */; };
-		B67EE6031B67E1CF00F0A49A /* w-line-circle-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE5FF1B67E1CF00F0A49A /* w-line-circle-red@2x.png */; };
-		B67EE6041B67E1CF00F0A49A /* w-line-square-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE6001B67E1CF00F0A49A /* w-line-square-red.png */; };
-		B67EE6051B67E1CF00F0A49A /* w-line-circle-red.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE6011B67E1CF00F0A49A /* w-line-circle-red.png */; };
-		B67EE6061B67E1CF00F0A49A /* w-line-square-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67EE6021B67E1CF00F0A49A /* w-line-square-red@2x.png */; };
 		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
 		EA544B23153B840500362759 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA544B22153B840500362759 /* Settings.bundle */; };
@@ -509,10 +505,6 @@
 		96DFA37F16B8916F004BB933 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		96DFA38016B8916F004BB933 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		B67CD0EA1B6828DD004823B1 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
-		B67EE5FF1B67E1CF00F0A49A /* w-line-circle-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle-red@2x.png"; sourceTree = "<group>"; };
-		B67EE6001B67E1CF00F0A49A /* w-line-square-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square-red.png"; sourceTree = "<group>"; };
-		B67EE6011B67E1CF00F0A49A /* w-line-circle-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle-red.png"; sourceTree = "<group>"; };
-		B67EE6021B67E1CF00F0A49A /* w-line-square-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square-red@2x.png"; sourceTree = "<group>"; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -630,10 +622,6 @@
 				27F49DAF1742A62E0064BFA0 /* w-line-circle@2x.png */,
 				27F49DB01742A62E0064BFA0 /* w-line-square.png */,
 				27F49DB11742A62E0064BFA0 /* w-line-square@2x.png */,
-				B67EE5FF1B67E1CF00F0A49A /* w-line-circle-red@2x.png */,
-				B67EE6001B67E1CF00F0A49A /* w-line-square-red.png */,
-				B67EE6011B67E1CF00F0A49A /* w-line-circle-red.png */,
-				B67EE6021B67E1CF00F0A49A /* w-line-square-red@2x.png */,
 				39E638AD14E3462C006FC1D6 /* d-line-square@2x.png */,
 				39E638B714E3462C006FC1D6 /* e-line-circle.png */,
 				39E638B614E3462C006FC1D6 /* e-line-circle@2x.png */,
@@ -1021,7 +1009,6 @@
 				39E638F614E3462C006FC1D6 /* middle@2x.png in Resources */,
 				39E638F714E3462C006FC1D6 /* bottom-cap.png in Resources */,
 				39E638F814E3462C006FC1D6 /* middle.png in Resources */,
-				B67EE6061B67E1CF00F0A49A /* w-line-square-red@2x.png in Resources */,
 				39E638F914E3462C006FC1D6 /* top-cap@2x.png in Resources */,
 				39E638FA14E3462C006FC1D6 /* top-cap.png in Resources */,
 				39E638FB14E3462C006FC1D6 /* compass-arrow@2x.png in Resources */,
@@ -1064,7 +1051,6 @@
 				39E732B214E4A1080051CBF3 /* colfax-auraria@2x.png in Resources */,
 				39E732B314E4A1080051CBF3 /* colorado.png in Resources */,
 				39E732B414E4A1080051CBF3 /* colorado@2x.png in Resources */,
-				B67EE6051B67E1CF00F0A49A /* w-line-circle-red.png in Resources */,
 				39E732B514E4A1080051CBF3 /* convention-center.png in Resources */,
 				39E732B614E4A1080051CBF3 /* convention-center@2x.png in Resources */,
 				39E732B714E4A1080051CBF3 /* county-line.png in Resources */,
@@ -1184,8 +1170,6 @@
 				371FE5821759491F0066BFD5 /* lakewood-wadsworth.png in Resources */,
 				371FE584175949290066BFD5 /* knox@2x.png in Resources */,
 				371FE586175949310066BFD5 /* knox.png in Resources */,
-				B67EE6031B67E1CF00F0A49A /* w-line-circle-red@2x.png in Resources */,
-				B67EE6041B67E1CF00F0A49A /* w-line-square-red.png in Resources */,
 				371FE5881759493A0066BFD5 /* jeffco-golden@2x.png in Resources */,
 				371FE58A175949400066BFD5 /* jeffco-golden.png in Resources */,
 				371FE58C175949460066BFD5 /* garrison@2x.png in Resources */,
