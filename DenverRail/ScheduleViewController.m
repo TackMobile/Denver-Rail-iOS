@@ -228,12 +228,12 @@
             absoluteTimeLabel.backgroundColor = [UIColor clearColor];
             absoluteTimeLabel.textColor = [UIColor grayColor];
             absoluteTimeLabel.font = [UIFont systemFontOfSize:14];
-            
+          
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
             [dateFormatter setDateFormat:@"h:mm aa"];
           
-          absoluteTimeLabel.text = [NSString stringWithFormat:@"%@%@", [dateFormatter stringFromDate:currentStop.date], currentStop.isHighlighted ? @"*" : @""];
+            absoluteTimeLabel.text = [NSString stringWithFormat:@"%@%@", [dateFormatter stringFromDate:currentStop.date], currentStop.isHighlighted ? @"*" : @""];
           
             [cellBg addSubview:absoluteTimeLabel];
             
@@ -251,6 +251,11 @@
             absoluteTimeLabel.text = [NSString stringWithFormat:@"%@%@", [dateFormatter stringFromDate:currentStop.date], currentStop.isHighlighted ? @"*" : @""];
             [cellBg addSubview:absoluteTimeLabel];
         }
+
+        // Tap gesture recognizer for cells
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cellTapped:)];
+        [cellView setUserInteractionEnabled:YES];
+        [cellView addGestureRecognizer:tap];
         
         [newCells addObject:cellView];
         
@@ -304,6 +309,32 @@
             [self.view addSubview:view]; 
         }
     }
+}
+
+- (void)cellTapped:(UIGestureRecognizer*)recognizer {
+  // Only respond if we're in the ended state (similar to touchupinside)
+  if( [recognizer state] == UIGestureRecognizerStateEnded ) {
+    // The View that was tapped
+    UIView* cellView = (UIView*)[recognizer view];
+    for (UIView *i in cellView.subviews) {
+      if (i.tag == 1) {
+        for (UIView *j in i.subviews) {
+          if([j isKindOfClass:[UILabel class]]){
+            UILabel *newLbl = (UILabel *)j;
+            if([newLbl.text containsString:@"*"]) {
+              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NOTICE"
+                                                              message:@"This route does not continue all the way to the end of the line."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"Close"
+                                                    otherButtonTitles:nil, nil];
+              [alert show];
+            }
+          }
+        }
+        break;
+      }
+    }
+  }
 }
 
 // Perform the cell flipping animation

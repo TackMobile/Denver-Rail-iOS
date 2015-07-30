@@ -52,6 +52,10 @@
     limit = [NSString stringWithFormat:@"%i", limitInt];
   
     NSLog(@"SELECT departure_time, route_id, stop_id FROM schedule WHERE stop_name = \"%@\" AND direction_id = %i AND departure_time > %i AND service_id = \"%@\" ORDER BY departure_time LIMIT 11", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode);
+  
+    if (station.columnName == nil) {
+      return nil; // If location is not initialized return empty set
+    }
     
     FMResultSet *rs = [db executeQueryWithFormat:@"SELECT departure_time, route_id, stop_id FROM schedule WHERE stop_name = %@ AND direction_id = %i AND departure_time > %i AND service_id = %@ ORDER BY departure_time LIMIT %@", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode, limit];
     NSLog(@"Query Error: %@", [db lastErrorMessage]);
