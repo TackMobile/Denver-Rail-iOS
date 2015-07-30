@@ -218,7 +218,7 @@
             if (interval/60 < 1.0) {
                 relativeTimeLabel.text = [NSString stringWithFormat:@"< 1 Minute"];
             } else {
-                relativeTimeLabel.text = [NSString stringWithFormat:@"in %i Minutes", (int)round(interval / 60)];
+                relativeTimeLabel.text = [NSString stringWithFormat:@"in %i Minutes%@", (int)round(interval / 60), currentStop.isHighlighted ? @"*" : @""];
             }
             
             [cellBg addSubview:relativeTimeLabel];
@@ -233,7 +233,7 @@
             [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
             [dateFormatter setDateFormat:@"h:mm aa"];
           
-            absoluteTimeLabel.text = [NSString stringWithFormat:@"%@%@", [dateFormatter stringFromDate:currentStop.date], currentStop.isHighlighted ? @"*" : @""];
+            absoluteTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:currentStop.date]];
           
             [cellBg addSubview:absoluteTimeLabel];
             
