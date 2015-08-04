@@ -379,8 +379,8 @@
 // Play the flipping sound
 - (void)playFlipsSound {
     BOOL playSounds = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).playSounds;
-    
-    if (playSounds) [self.audioPlayer play];    
+  
+    if (playSounds) [self.audioPlayer play];
 }
 
 // Keep portrait oreintation

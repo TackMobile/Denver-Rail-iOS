@@ -240,6 +240,10 @@
 		96DFA38216B8916F004BB933 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37E16B8916F004BB933 /* README.md */; };
 		96DFA38316B8916F004BB933 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37F16B8916F004BB933 /* release_notes.md */; };
 		B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B67CD0EA1B6828DD004823B1 /* schedules.sqlite */; };
+		B6F6146D1B6FBAAB004EFAEC /* Main2Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F6146C1B6FBAAB004EFAEC /* Main2Storyboard.storyboard */; };
+		B6F614701B700930004EFAEC /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F6146F1B700930004EFAEC /* ScheduleTableViewController.m */; };
+		B6F614731B700DAE004EFAEC /* AutoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F614721B700DAE004EFAEC /* AutoTableViewCell.m */; };
+		B6F614761B700DB8004EFAEC /* ManualTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F614751B700DB8004EFAEC /* ManualTableViewCell.m */; };
 		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
 		EA544B23153B840500362759 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA544B22153B840500362759 /* Settings.bundle */; };
@@ -505,6 +509,13 @@
 		96DFA37F16B8916F004BB933 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		96DFA38016B8916F004BB933 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		B67CD0EA1B6828DD004823B1 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
+		B6F6146C1B6FBAAB004EFAEC /* Main2Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main2Storyboard.storyboard; sourceTree = "<group>"; };
+		B6F6146E1B700930004EFAEC /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		B6F6146F1B700930004EFAEC /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
+		B6F614711B700DAE004EFAEC /* AutoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoTableViewCell.h; sourceTree = "<group>"; };
+		B6F614721B700DAE004EFAEC /* AutoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoTableViewCell.m; sourceTree = "<group>"; };
+		B6F614741B700DB8004EFAEC /* ManualTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualTableViewCell.h; sourceTree = "<group>"; };
+		B6F614751B700DB8004EFAEC /* ManualTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualTableViewCell.m; sourceTree = "<group>"; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -858,12 +869,16 @@
 				39E7F0F314DE05F0007C8617 /* BaseViewController.m */,
 				39E7F0F514DE05F0007C8617 /* BaseViewController.xib */,
 				967E536916BC2B49000463A0 /* MainStoryboard.storyboard */,
+				B6F6146C1B6FBAAB004EFAEC /* Main2Storyboard.storyboard */,
 				3912A93114E5E06400AEF260 /* ScheduleViewController.h */,
 				3912A93214E5E06400AEF260 /* ScheduleViewController.m */,
+				B6F6146E1B700930004EFAEC /* ScheduleTableViewController.h */,
+				B6F6146F1B700930004EFAEC /* ScheduleTableViewController.m */,
 				3912A93314E5E06400AEF260 /* ScheduleViewController.xib */,
 				39D99D29152BC56200F3C2AE /* SearchViewController.h */,
 				39D99D2A152BC56200F3C2AE /* SearchViewController.m */,
 				39D99D2B152BC56200F3C2AE /* SearchViewController.xib */,
+				B6F614771B700DBC004EFAEC /* TableViewCells */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -897,6 +912,17 @@
 				96DFA38016B8916F004BB933 /* TestFlight.h */,
 			);
 			path = TestFlightSDK1;
+			sourceTree = "<group>";
+		};
+		B6F614771B700DBC004EFAEC /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B6F614711B700DAE004EFAEC /* AutoTableViewCell.h */,
+				B6F614721B700DAE004EFAEC /* AutoTableViewCell.m */,
+				B6F614741B700DB8004EFAEC /* ManualTableViewCell.h */,
+				B6F614751B700DB8004EFAEC /* ManualTableViewCell.m */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 		EA0915D41533E290000898B9 /* Easter Eggs */ = {
@@ -947,6 +973,11 @@
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Tack Mobile";
+				TargetAttributes = {
+					39E7F0DB14DE05F0007C8617 = {
+						DevelopmentTeam = 9B83N8S7VW;
+					};
+				};
 			};
 			buildConfigurationList = 39E7F0D614DE05F0007C8617 /* Build configuration list for PBXProject "denverrail" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1123,6 +1154,7 @@
 				B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */,
 				EADBE1C515368EDB00D88451 /* loud_long_whistle.caf in Resources */,
 				EADBE1C615368EDB00D88451 /* medium_whistle.caf in Resources */,
+				B6F6146D1B6FBAAB004EFAEC /* Main2Storyboard.storyboard in Resources */,
 				EADBE1C715368EDB00D88451 /* short_whistle.caf in Resources */,
 				EADBE1C815368EDB00D88451 /* toot.caf in Resources */,
 				F3B279E21533E6C70008E2E3 /* broken-LED.png in Resources */,
@@ -1200,11 +1232,14 @@
 				39E7F0F414DE05F0007C8617 /* BaseViewController.m in Sources */,
 				39E7F10314DE45D9007C8617 /* TimetableSearchUtility.m in Sources */,
 				39E7F10614DE4646007C8617 /* Station.m in Sources */,
+				B6F614761B700DB8004EFAEC /* ManualTableViewCell.m in Sources */,
 				39226D8614E11B3B00ADF82A /* FMDatabase.m in Sources */,
 				39226D8714E11B3B00ADF82A /* FMDatabaseAdditions.m in Sources */,
 				39226D8814E11B3B00ADF82A /* FMDatabasePool.m in Sources */,
+				B6F614701B700930004EFAEC /* ScheduleTableViewController.m in Sources */,
 				39226D8914E11B3B00ADF82A /* FMDatabaseQueue.m in Sources */,
 				39226D8A14E11B3B00ADF82A /* FMResultSet.m in Sources */,
+				B6F614731B700DAE004EFAEC /* AutoTableViewCell.m in Sources */,
 				39E6388B14E1C66A006FC1D6 /* ScheduledStop.m in Sources */,
 				39E6389514E1D306006FC1D6 /* NSString+Common.m in Sources */,
 				3912A92214E5CBE900AEF260 /* LocationManager.m in Sources */,
@@ -1329,8 +1364,8 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "88fd65b8-2b69-4fef-800c-63e33aaea090";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "88fd65b8-2b69-4fef-800c-63e33aaea090";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1341,8 +1376,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
 				INFOPLIST_FILE = "DenverRail/DenverRail-Info.plist";
@@ -1353,8 +1388,8 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "779fcbef-c8c6-4caf-883f-4aa70576d6ad";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "779fcbef-c8c6-4caf-883f-4aa70576d6ad";
+				PROVISIONING_PROFILE = "88fd65b8-2b69-4fef-800c-63e33aaea090";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9e1b5885-5278-4c21-9501-7af8c52b1f5b";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
