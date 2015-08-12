@@ -101,8 +101,11 @@ static LocationManager *sharedSingleton;
 		switch ([CLLocationManager authorizationStatus]) {
 			case kCLAuthorizationStatusNotDetermined:
 			{
-				// User has not been asked to approve access. Ask them.
-				[sharedSingleton.locationManager requestWhenInUseAuthorization];
+        // User has not been asked to approve access. Ask them.
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) { // iOS8+
+          // Sending a message to avoid compile time error
+          [sharedSingleton.locationManager requestWhenInUseAuthorization];
+        }
 				break;
 			}
 			case kCLAuthorizationStatusRestricted:
