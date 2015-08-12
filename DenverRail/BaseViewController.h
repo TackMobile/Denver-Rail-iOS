@@ -66,10 +66,6 @@
 @property (strong) SearchViewController *searchViewController;
 @property (strong) Station *stationToReturnToAfterSearchCancelled;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLevelSliderTopConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLevelSliderBottomConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pickerViewTopConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSectionTopConstraint;
 // 
 -(IBAction)mapTapped;
 -(IBAction)autoTapped;
