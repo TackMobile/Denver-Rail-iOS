@@ -1,5 +1,5 @@
 void TLog(const char *file, int line, NSString *format, ...) {
-    va_list args = NULL;
+    va_list args;
     NSString *logString = nil;
     
     va_start(args, format);
