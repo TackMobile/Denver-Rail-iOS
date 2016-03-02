@@ -1362,8 +1362,8 @@
 					"\"$(SRCROOT)/TestFlightSDK1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "779fcbef-c8c6-4caf-883f-4aa70576d6ad";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "779fcbef-c8c6-4caf-883f-4aa70576d6ad";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
