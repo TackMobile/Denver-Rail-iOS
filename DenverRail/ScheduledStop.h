@@ -23,5 +23,6 @@ typedef enum {
 @property RailLine line;
 @property BOOL isNorth;
 @property (strong, nonatomic) Station *station;
+@property BOOL isHighlighted;
 
 @end

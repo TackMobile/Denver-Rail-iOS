@@ -203,8 +203,11 @@
         [formatter setMaximumFractionDigits:0];
     else
         [formatter setMaximumFractionDigits:1];
-    
-    distanceLabel.text = [NSString stringWithFormat:@"%@ miles", [formatter stringFromNumber:[NSNumber numberWithFloat:distance]]];
+  
+    if (distance < 0)
+        distanceLabel.text = [NSString stringWithFormat:@"NA"];
+    else
+        distanceLabel.text = [NSString stringWithFormat:@"%@ miles", [formatter stringFromNumber:[NSNumber numberWithFloat:distance]]];
     
 }
 

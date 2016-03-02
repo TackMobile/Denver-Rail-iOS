@@ -240,6 +240,7 @@
 		96DFA38116B8916F004BB933 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DFA37D16B8916F004BB933 /* libTestFlight.a */; };
 		96DFA38216B8916F004BB933 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37E16B8916F004BB933 /* README.md */; };
 		96DFA38316B8916F004BB933 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37F16B8916F004BB933 /* release_notes.md */; };
+		B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B67CD0EA1B6828DD004823B1 /* schedules.sqlite */; };
 		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
 		EA544B23153B840500362759 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA544B22153B840500362759 /* Settings.bundle */; };
@@ -505,6 +506,7 @@
 		96DFA37E16B8916F004BB933 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		96DFA37F16B8916F004BB933 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		96DFA38016B8916F004BB933 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		B67CD0EA1B6828DD004823B1 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -843,6 +845,7 @@
 				39E7F0E814DE05F0007C8617 /* DenverRail-Info.plist */,
 				39E7F0E914DE05F0007C8617 /* InfoPlist.strings */,
 				39E7F0EC14DE05F0007C8617 /* main.m */,
+				B67CD0EA1B6828DD004823B1 /* schedules.sqlite */,
 				27476071173D6A4300302EAF /* updating denverrail tables.rtfd */,
 				39EFA083153535DE00A2A9E0 /* Common.m */,
 				39E7F0EE14DE05F0007C8617 /* DenverRail-Prefix.pch */,
@@ -947,6 +950,11 @@
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Tack Mobile";
+				TargetAttributes = {
+					39E7F0DB14DE05F0007C8617 = {
+						DevelopmentTeam = 9B83N8S7VW;
+					};
+				};
 			};
 			buildConfigurationList = 39E7F0D614DE05F0007C8617 /* Build configuration list for PBXProject "denverrail" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1121,6 +1129,7 @@
 				39EA31871532440900DAD220 /* flips3.aac in Resources */,
 				3967516E15338D06002DF8C4 /* tap-to-edit.png in Resources */,
 				3967516F15338D06002DF8C4 /* tap-to-edit@2x.png in Resources */,
+				B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */,
 				EADBE1C515368EDB00D88451 /* loud_long_whistle.caf in Resources */,
 				EADBE1C615368EDB00D88451 /* medium_whistle.caf in Resources */,
 				EADBE1C715368EDB00D88451 /* short_whistle.caf in Resources */,
@@ -1341,7 +1350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tack Mobile LLC (9B83N8S7VW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DenverRail/DenverRail-Prefix.pch";
