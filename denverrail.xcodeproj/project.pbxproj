@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F4EAD391C86038B00CA8D13 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1F4EAD381C86038B00CA8D13 /* schedules.sqlite */; };
 		27476072173D6A4300302EAF /* updating denverrail tables.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 27476071173D6A4300302EAF /* updating denverrail tables.rtfd */; };
 		27F49DAD174285550064BFA0 /* FMDB-MIT-License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */; };
 		27F49DB21742A62E0064BFA0 /* w-line-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAE1742A62E0064BFA0 /* w-line-circle.png */; };
@@ -252,6 +253,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F4EAD381C86038B00CA8D13 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		27476071173D6A4300302EAF /* updating denverrail tables.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "updating denverrail tables.rtfd"; sourceTree = "<group>"; };
 		27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "FMDB-MIT-License.txt"; sourceTree = "<group>"; };
 		27F49DAE1742A62E0064BFA0 /* w-line-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle.png"; sourceTree = "<group>"; };
@@ -834,6 +836,7 @@
 		39E7F0E714DE05F0007C8617 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F4EAD381C86038B00CA8D13 /* schedules.sqlite */,
 				4C7775B819E2FD7F004FECD4 /* Images.xcassets */,
 				4C7775BA19E301FE004FECD4 /* Old Icons & Launch Images */,
 				EADBE1CA15368EDF00D88451 /* Audio */,
@@ -1092,6 +1095,7 @@
 				39E732DA14E4A1080051CBF3 /* yale@2x.png in Resources */,
 				39E732DC14E4A1CD0051CBF3 /* mile-high.png in Resources */,
 				3912A93514E5E06400AEF260 /* ScheduleViewController.xib in Resources */,
+				1F4EAD391C86038B00CA8D13 /* schedules.sqlite in Resources */,
 				39DF566F14E8BC800075CE8D /* Icon-57.png in Resources */,
 				39DF567114E8BC840075CE8D /* Icon-114.png in Resources */,
 				39EC48F015227D48009D6649 /* Icon-512.png in Resources */,

@@ -172,7 +172,7 @@ NSString static *kPreferencesSetValue = @"prefsSet";
                                                          latitude:39.6119 logitude:-105.0149 southOnly:NO northOnly:NO eastWest:NO]];
       [self.stations addObject:[[Station alloc] initWithImageName:@"littleton-mineral" columnName:@"Littleton / Mineral Ave Station"
                                                          latitude:39.5801 logitude:-105.0250 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"louisiana-pearl" columnName:@"Louisiana Station"
+      [self.stations addObject:[[Station alloc] initWithImageName:@"louisiana-pearl" columnName:@"Louisiana & Pearl Station"
                                                          latitude:39.6928 logitude:-104.9782 southOnly:NO northOnly:NO eastWest:NO]];
       [self.stations addObject:[[Station alloc] initWithImageName:@"nine-mile" columnName:@"Nine Mile Station"
                                                          latitude:39.6575 logitude:-104.8450 southOnly:NO northOnly:NO eastWest:NO]];
