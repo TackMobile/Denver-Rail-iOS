@@ -63,24 +63,32 @@ NSString static *kPreferencesSetValue = @"prefsSet";
 	
 	BOOL isPlayingWithOthers = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
 	NSError *error = [[NSError alloc] init];
-	
-//	if (otherAudioIsPlaying && self.playSounds) {
+    
     if (isPlayingWithOthers && self.playSounds) {
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
+    } else if (self.playSounds) {
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&error];
+    }
+    
+    self.whistleBlower.on = NO;
+    
+//	if (otherAudioIsPlaying && self.playSounds) {
+    //if (isPlayingWithOthers && self.playSounds) {
 		
         // Let our sounds blend with theirs in a beautiful melody.
 //        UInt32 category = kAudioSessionCategory_AmbientSound;
 //        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
 		
-		[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
+		//[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
         
-        self.whistleBlower.on = NO;
+        //self.whistleBlower.on = NO;
 
-    } else if(self.playSounds) {
+    //} else if(self.playSounds) {
         
         // Enable playing and recording in the audio session so the Train whistle sillyness can take place.
 //        UInt32 category = kAudioSessionCategory_PlayAndRecord;
 //        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
-		[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+		//[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
 		
 //        UInt32 allowMixing = true; 
 //        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(allowMixing), &allowMixing);
@@ -89,12 +97,12 @@ NSString static *kPreferencesSetValue = @"prefsSet";
 //        UInt32 defaultToSpeaker = kAudioSessionProperty_OverrideCategoryDefaultToSpeaker;
 //        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(defaultToSpeaker), &defaultToSpeaker);
 		
-		[[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
+		//[[AVAudioSession sharedInstance] overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:&error];
         
-        self.whistleBlower.on = YES;
-    } else {
-        self.whistleBlower.on = NO; 
-    }
+        //self.whistleBlower.on = YES;
+    //} else {
+        //self.whistleBlower.on = NO;
+    //}
 }
 
 // Tests the data
