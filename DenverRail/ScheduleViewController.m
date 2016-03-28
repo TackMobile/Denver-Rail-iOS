@@ -11,8 +11,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Math.h"
 #import "AppDelegate.h"
+#import "LocalizedStrings.h"
 
 //TODO: Possibly look into having this VC use a tableview
+NSString *const MountainTimeZone = @"US/Mountain";
+
 @implementation ScheduleViewController
 @synthesize sharedLocationManager, isNorthAuto, isNorthManual, currentStops, isAutoMode, firstLoc;
 @synthesize currentManualDate, currentManualStation;
@@ -216,9 +219,9 @@
             relativeTimeLabel.font = [UIFont boldSystemFontOfSize:16];
             
             if (interval/60 < 1.0) {
-                relativeTimeLabel.text = [NSString stringWithFormat:@"< 1 Minute"];
+                relativeTimeLabel.text = [LocalizedStrings lessThanOneMinute];
             } else {
-                relativeTimeLabel.text = [NSString stringWithFormat:@"in %i Minutes%@", (int)round(interval / 60), currentStop.isHighlighted ? @"*" : @""];
+                relativeTimeLabel.text = [NSString stringWithFormat:[LocalizedStrings moreThanOneMinuteFormatString], (int)round(interval / 60), currentStop.isHighlighted ? @"*" : @""];
             }
             
             [cellBg addSubview:relativeTimeLabel];
@@ -230,7 +233,7 @@
             absoluteTimeLabel.font = [UIFont systemFontOfSize:14];
           
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
             [dateFormatter setDateFormat:@"h:mm aa"];
           
             absoluteTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:currentStop.date]];
@@ -240,7 +243,7 @@
         // If in manual mode display differently
         } else {
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
             [dateFormatter setDateFormat:@"h:mm aa"];
             
             UILabel *absoluteTimeLabel = [UILabel new];
@@ -322,10 +325,10 @@
           if([j isKindOfClass:[UILabel class]]){
             UILabel *newLbl = (UILabel *)j;
             if([newLbl.text containsString:@"*"]) {
-              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NOTICE"
-                                                              message:@"This route does not continue all the way to the end of the line."
+              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[LocalizedStrings notice]
+                                                              message:[LocalizedStrings nonEndOfLineRoute]
                                                              delegate:nil
-                                                    cancelButtonTitle:@"Close"
+                                                    cancelButtonTitle:[LocalizedStrings close]
                                                     otherButtonTitles:nil, nil];
               [alert show];
             }

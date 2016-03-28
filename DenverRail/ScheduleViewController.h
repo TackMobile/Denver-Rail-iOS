@@ -9,6 +9,8 @@
 #import "LocationManager.h"
 #import <AVFoundation/AVFoundation.h>
 
+FOUNDATION_EXPORT NSString *const MountainTimeZone;
+
 @interface ScheduleViewController : UIViewController
 
 @property BOOL isNorthAuto;

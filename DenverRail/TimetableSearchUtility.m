@@ -8,6 +8,7 @@
 #import "TimetableSearchUtility.h"
 #import "FMDatabase.h"
 #import "ScheduledStop.h"
+#import "ScheduleViewController.h"
 #import "NSString+Common.h"
 
 @implementation TimetableSearchUtility
@@ -21,7 +22,7 @@
 +(NSArray *)getTimetableWithDate:(NSDate *)date andStation:(Station *)station directionIsNorth:(BOOL)isNorth {
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
     NSInteger weekday = [dateComponents weekday];
 
@@ -107,7 +108,7 @@
         [tomorrowStops removeObjectsInArray:stops];
         [stops addObjectsFromArray:tomorrowStops];
         if ([stops count] > limitInt) {
-            for (NSInteger i = stops.count-1; i > 8; i--)
+            for (NSUInteger i = stops.count-1; i > 8; i--)
                 [stops removeLastObject];
         }
     }
@@ -259,7 +260,7 @@
 // NSDate to int value
 +(int)convertDateToInt:(NSDate *)date {
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
   [dateFormatter setDateFormat:@"HHmmss"];
   NSString *timeString = [dateFormatter stringFromDate:date];
   return [timeString intValue];
@@ -269,7 +270,7 @@
 +(NSDate *)convertDBDateIntToDate:(int)timeInt withCalendar:(NSCalendar *)calendar {
   // Assume today
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
   [dateFormatter setDateFormat:@"HHmmss"];
   
   NSString *dateString = nil;

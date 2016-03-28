@@ -227,6 +227,7 @@
 		4C7775B919E2FD7F004FECD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775B819E2FD7F004FECD4 /* Images.xcassets */; };
 		4C7775BD19E3023B004FECD4 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */; };
 		4C7775BE19E3023B004FECD4 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */; };
+		8C366B951CA9DC1F000E73CD /* LocalizedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C366B941CA9DC1F000E73CD /* LocalizedStrings.m */; };
 		9672835816B986DD000BECE6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835516B986DD000BECE6 /* Icon-72.png */; };
 		9672835916B986DD000BECE6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835616B986DD000BECE6 /* Icon-72@2x.png */; };
 		9672835A16B986DD000BECE6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835716B986DD000BECE6 /* Icon-Small@2x.png */; };
@@ -492,6 +493,8 @@
 		4C7775B819E2FD7F004FECD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../denverrail/Images.xcassets; sourceTree = "<group>"; };
 		4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = SOURCE_ROOT; };
 		4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = SOURCE_ROOT; };
+		8C366B931CA9DC1F000E73CD /* LocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
+		8C366B941CA9DC1F000E73CD /* LocalizedStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedStrings.m; sourceTree = "<group>"; };
 		9672835516B986DD000BECE6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		9672835616B986DD000BECE6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		9672835716B986DD000BECE6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
@@ -577,6 +580,8 @@
 				39E6389414E1D306006FC1D6 /* NSString+Common.m */,
 				3912A92014E5CBE900AEF260 /* LocationManager.h */,
 				3912A92114E5CBE900AEF260 /* LocationManager.m */,
+				8C366B931CA9DC1F000E73CD /* LocalizedStrings.h */,
+				8C366B941CA9DC1F000E73CD /* LocalizedStrings.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1210,6 +1215,7 @@
 				39E7F10314DE45D9007C8617 /* TimetableSearchUtility.m in Sources */,
 				39E7F10614DE4646007C8617 /* Station.m in Sources */,
 				39226D8614E11B3B00ADF82A /* FMDatabase.m in Sources */,
+				8C366B951CA9DC1F000E73CD /* LocalizedStrings.m in Sources */,
 				39226D8714E11B3B00ADF82A /* FMDatabaseAdditions.m in Sources */,
 				39226D8814E11B3B00ADF82A /* FMDatabasePool.m in Sources */,
 				39226D8914E11B3B00ADF82A /* FMDatabaseQueue.m in Sources */,

@@ -7,6 +7,7 @@
 
 #import "BaseViewController.h"
 #import "TimetableSearchUtility.h"
+#import "LocalizedStrings.h"
 #import "ScheduleViewController.h"
 #import "LocationManager.h"
 
@@ -630,11 +631,11 @@
     
     // Changes from north south to east west
     if (_station.eastWest) {
-        [self.sbButton setTitle:@"Eastbound" forState:UIControlStateNormal];
-        [self.nbButton setTitle:@"Westbound" forState:UIControlStateNormal];
+        [self.sbButton setTitle:[LocalizedStrings eastbound] forState:UIControlStateNormal];
+        [self.nbButton setTitle:[LocalizedStrings westbound] forState:UIControlStateNormal];
     } else {
-        [self.sbButton setTitle:@"Southbound" forState:UIControlStateNormal];
-        [self.nbButton setTitle:@"Northbound" forState:UIControlStateNormal];
+        [self.sbButton setTitle:[LocalizedStrings southbound] forState:UIControlStateNormal];
+        [self.nbButton setTitle:[LocalizedStrings northbound] forState:UIControlStateNormal];
     }
 }
 
@@ -751,7 +752,7 @@
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
     // Always use mountain no matter where we are
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     NSDateComponents *nowComponents = [calendar components:
                                        (NSWeekdayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:now];
     
@@ -804,11 +805,11 @@
     BOOL isPM = [self.datePicker selectedRowInComponent:3] == 0 ? NO : YES;
     
     switch (dayOfWeek) {
-        case 0: self.dayOfWeekLabel.text = @"Weekday"; break;
-        case 1: self.dayOfWeekLabel.text = @"Friday"; break;
-        case 2: self.dayOfWeekLabel.text = @"Saturday"; break;
-        case 3: self.dayOfWeekLabel.text = @"Sunday"; break;
-        case 4: self.dayOfWeekLabel.text = @"Holiday";
+        case 0: self.dayOfWeekLabel.text = [LocalizedStrings weekday]; break;
+        case 1: self.dayOfWeekLabel.text = [LocalizedStrings friday]; break;
+        case 2: self.dayOfWeekLabel.text = [LocalizedStrings saturday]; break;
+        case 3: self.dayOfWeekLabel.text = [LocalizedStrings sunday]; break;
+        case 4: self.dayOfWeekLabel.text = [LocalizedStrings holiday];
     }
     
     NSString *minuteString = nil;
@@ -825,9 +826,9 @@
         self.timeLabel.text = [NSString stringWithFormat:@"%li:%@ AM", (long)hour, minuteString];
     
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [cal setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+    [cal setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     NSDateComponents *comps = [NSDateComponents new];
-    [comps setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+    [comps setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     
     [comps setYear:2013];
     [comps setMonth:1];
@@ -917,11 +918,11 @@
 	switch(component) {
 		case 0:
 			switch (row) {
-				case 0: return @"Weekday";
-                case 1: return @"Friday";
-				case 2: return @"Saturday";
-				case 3: return @"Sunday";
-				case 4: return @"Holiday";
+				case 0: return [LocalizedStrings weekday];
+                case 1: return [LocalizedStrings friday];
+                case 2: return [LocalizedStrings saturday];
+                case 3: return [LocalizedStrings sunday];
+                case 4: return [LocalizedStrings holiday];
 			}
             
         // Hour
