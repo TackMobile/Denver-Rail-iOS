@@ -8,36 +8,35 @@
 #import "WhistleBlowerController.h"
 #import <AudioToolbox/AudioServices.h>
 
-@interface WhistleBlowerController (Private)
-- (void) ensurePlayersInitialized;
-- (void) startSampling;
-- (void) stopSampling;
-- (BOOL) isSampling;
-- (void) tick;
-- (void) advanceState;
-- (void) resetState;
-- (void) chooseCurrentWhistle;
-- (void) orientationDidChange:(NSNotification *)notification;
+@interface WhistleBlowerController ()
+
+@property(nonatomic, strong) AVAudioRecorder *recorder;
+@property(nonatomic, strong) NSTimer *timer;
+@property(nonatomic, strong) AVAudioPlayer *toot;
+@property(nonatomic, strong) AVAudioPlayer *shortWhistle;
+@property(nonatomic, strong) AVAudioPlayer *mediumWhistle;
+@property(nonatomic, strong) AVAudioPlayer *loudLongWhistle;
+@property(nonatomic, strong) AVAudioPlayer *currentPlayer;
+
 @end
 
-#define kTicksBeforeStateReset 50
-#define kTicksToIngoreInput 40
-#define kWhistleSampleRate 0.02
-#define kWhistleSampleThreshold 0.66
+static CGFloat const kTicksBeforeStateReset = 50.0f;
+static CGFloat const kTicksToIngoreInput = 40.0f;
+static CGFloat const kWhistleSampleRate = 0.02f;
+static CGFloat const kWhistleSampleThreshold = 0.66f;
 
 // Mostly yoinked from https://github.com/dcgrigsby/MicBlow.git
 @implementation WhistleBlowerController
-@synthesize on, recorder, timer, shortWhistle, toot, mediumWhistle, loudLongWhistle, currentPlayer;
 
-// Set up mic
-- (void) setOn:(BOOL)b {
-    on = b;
-    if (on) {
+- (void)setIsOn:(BOOL)isOn
+{
+    isOn = isOn;
+    if (self.isOn) {
         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(orientationDidChange:)
                                                      name:UIDeviceOrientationDidChangeNotification
-                                                  object:nil];
+                                                   object:nil];
         [self ensurePlayersInitialized];
         if (self.recorder == nil) {
             NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
@@ -57,7 +56,7 @@
         }
     } else {
         [[NSNotificationCenter defaultCenter] removeObserver:self];
-        [self stopSampling];		
+        [self stopSampling];
     }
 }
 
@@ -80,7 +79,11 @@
     if ([self isSampling]) {
         return;
     }
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:kWhistleSampleRate target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:kWhistleSampleRate
+                                                  target:self
+                                                selector:@selector(tick:)
+                                                userInfo:nil
+                                                 repeats:YES];
     [self.recorder record];
 }
 
@@ -114,8 +117,7 @@
 	lastSample = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lastSample;	
 	
 	if (lastSample > kWhistleSampleThreshold) {
-        //NSLog(@"Last sample: %f", lastSample);
-        if (state == WhistleBlowerStateNoWhistleYet || ticksSinceLastWhistle >= kTicksToIngoreInput) {
+        if (self.currentState == WhistleBlowerStateNoWhistleYet || ticksSinceLastWhistle >= kTicksToIngoreInput) {
             [self putYourLipsTogetherAndBlow];
         }
     }
@@ -123,7 +125,7 @@
 
 // Blow the whistle! 
 - (void) putYourLipsTogetherAndBlow {
-    if (self.on && !whistlePlaying) {
+    if (self.isOn && !whistlePlaying) {
         [self advanceState];
         [self chooseCurrentWhistle];
         [self.currentPlayer play];
@@ -137,8 +139,7 @@
     int random = arc4random() % 2;
     
     // Smaller whistles
-    if (state == WhistleBlowerStateOneWhistle) {
-        NSLog(@"Smaller whistles");
+    if (self.currentState == WhistleBlowerStateOneWhistle) {
         if (random == 0) {
             self.currentPlayer = self.toot;
         } else {
@@ -146,8 +147,7 @@
         }
         
     // Longer whistles 
-    } else if (state == WhistleBlowerStateMultipleWhistles) {
-        NSLog(@"Longer whistles");
+    } else if (self.currentState == WhistleBlowerStateMultipleWhistles) {
         if (random == 0) {
             self.currentPlayer = self.loudLongWhistle;
         } else {
@@ -158,16 +158,16 @@
 
 // Change the state of the whistleblower
 - (void) advanceState {
-    if (state == WhistleBlowerStateNoWhistleYet) {
-        state = WhistleBlowerStateOneWhistle;
-    } else if (state == WhistleBlowerStateOneWhistle) {
-        state = WhistleBlowerStateMultipleWhistles;
+    if (self.currentState == WhistleBlowerStateNoWhistleYet) {
+        self.currentState = WhistleBlowerStateOneWhistle;
+    } else if (self.currentState == WhistleBlowerStateOneWhistle) {
+        self.currentState = WhistleBlowerStateMultipleWhistles;
     }
 }
 
 // Resets the state of the whistle blower
 - (void) resetState {
-    state = WhistleBlowerStateNoWhistleYet;
+    self.currentState = WhistleBlowerStateNoWhistleYet;
 }
 
 // Ensure that the audio player is done playing

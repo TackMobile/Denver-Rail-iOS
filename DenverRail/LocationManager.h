@@ -11,9 +11,7 @@
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate> 
 
-@property (strong) CLLocationManager *locationManager;
 @property (strong) CLHeading *heading;
-@property (strong) CLLocation *location;
 @property (strong) Station *closestStation;
 @property (weak) NSMutableArray *stations;
 

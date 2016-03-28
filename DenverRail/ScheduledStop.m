@@ -8,6 +8,5 @@
 #import "ScheduledStop.h"
 
 @implementation ScheduledStop
-@synthesize date, line, isNorth, station;
 
 @end

@@ -27,7 +27,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bottomCapImageView;
 @property (strong, nonatomic) IBOutlet UIImageView * shadowAboveButtons;
 
-// Store all content in this subview that will adjust if statusbar is there or not
+/**
+ Store all content in this subview that will adjust if statusbar is there or not
+*/
 @property (weak, nonatomic) IBOutlet UIView *contentSubView;
 
 @property (weak) IBOutlet UIImageView *backgroundTop;
@@ -66,7 +68,6 @@
 @property (strong) SearchViewController *searchViewController;
 @property (strong) Station *stationToReturnToAfterSearchCancelled;
 
-// 
 -(IBAction)mapTapped;
 -(IBAction)autoTapped;
 -(IBAction)searchTapped;

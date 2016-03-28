@@ -157,7 +157,6 @@
 
 // Location Denied button was pressed
 - (void)locationDenied {
-	NSLog(@"LOCATION SERVICE ACCESS DENIED");
     self.arrow.hidden = YES;
     self.distanceLabel.hidden = YES;
     autoButton.alpha = .4;
@@ -167,15 +166,9 @@
 }
 
 - (void)locationApproved {
-	NSLog(@"LOCATION SERVICE ACCESS APPOROVED");
 	self.arrow.hidden = NO;
 	self.distanceLabel.hidden = NO;
 	autoButton.alpha = 1;
-}
-
-// If the webView for the map failed to load
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"error loading map pdf: %@", [error description]);
 }
 
 // This means the position has been updated in either modes
@@ -213,7 +206,6 @@
 
 // When the display heading for station is updated
 - (void)headingUpdated {
-    NSLog(@"heading updated");
     int stationBearing = 0;
     
     if (isAutoMode)
@@ -228,14 +220,11 @@
 
 // Turn the directional arrow
 - (void)rotateArrow:(int)degrees {
-    NSLog(@"rotating arrow");
 	arrow.transform = CGAffineTransformIdentity;
 	arrow.transform = CGAffineTransformMakeRotation(degrees*0.0174532925);
 }
 
-#pragma mark -
-#pragma mark Lightboard
-#pragma mark -
+#pragma mark - Lightboard -
 
 // Shows tap to search if not on a searched station 
 -(void)showTapToSearch {
@@ -339,7 +328,7 @@
 // Resets and returns NO if it's already at the left side
 -(BOOL)moveLightboardLeftOneLED {
     
-    if (abs(self.stationNameImageViewToAnimate.frame.origin.x - 2) <
+    if (fabs(self.stationNameImageViewToAnimate.frame.origin.x - 2) <
        (self.stationNameImageViewToAnimate.frame.size.width - stationNameView.frame.size.width)) {
         
         self.stationNameImageViewToAnimate.frame = CGRectMake(self.stationNameImageViewToAnimate.frame.origin.x - 4,
@@ -428,9 +417,7 @@
                                              @"times", brokenLED, @"brokenLED", nil] repeats:NO];
 }
 
-#pragma mark -
-#pragma mark - Buttons
-#pragma mark -
+#pragma mark - Buttons -
 
 // When the northbound/westbound button pressed
 -(IBAction)northboundTapped {
@@ -439,8 +426,6 @@
 
     self.nbButton.selected = YES;
     self.sbButton.selected = NO;
-
-    NSLog(@"north %i south %i", self.nbButton.selected, self.sbButton.selected);
 
     [self.scheduleViewController updateCellsWithDirection:isNorth];
 }
@@ -452,9 +437,6 @@
 
     self.sbButton.selected = YES;
     self.nbButton.selected = NO;
-
-    NSLog(@"north %i south %i", self.nbButton.selected, self.sbButton.selected);
-
     [self.scheduleViewController updateCellsWithDirection:isNorth];
 }
 
@@ -563,8 +545,10 @@
     [self.scheduleViewController updateCellsManualMode];
 }
 
-// Checks to see if the selected station shows the right buttons. Some need to have
-// different directions, and some need to only enable one direction
+/**
+ Checks to see if the selected station shows the right buttons. Some need to have
+ different directions, and some need to only enable one direction
+*/
 - (void)checkButtons:(Station *)_station {
     
     /* Checks to see if the selected station has only one direction. This dictates
@@ -713,9 +697,7 @@
 
 }
 
-#pragma mark -
-#pragma mark - Time Picker
-#pragma mark - 
+#pragma mark - Time Picker -
 
 // Time selection bar is pressed show time picker
 -(IBAction)timeSelectTapped {
@@ -792,14 +774,14 @@
     
     // Add the 0 if necessary
     if (minute < 10)
-        minuteString = [NSString stringWithFormat:@"0%i", minute];
+        minuteString = [NSString stringWithFormat:@"0%li", (long)minute];
     else
-        minuteString = [NSString stringWithFormat:@"%i", minute];
+        minuteString = [NSString stringWithFormat:@"%li", (long)minute];
     
     if (isPM)
-        timeLabel.text = [NSString stringWithFormat:@"%i:%@ PM", hour, minuteString];
+        timeLabel.text = [NSString stringWithFormat:@"%li:%@ PM", (long)hour, minuteString];
     else
-        timeLabel.text = [NSString stringWithFormat:@"%i:%@ AM", hour, minuteString];
+        timeLabel.text = [NSString stringWithFormat:@"%li:%@ AM", (long)hour, minuteString];
     
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     [cal setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
@@ -833,7 +815,6 @@
 
 // Display the time picker
 -(void)showPickerView {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, NSStringFromCGRect(self.pickerView.frame));
     if (self.pickerView.frame.origin.y >= [[UIScreen mainScreen] applicationFrame].size.height) {
         
         // Offscreen, so slide it up
@@ -904,12 +885,12 @@
             
         // Hour
 		case 1:
-			return [NSString stringWithFormat:@"%i", row+1];
+			return [NSString stringWithFormat:@"%li", row+1];
             
         // Minute
 		case 2:
             {
-                NSString *minute = [NSString stringWithFormat:@"%i", row];
+                NSString *minute = [NSString stringWithFormat:@"%li", (long)row];
                 if ([minute length] < 2)
                     minute = [NSString stringWithFormat:@"0%@", minute];
                 return minute;

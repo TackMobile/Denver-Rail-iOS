@@ -8,14 +8,14 @@
 #import <Foundation/Foundation.h>
 #import "Station.h"
 
-typedef enum {
-    kCLine,
+typedef NS_ENUM(NSUInteger, RailLine) {
+    kCLine = 0,
     kDLine,
     kELine,
     kFLine,
     kHLine,
     kWLine
-} RailLine;
+};
 
 @interface ScheduledStop : NSObject
 
