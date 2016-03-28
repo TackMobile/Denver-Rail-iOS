@@ -7,12 +7,53 @@
 
 #import "BaseViewController.h"
 #import "TimetableSearchUtility.h"
+#import "ScheduleViewController.h"
+#import "LocationManager.h"
+
+@interface BaseViewController()
+
+@property (strong, nonatomic) IBOutlet UIView *buttonDivider;
+@property (strong, nonatomic) IBOutlet UIImageView *whiteBackground;
+
+@property (strong, nonatomic) IBOutlet UIImageView *listBackground;
+@property (strong, nonatomic) IBOutlet UIImageView *bottomCapImageView;
+@property (strong, nonatomic) IBOutlet UIImageView * shadowAboveButtons;
+/**
+ Store all content in this subview that will adjust if statusbar is there or not
+ */
+@property (weak, nonatomic) IBOutlet UIView *contentSubView;
+
+@property (weak) IBOutlet UIImageView *backgroundTop;
+@property (weak) IBOutlet UIImageView *arrow;
+@property (weak) IBOutlet UIImageView *middleSection;
+@property (weak) IBOutlet UIView *stationNameView;
+@property (weak) UIView *stationNameImageViewToAnimate;
+@property (weak) IBOutlet UIView *topSection;
+@property (weak) IBOutlet UIButton *autoButton;
+@property (weak) IBOutlet UIButton *mapButton;
+@property (weak) IBOutlet UIButton *nbButton;
+@property (weak) IBOutlet UIButton *sbButton;
+@property (weak) IBOutlet UIView *topLevelSlider;
+@property (weak) IBOutlet UIScrollView *mapScrollView;
+@property (weak) IBOutlet UIPickerView *datePicker;
+// Schedule view class for displaying times
+@property (strong) ScheduleViewController *scheduleViewController;
+// Singleton location manager for getting automatic location
+@property (weak) LocationManager *locationManager;
+@property (strong) Station *currentStation;
+@property (strong) Station *lastUsedManualStation;
+@property (strong) NSTimer *currentTimer;
+@property (strong) IBOutlet UIView *pickerView;
+@property (weak) IBOutlet UILabel *dayOfWeekLabel;
+@property (weak) IBOutlet UILabel *timeLabel;
+@property (weak) IBOutlet UILabel *distanceLabel;
+@property (weak) IBOutlet UIWebView *pdfWebView;
+// Search view for when searching for a station
+@property (strong) SearchViewController *searchViewController;
+
+@end
 
 @implementation BaseViewController
-@synthesize topSection, middleSection, topLevelSlider, mapScrollView, currentTimer, pickerView, datePicker, dayOfWeekLabel, timeLabel, distanceLabel;
-@synthesize autoButton, mapButton, scheduleViewController, locationManager, stationNameView, currentStation, stationNameImageViewToAnimate, nbButton, sbButton, wbButton, arrow;
-@synthesize pdfWebView, backgroundTop;
-@synthesize searchViewController, stationToReturnToAfterSearchCancelled, lastUsedManualStation;
 
 // When the controller is first called
 - (void)viewDidLoad {
@@ -32,7 +73,7 @@
     // Add the schedule view to the view
     self.scheduleViewController = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
     self.scheduleViewController.view.frame = CGRectMake(24, 52, self.scheduleViewController.view.frame.size.width, [[UIScreen mainScreen] applicationFrame].size.height - 122);
-    [self.topLevelSlider insertSubview:self.scheduleViewController.view belowSubview:middleSection];
+    [self.topLevelSlider insertSubview:self.scheduleViewController.view belowSubview:self.middleSection];
     
     // Setup and load the search view controller
     self.searchViewController = [[SearchViewController alloc] initWithNibName:nil bundle:nil];
@@ -45,12 +86,12 @@
     [self.contentSubView insertSubview:self.searchViewController.view belowSubview:self.pdfWebView];
     
     // Load the map
-    [mapScrollView setContentSize:CGSizeMake(600, 822)];
+    self.mapScrollView.contentSize = CGSizeMake(600, 822);
     NSString *path = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"pdf"];
     
     NSURL *url = [NSURL fileURLWithPath:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [pdfWebView loadRequest:request]; 
+    [self.pdfWebView loadRequest:request];
     
     // Setup and begin the flicker timer
     for (int i=0; i<6; i++) {
@@ -159,7 +200,7 @@
 - (void)locationDenied {
     self.arrow.hidden = YES;
     self.distanceLabel.hidden = YES;
-    autoButton.alpha = .4;
+    self.autoButton.alpha = .4;
     
     // This will either switch to manual mode, or do nothing if we're already there
     [self toggleManualMode];
@@ -168,7 +209,7 @@
 - (void)locationApproved {
 	self.arrow.hidden = NO;
 	self.distanceLabel.hidden = NO;
-	autoButton.alpha = 1;
+	self.autoButton.alpha = 1;
 }
 
 // This means the position has been updated in either modes
@@ -179,9 +220,9 @@
     
     // If in auto locate mode
     if (isAutoMode) {
-        if (locationManager.closestStation != self.currentStation) {
-            [self changeLightboardTo:locationManager.closestStation];
-            [self checkButtons:locationManager.closestStation];
+        if (self.locationManager.closestStation != self.currentStation) {
+            [self changeLightboardTo:self.locationManager.closestStation];
+            [self checkButtons:self.locationManager.closestStation];
         }
         
         distance = [self.locationManager distanceInMilesToClosestStation];
@@ -198,9 +239,9 @@
         [formatter setMaximumFractionDigits:1];
   
     if (distance < 0)
-        distanceLabel.text = [NSString stringWithFormat:@"NA"];
+        self.distanceLabel.text = [NSString stringWithFormat:@"NA"];
     else
-        distanceLabel.text = [NSString stringWithFormat:@"%@ miles", [formatter stringFromNumber:[NSNumber numberWithFloat:distance]]];
+        self.distanceLabel.text = [NSString stringWithFormat:@"%@ miles", [formatter stringFromNumber:[NSNumber numberWithFloat:distance]]];
     
 }
 
@@ -220,8 +261,8 @@
 
 // Turn the directional arrow
 - (void)rotateArrow:(int)degrees {
-	arrow.transform = CGAffineTransformIdentity;
-	arrow.transform = CGAffineTransformMakeRotation(degrees*0.0174532925);
+	self.arrow.transform = CGAffineTransformIdentity;
+	self.arrow.transform = CGAffineTransformMakeRotation(degrees*0.0174532925);
 }
 
 #pragma mark - Lightboard -
@@ -329,7 +370,7 @@
 -(BOOL)moveLightboardLeftOneLED {
     
     if (fabs(self.stationNameImageViewToAnimate.frame.origin.x - 2) <
-       (self.stationNameImageViewToAnimate.frame.size.width - stationNameView.frame.size.width)) {
+       (self.stationNameImageViewToAnimate.frame.size.width - self.stationNameView.frame.size.width)) {
         
         self.stationNameImageViewToAnimate.frame = CGRectMake(self.stationNameImageViewToAnimate.frame.origin.x - 4,
                                                               self.stationNameImageViewToAnimate.frame.origin.y,
@@ -364,7 +405,7 @@
     UIImageView *brokenLED = [theTimer userInfo];
     CGRect brokenLEDFrame = brokenLED.frame;
     
-    CGRect lightboardFrame = stationNameView.frame;
+    CGRect lightboardFrame = self.stationNameView.frame;
     lightboardFrame = CGRectMake(lightboardFrame.origin.x,
                                  lightboardFrame.origin.y + 9,
                                  lightboardFrame.size.width,
@@ -449,19 +490,19 @@
         // Hide the map
         if (isMapMode) {
             [UIView beginAnimations:nil context:nil];
-            topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
+            self.topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
             [UIView commitAnimations];
             
-            [mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
+            [self.mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
             
         // Show the map
         } else {
             [UIView beginAnimations:nil context:nil];
-            topLevelSlider.frame = CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height +
+            self.topLevelSlider.frame = CGRectMake(0, [[UIScreen mainScreen] applicationFrame].size.height +
                                               self.topSection.frame.size.height, 320, self.topLevelSlider.frame.size.height);
             [UIView commitAnimations];
             
-            [mapButton setImage:[UIImage imageNamed:@"map-button-selected"] forState:UIControlStateNormal];
+            [self.mapButton setImage:[UIImage imageNamed:@"map-button-selected"] forState:UIControlStateNormal];
         }
         isMapMode = !isMapMode;
     }
@@ -479,7 +520,7 @@
         [self toggleManualMode];
     
     // Checks the buttons to make sure they display the right information
-    [self checkButtons:currentStation];
+    [self checkButtons:self.currentStation];
    
 }
 
@@ -495,18 +536,18 @@
     // Hide the map if map mode
     if (isMapMode) {
         [UIView beginAnimations:nil context:nil];
-        topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
+        self.topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
         [UIView commitAnimations];
         
-        [mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
+        [self.mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
         isMapMode = NO;
     }
     
     isSearchMode = YES;
-    pdfWebView.hidden = YES;
+    self.pdfWebView.hidden = YES;
     
     [UIView beginAnimations:nil context:nil];
-    topLevelSlider.frame = CGRectMake(0, 620, 320, self.topLevelSlider.frame.size.height);
+    self.topLevelSlider.frame = CGRectMake(0, 620, 320, self.topLevelSlider.frame.size.height);
     [UIView commitAnimations];
     
     [self.searchViewController showKeyboard];
@@ -522,13 +563,13 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationDone:finished:context:)];
-    topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
+    self.topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
     [UIView commitAnimations];
 }
 
 // When the animation is done show map
 - (void)animationDone:(NSString *)animationID finished:(BOOL)finished context:(void *)context {
-    pdfWebView.hidden = NO;
+    self.pdfWebView.hidden = NO;
 }
 
 // When a station is selected in the search view
@@ -643,12 +684,12 @@
 
         [UIView beginAnimations:nil context:nil];
     
-        topSection.frame = CGRectMake(0,topAdjust,320, 98);
-        middleSection.frame = CGRectMake(9, middleAdjust, 302, middleSection.frame.size.height - screenAdjust);
-        backgroundTop.frame = CGRectMake(backgroundTop.frame.origin.x,
-                                         backgroundTop.frame.origin.y + screenAdjust,
-                                         backgroundTop.frame.size.width,
-                                         backgroundTop.frame.size.height - screenAdjust);
+        self.topSection.frame = CGRectMake(0,topAdjust,320, 98);
+        self.middleSection.frame = CGRectMake(9, middleAdjust, 302, self.middleSection.frame.size.height - screenAdjust);
+        self.backgroundTop.frame = CGRectMake(self.backgroundTop.frame.origin.x,
+                                         self.backgroundTop.frame.origin.y + screenAdjust,
+                                         self.backgroundTop.frame.size.width,
+                                         self.backgroundTop.frame.size.height - screenAdjust);
         
         // Move the schedule view down 46 pixels and make smaller. 48 if 4 inch screen
         self.scheduleViewController.view.frame = CGRectMake(24,
@@ -660,11 +701,11 @@
         if (searchWillAppear) {
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"searchWillAppear"];
         } else if (!locationDenied) {
-            [self checkButtons:currentStation];
+            [self checkButtons:self.currentStation];
             [self.scheduleViewController updateCellsManualMode];
         }
         
-        [autoButton setImage:[UIImage imageNamed:@"auto-off-button"] forState:UIControlStateNormal];
+        [self.autoButton setImage:[UIImage imageNamed:@"auto-off-button"] forState:UIControlStateNormal];
         
     // Switch to auto mode
     } else if (!locationDenied) {
@@ -673,12 +714,12 @@
 
         [self hidePickerView];
         [UIView beginAnimations:nil context:nil];
-        topSection.frame = CGRectMake(0, -46, 320, 98);
-        middleSection.frame = CGRectMake(9, 52, 302, middleSection.frame.size.height + screenAdjust);
-        backgroundTop.frame = CGRectMake(backgroundTop.frame.origin.x,
-                                         backgroundTop.frame.origin.y - screenAdjust,
-                                         backgroundTop.frame.size.width,
-                                         backgroundTop.frame.size.height + screenAdjust);
+        self.topSection.frame = CGRectMake(0, -46, 320, 98);
+        self.middleSection.frame = CGRectMake(9, 52, 302, self.middleSection.frame.size.height + screenAdjust);
+        self.backgroundTop.frame = CGRectMake(self.backgroundTop.frame.origin.x,
+                                         self.backgroundTop.frame.origin.y - screenAdjust,
+                                         self.backgroundTop.frame.size.width,
+                                         self.backgroundTop.frame.size.height + screenAdjust);
         
         // Move the schedule view back up 46 pixels and enlarge 46 pixels
         self.scheduleViewController.view.frame = CGRectMake(24,
@@ -689,10 +730,10 @@
         
         [self.scheduleViewController updateCellsAutoMode];
         
-        [autoButton setImage:[UIImage imageNamed:@"auto-button"] forState:UIControlStateNormal];
+        [self.autoButton setImage:[UIImage imageNamed:@"auto-button"] forState:UIControlStateNormal];
         
         [self changeLightboardTo:self.locationManager.closestStation];
-        [self checkButtons:locationManager.closestStation];
+        [self checkButtons:self.locationManager.closestStation];
     }
 
 }
@@ -717,34 +758,34 @@
     NSInteger weekday = [nowComponents weekday];
     
     if (weekday == 1)
-        [datePicker selectRow:2 inComponent:0 animated:YES];
+        [self.datePicker selectRow:2 inComponent:0 animated:YES];
     else if ([TimetableSearchUtility isHoliday:now])
-        [datePicker selectRow:3 inComponent:0 animated:YES];
+        [self.datePicker selectRow:3 inComponent:0 animated:YES];
     else if (weekday > 1 && weekday < 7) 
-        [datePicker selectRow:0 inComponent:0 animated:YES];
+        [self.datePicker selectRow:0 inComponent:0 animated:YES];
     else if (weekday == 7)
-        [datePicker selectRow:1 inComponent:0 animated:YES];
+        [self.datePicker selectRow:1 inComponent:0 animated:YES];
 
     NSInteger hour = [nowComponents hour];
     
     // AM
     if (hour < 12) {
-        [datePicker selectRow:0 inComponent:3 animated:YES];
-        [datePicker selectRow:(hour - 1) inComponent:1 animated:YES];
+        [self.datePicker selectRow:0 inComponent:3 animated:YES];
+        [self.datePicker selectRow:(hour - 1) inComponent:1 animated:YES];
         
     // If 12 pm
     } else if (hour == 12) {
-        [datePicker selectRow:11 inComponent:1 animated:YES];
-        [datePicker selectRow:1 inComponent:3 animated:YES];
+        [self.datePicker selectRow:11 inComponent:1 animated:YES];
+        [self.datePicker selectRow:1 inComponent:3 animated:YES];
     
     // PM
     } else {
-        [datePicker selectRow:1 inComponent:3 animated:YES];
-        [datePicker selectRow:(hour - 13) inComponent:1 animated:YES];
+        [self.datePicker selectRow:1 inComponent:3 animated:YES];
+        [self.datePicker selectRow:(hour - 13) inComponent:1 animated:YES];
     }
     
     NSInteger minute = [nowComponents minute];
-    [datePicker selectRow:minute inComponent:2 animated:YES];
+    [self.datePicker selectRow:minute inComponent:2 animated:YES];
 }
 
 // DatePicker is done 
@@ -756,18 +797,18 @@
 
 // Update the manual date labels for manual mode
 -(void)updateManualDateLabels {
-    NSInteger dayOfWeek = [datePicker selectedRowInComponent:0];
-    NSInteger hour = [datePicker selectedRowInComponent:1];
+    NSInteger dayOfWeek = [self.datePicker selectedRowInComponent:0];
+    NSInteger hour = [self.datePicker selectedRowInComponent:1];
     hour++;
-    NSInteger minute = [datePicker selectedRowInComponent:2];
-    BOOL isPM = [datePicker selectedRowInComponent:3] == 0 ? NO : YES;
+    NSInteger minute = [self.datePicker selectedRowInComponent:2];
+    BOOL isPM = [self.datePicker selectedRowInComponent:3] == 0 ? NO : YES;
     
     switch (dayOfWeek) {
-        case 0: dayOfWeekLabel.text = @"Weekday"; break;
-        case 1: dayOfWeekLabel.text = @"Friday"; break;
-        case 2: dayOfWeekLabel.text = @"Saturday"; break;
-        case 3: dayOfWeekLabel.text = @"Sunday"; break;
-        case 4: dayOfWeekLabel.text = @"Holiday";
+        case 0: self.dayOfWeekLabel.text = @"Weekday"; break;
+        case 1: self.dayOfWeekLabel.text = @"Friday"; break;
+        case 2: self.dayOfWeekLabel.text = @"Saturday"; break;
+        case 3: self.dayOfWeekLabel.text = @"Sunday"; break;
+        case 4: self.dayOfWeekLabel.text = @"Holiday";
     }
     
     NSString *minuteString = nil;
@@ -779,9 +820,9 @@
         minuteString = [NSString stringWithFormat:@"%li", (long)minute];
     
     if (isPM)
-        timeLabel.text = [NSString stringWithFormat:@"%li:%@ PM", (long)hour, minuteString];
+        self.timeLabel.text = [NSString stringWithFormat:@"%li:%@ PM", (long)hour, minuteString];
     else
-        timeLabel.text = [NSString stringWithFormat:@"%li:%@ AM", (long)hour, minuteString];
+        self.timeLabel.text = [NSString stringWithFormat:@"%li:%@ AM", (long)hour, minuteString];
     
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     [cal setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
@@ -921,5 +962,5 @@
     [self setShadowAboveButtons:nil];
     [super viewDidUnload];
 }
-@end
 
+@end
