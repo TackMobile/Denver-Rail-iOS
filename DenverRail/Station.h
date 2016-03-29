@@ -19,6 +19,12 @@
 @property (strong) CLLocation *location;
 @property (strong) UIImage *lightboardImage;
 
-- (id)initWithImageName:(NSString *)_imageName columnName:(NSString *)_columnName latitude:(double)_latitude logitude:(double)_longitude southOnly:(bool)_southOnly northOnly:(bool)_northOnly eastWest:(bool)_eastWest;
+- (id)initWithImageName:(NSString *)imageName
+             columnName:(NSString *)columnName
+               latitude:(double)latitude
+              longitude:(double)longitude
+              southOnly:(BOOL)southOnly
+              northOnly:(BOOL)northOnly
+               eastWest:(BOOL)eastWest;
 
 @end

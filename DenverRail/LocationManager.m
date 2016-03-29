@@ -8,10 +8,14 @@
 #import "LocationManager.h"
 #import "AppDelegate.h"
 
+@interface LocationManager()
+
+@property (strong) CLLocation *location;
+@property (strong) CLLocationManager *locationManager;
+
+@end
+
 @implementation LocationManager
-@synthesize locationManager;
-@synthesize heading, location;
-@synthesize stations, closestStation;
 
 static LocationManager *sharedSingleton;
 
@@ -36,8 +40,6 @@ static LocationManager *sharedSingleton;
 		
 		// Attempt to fire up location services based on availability and authorization
 		[sharedSingleton activateLocationServices];
-        
-        NSLog(@"LOCATION MANAGER INITIALIZED");
     }
 }
 
@@ -46,9 +48,7 @@ static LocationManager *sharedSingleton;
     return sharedSingleton;
 }
 
-#pragma mark -
-#pragma mark CLLocationManagerDelegate methods
-#pragma mark -
+#pragma mark - CLLocationManagerDelegate methods -
 
 // Updates the heading for location 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
@@ -71,8 +71,7 @@ static LocationManager *sharedSingleton;
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"locationUpdated" object:nil];
-    
-    NSLog(@"new location");
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
@@ -89,9 +88,7 @@ static LocationManager *sharedSingleton;
 	}
 }
 
-#pragma mark -
-#pragma mark Activating and deactivating location services methods
-#pragma mark -
+#pragma mark - Activating and deactivating location services methods -
 
 - (void)activateLocationServices {
 	
@@ -151,13 +148,10 @@ static LocationManager *sharedSingleton;
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"locationApproved" object:nil];
 }
 
-#pragma mark -
-#pragma mark Heading and distance methods
-#pragma mark -
+#pragma mark - Heading and distance methods -
 
 // Shows the display heading calibration
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
-    NSLog(@"ignoring request to calibrate heading");
     return NO;
 }
 
@@ -189,10 +183,10 @@ static LocationManager *sharedSingleton;
         return -1;
     
     // Coordinates in radians
-    double lat1 = (location.coordinate.latitude * (3.14159265 / 180));
-    double long1 = (location.coordinate.longitude * (3.14159265 / 180));
-    double lat2 = (closestStation.latitude * (3.14159265 / 180));
-    double long2 = (closestStation.longitude * (3.14159265 / 180));
+    double lat1 = (self.location.coordinate.latitude * (3.14159265 / 180));
+    double long1 = (self.location.coordinate.longitude * (3.14159265 / 180));
+    double lat2 = (self.closestStation.latitude * (3.14159265 / 180));
+    double long2 = (self.closestStation.longitude * (3.14159265 / 180));
     
     // Do the calculations to determine direction
     double y = sin(long2-long1)*cos(lat2);
@@ -215,8 +209,8 @@ static LocationManager *sharedSingleton;
         return -1;
     
     // Coordinates in radians
-    double lat1 = (location.coordinate.latitude * (3.14159265 / 180));
-    double long1 = (location.coordinate.longitude * (3.14159265 / 180));
+    double lat1 = (self.location.coordinate.latitude * (3.14159265 / 180));
+    double long1 = (self.location.coordinate.longitude * (3.14159265 / 180));
     double lat2 = (_station.latitude * (3.14159265 / 180));
     double long2 = (_station.longitude * (3.14159265 / 180));
     

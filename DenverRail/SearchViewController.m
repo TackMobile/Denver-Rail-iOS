@@ -11,22 +11,22 @@
 
 @interface SearchViewController ()
 
+@property (weak) IBOutlet UITextField *searchBoxTextField;
+@property (weak) IBOutlet UITableView *tableView;
+@property (weak) NSArray *allStations;
+@property (strong) NSMutableArray *matchingStations;
+
 @end
 
 @implementation SearchViewController
-@synthesize searchBoxTextField, tableView;
-@synthesize delegate;
-@synthesize allStations, matchingStations;
 
-
-// When the view is loaded
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.allStations = ad.stations;
     self.matchingStations = [NSMutableArray new];
-    [matchingStations addObjectsFromArray:allStations];
+    [self.matchingStations addObjectsFromArray:self.allStations];
     
     // Notifications on keyboard events 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
@@ -41,51 +41,52 @@
 
 // When the cancel button is pressed
 - (IBAction)cancelTapped:(id)sender {
-    searchBoxTextField.text = @"";
-    [searchBoxTextField resignFirstResponder];
+    self.searchBoxTextField.text = @"";
+    [self.searchBoxTextField resignFirstResponder];
     [self.delegate searchCancelTapped];
 }
 
 // When the user enters in text for search
 - (IBAction)textFieldChanged:(id)sender {
     
-    [matchingStations removeAllObjects];
+    [self.matchingStations removeAllObjects];
     
-    if ([searchBoxTextField.text isBlank])
-        [matchingStations addObjectsFromArray:allStations];
-    else
+    if ([self.searchBoxTextField.text isBlank]) {
+        [self.matchingStations addObjectsFromArray:self.allStations];
+    } else {
 
         // Find all matching stations
-        for(Station *currentStation in allStations) {
-            if ([[currentStation.columnName lowercaseString] contains:[searchBoxTextField.text lowercaseString]]) {
-                    [matchingStations addObject:currentStation];
+        for(Station *currentStation in self.allStations) {
+            if ([[currentStation.columnName lowercaseString] contains:[self.searchBoxTextField.text lowercaseString]]) {
+                    [self.matchingStations addObject:currentStation];
             }
         }
-    
-    // Station name Wadsworth - Lakewood is in database as only wadsworth. Last item in both arrays is that station
-    if ([searchBoxTextField.text contains:@"l"]) {
-        [matchingStations addObject:[allStations lastObject]];
     }
     
-    [tableView reloadData];
+    // Station name Wadsworth - Lakewood is in database as only wadsworth. Last item in both arrays is that station
+    if ([self.searchBoxTextField.text contains:@"l"]) {
+        [self.matchingStations addObject:[self.allStations lastObject]];
+    }
+
+    [self.tableView reloadData];
 }
 
 // When the user is done searching
 - (IBAction)doneEditing:(UITextField *)_textField {
-    [searchBoxTextField resignFirstResponder];
+    [self.searchBoxTextField resignFirstResponder];
 }
 
 // When the user selects a station from the table 
-- (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [searchBoxTextField resignFirstResponder];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.searchBoxTextField resignFirstResponder];
     
-    [delegate searchStationSelected:[self.matchingStations objectAtIndex:indexPath.row]];
+    [self.delegate searchStationSelected:[self.matchingStations objectAtIndex:indexPath.row]];
 }
 
 // Shows the list of matching stations
-- (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"cell"];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
@@ -141,8 +142,8 @@
     
 }
 
-// When the view is unloaded
--(void)viewDidUnload {
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 @end

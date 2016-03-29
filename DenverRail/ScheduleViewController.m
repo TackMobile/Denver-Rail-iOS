@@ -11,23 +11,20 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Math.h"
 #import "AppDelegate.h"
+#import "LocalizedStrings.h"
 
-// Internal methods
-@interface ScheduleViewController()
-- (void)updateCellsWithStation:(Station *)_station date:(NSDate *)_date direction:(BOOL)_isNorth;
-- (void)performAnimation:(NSArray *)args;
-@end
+//TODO: Possibly look into having this VC use a tableview
+NSString *const MountainTimeZone = @"US/Mountain";
 
 @implementation ScheduleViewController
-@synthesize locationManager, isNorthAuto, isNorthManual, currentStops, isAutoMode, firstLoc;
+@synthesize sharedLocationManager, isNorthAuto, isNorthManual, currentStops, isAutoMode, firstLoc;
 @synthesize currentManualDate, currentManualStation;
 @synthesize audioPlayer;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        locationManager = [LocationManager instance];
+        sharedLocationManager = [LocationManager instance];
         
         // Always starts in auto mode, northbound
         isAutoMode = YES;
@@ -47,11 +44,12 @@
     return self;
 }
 
-// View loaded 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(positionUpdated)
-                                                 name:@"locationUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(positionUpdated)
+                                                 name:@"locationUpdated"
+                                               object:nil];
 }
 
 // Stay in same mode
@@ -60,7 +58,6 @@
     // Auto mode
     if (isAutoMode) {
         [self updateCellsAutoModeIsNorth:_isNorth];
-        
     // Manual mode
     } else {
         [self updateCellsManualModeWithStation:self.currentManualStation date:self.currentManualDate direction:_isNorth];
@@ -72,21 +69,25 @@
     
     // Set the initial manual station to the current location if it hasn't been set before
     if (!self.currentManualStation)
-        self.currentManualStation = locationManager.closestStation;
+        self.currentManualStation = sharedLocationManager.closestStation;
 }
 
-// This should be called when the station, mode, or direction changes, and every 10 seconds when in auto mode
+/**
+ This should be called when the station, mode, or direction changes, and every 10 seconds when in auto mode
+ */
 - (void)updateCellsAutoMode {
     isAutoMode = YES;
     [self updateCellsAutoModeIsNorth:isNorthAuto];
 }
 
-// Sends the call to update cells in auto mode depending on direction
+/**
+ Sends the call to update cells in auto mode depending on direction
+*/
 - (void)updateCellsAutoModeIsNorth:(BOOL)_isNorth {
     
     isAutoMode = YES;
     isNorthAuto = _isNorth;
-    Station *closestStation = locationManager.closestStation;
+    Station *closestStation = sharedLocationManager.closestStation;
 
     /* Some stations do not have a north bound train. So if it starts by default with north
        then people who get auto mode to that train should not show north routes. Same goes for
@@ -101,14 +102,16 @@
     [self updateCellsWithStation:closestStation date:[NSDate date] direction:_isNorth];
 }
 
-// Sends the call to update cells in manual mode to a specific station 
+/**
+ Sends the call to update cells in manual mode to a specific station
+*/
 - (void)updateCellsManualMode {
     isAutoMode = NO;
     
     if (!self.currentManualDate)
         self.currentManualDate = [NSDate date]; 
     if (!self.currentManualStation)
-        self.currentManualStation = [locationManager.stations objectAtIndex:0];
+        self.currentManualStation = [sharedLocationManager.stations objectAtIndex:0];
     
     if (self.currentManualStation)
         [self updateCellsManualModeWithStation:self.currentManualStation date:self.currentManualDate];
@@ -216,9 +219,9 @@
             relativeTimeLabel.font = [UIFont boldSystemFontOfSize:16];
             
             if (interval/60 < 1.0) {
-                relativeTimeLabel.text = [NSString stringWithFormat:@"< 1 Minute"];
+                relativeTimeLabel.text = [LocalizedStrings lessThanOneMinute];
             } else {
-                relativeTimeLabel.text = [NSString stringWithFormat:@"in %i Minutes%@", (int)round(interval / 60), currentStop.isHighlighted ? @"*" : @""];
+                relativeTimeLabel.text = [NSString stringWithFormat:[LocalizedStrings moreThanOneMinuteFormatString], (int)round(interval / 60), currentStop.isHighlighted ? @"*" : @""];
             }
             
             [cellBg addSubview:relativeTimeLabel];
@@ -230,7 +233,7 @@
             absoluteTimeLabel.font = [UIFont systemFontOfSize:14];
           
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
             [dateFormatter setDateFormat:@"h:mm aa"];
           
             absoluteTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:currentStop.date]];
@@ -240,7 +243,7 @@
         // If in manual mode display differently
         } else {
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
-            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+            [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
             [dateFormatter setDateFormat:@"h:mm aa"];
             
             UILabel *absoluteTimeLabel = [UILabel new];
@@ -322,10 +325,10 @@
           if([j isKindOfClass:[UILabel class]]){
             UILabel *newLbl = (UILabel *)j;
             if([newLbl.text containsString:@"*"]) {
-              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"NOTICE"
-                                                              message:@"This route does not continue all the way to the end of the line."
+              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[LocalizedStrings notice]
+                                                              message:[LocalizedStrings nonEndOfLineRoute]
                                                              delegate:nil
-                                                    cancelButtonTitle:@"Close"
+                                                    cancelButtonTitle:[LocalizedStrings close]
                                                     otherButtonTitles:nil, nil];
               [alert show];
             }
@@ -369,13 +372,6 @@
      ];
 }
 
-// Clears all of the cells
-- (void)clearCells {
-    for(UIView *view in self.view.subviews) {
-        [view removeFromSuperview];
-    }
-}
-#warning play the flip sound 
 // Play the flipping sound
 - (void)playFlipsSound {
     BOOL playSounds = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).playSounds;

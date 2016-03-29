@@ -8,6 +8,7 @@
 #import "TimetableSearchUtility.h"
 #import "FMDatabase.h"
 #import "ScheduledStop.h"
+#import "ScheduleViewController.h"
 #import "NSString+Common.h"
 
 @implementation TimetableSearchUtility
@@ -21,7 +22,7 @@
 +(NSArray *)getTimetableWithDate:(NSDate *)date andStation:(Station *)station directionIsNorth:(BOOL)isNorth {
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
     NSDateComponents *dateComponents = [calendar components:NSWeekdayCalendarUnit fromDate:date];
     NSInteger weekday = [dateComponents weekday];
 
@@ -40,7 +41,6 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     if (![db open]) {
-        NSLog(@"error opening database");
         return nil;
     }
     
@@ -50,20 +50,15 @@
     else limitInt = 9;
     
     limit = [NSString stringWithFormat:@"%i", limitInt];
-  
-    NSLog(@"SELECT departure_time, route_id, stop_id FROM schedule WHERE stop_name = \"%@\" AND direction_id = %i AND departure_time > %i AND service_id = \"%@\" ORDER BY departure_time LIMIT 11", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode);
-  
+
     if (station.columnName == nil) {
       return nil; // If location is not initialized return empty set
     }
     
     FMResultSet *rs = [db executeQueryWithFormat:@"SELECT departure_time, route_id, stop_id FROM schedule WHERE stop_name = %@ AND direction_id = %i AND departure_time > %i AND service_id = %@ ORDER BY departure_time LIMIT %@", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode, limit];
-    NSLog(@"Query Error: %@", [db lastErrorMessage]);
     
     NSMutableArray *stops = [NSMutableArray new];
     while ([rs next]) {
-        NSLog(@"ROW: %i, %@, %i", [rs intForColumn:@"departure_time"], [rs stringForColumn:@"route_id"], [rs intForColumn:@"stop_id"]);
-
         int timeInt = [rs intForColumn:@"departure_time"];
         NSString *routeString = [rs stringForColumn:@"route_id"]; // c d e f h w
         int stopId = [rs intForColumn:@"stop_id"];
@@ -87,8 +82,6 @@
         if (line == kWLine && !isNorth) {
             isHighlighted = ![TimetableSearchUtility doesWTrainGoToEndStations:stopId atDepartureDate:dbDate withCalendar:calendar andWithDatabase:db];
         }
-      
-        NSLog(@"adding scheduled stop with date: %@", [dbDate description]);
 
         ScheduledStop *stop = [ScheduledStop new];
         stop.line = line;
@@ -115,7 +108,7 @@
         [tomorrowStops removeObjectsInArray:stops];
         [stops addObjectsFromArray:tomorrowStops];
         if ([stops count] > limitInt) {
-            for (int i=[stops count]-1; i > 8; i--)
+            for (NSUInteger i = stops.count-1; i > 8; i--)
                 [stops removeLastObject];
         }
     }
@@ -123,7 +116,6 @@
     if ([stops count] > 0)
         return stops;
     return nil;
-    
 }
 
 +(BOOL)doesWTrainGoToEndStations:(int)currentStopId atDepartureDate:(NSDate *)date withCalendar:(NSCalendar *)calendar andWithDatabase:(FMDatabase *)db {
@@ -184,15 +176,9 @@
   
   // Find next train arrival
   
-  NSLog(@"SELECT departure_time, stop_name, stop_id FROM schedule WHERE route_id like '%%w%%' AND direction_id = 1 AND stop_id = %i AND departure_time > %i AND departure_time < %i ORDER BY departure_time LIMIT 1", nextStationId, departureInt, nextDepartureInt);
-  
   FMResultSet *rs = [db executeQueryWithFormat:@"SELECT departure_time, stop_name, stop_id FROM schedule WHERE route_id like '%%w%%' AND direction_id = 1 AND stop_id = %i AND departure_time > %i AND departure_time < %i ORDER BY departure_time LIMIT 1", nextStationId, departureInt, nextDepartureInt];
   
-  NSLog(@"Query Error: %@", [db lastErrorMessage]);
-  
   if ([rs next]) {
-    NSLog(@"ROW: %i, %@, %i", [rs intForColumn:@"departure_time"], [rs stringForColumn:@"stop_name"], [rs intForColumn:@"stop_id"]);
-    
     int actualDepartureTimeInt = [rs intForColumn:@"departure_time"];
     int stopId = [rs intForColumn:@"stop_id"];
     
@@ -274,7 +260,7 @@
 // NSDate to int value
 +(int)convertDateToInt:(NSDate *)date {
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
   [dateFormatter setDateFormat:@"HHmmss"];
   NSString *timeString = [dateFormatter stringFromDate:date];
   return [timeString intValue];
@@ -284,15 +270,12 @@
 +(NSDate *)convertDBDateIntToDate:(int)timeInt withCalendar:(NSCalendar *)calendar {
   // Assume today
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"US/Mountain"]];
+  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:MountainTimeZone]];
   [dateFormatter setDateFormat:@"HHmmss"];
   
   NSString *dateString = nil;
   if (timeInt > 239999)
     timeInt -= 240000;
-  
-  NSLog(@"time int: %i", timeInt);
-  
   if (timeInt > 99999)
     dateString = [NSString stringWithFormat:@"%i", timeInt];
   else if (timeInt < 1000)
