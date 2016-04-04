@@ -10,6 +10,7 @@
 #import "LocalizedStrings.h"
 #import "ScheduleViewController.h"
 #import "LocationManager.h"
+#import "Constants.h"
 
 @interface BaseViewController()
 
@@ -64,8 +65,8 @@
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.view.frame = [UIScreen mainScreen].bounds;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDenied) name:@"locationDenied" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationApproved) name:@"locationApproved" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationDenied) name:DRNotificationName.locationDenied object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationApproved) name:DRNotificationName.locationApproved object:nil];
 	
     // Default modes
     isAutoMode = YES;
@@ -103,8 +104,8 @@
     
     // Receive location and heading updates
     self.locationManager = [LocationManager instance];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(positionUpdated) name:@"locationUpdated" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headingUpdated) name:@"headingUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(positionUpdated) name:DRNotificationName.locationUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headingUpdated) name:DRNotificationName.headingUpdated object:nil];
     
     // Set the initial selected buttons
     self.nbButton.selected = YES;
@@ -350,8 +351,8 @@
     self.currentStation = _station;
     
     // Force position update
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"headingUpdated" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"locationUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.headingUpdated object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationUpdated object:nil];
 }
 
 
@@ -530,7 +531,7 @@
     
     // Enable manual mode
     if (isAutoMode) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"searchWillAppear"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:DRUserDefaultKey.searchWillAppear];
         [self toggleManualMode];
     }
     
@@ -648,7 +649,7 @@
 // When the auto button pressed
 -(void)toggleManualMode {
     
-    BOOL locationDenied = [[NSUserDefaults standardUserDefaults] boolForKey:@"locationDenied"];
+    BOOL locationDenied = [[NSUserDefaults standardUserDefaults] boolForKey:DRUserDefaultKey.locationDenied];
     
     // On 3.5 in screens we need to shift the screen 46 pixels.
     // These variables are adjustments depending on 3.5 or 4 inch screen
@@ -669,7 +670,7 @@
         isAutoMode = NO;
         self.scheduleViewController.isAutoMode = NO;
         
-        BOOL searchWillAppear = [[NSUserDefaults standardUserDefaults] boolForKey:@"searchWillAppear"];
+        BOOL searchWillAppear = [[NSUserDefaults standardUserDefaults] boolForKey:DRUserDefaultKey.searchWillAppear];
         
         if (!self.lastUsedManualStation && !searchWillAppear)
             [self showTapToSearch];
@@ -700,7 +701,7 @@
         [UIView commitAnimations];
 
         if (searchWillAppear) {
-            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"searchWillAppear"];
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:DRUserDefaultKey.searchWillAppear];
         } else if (!locationDenied) {
             [self checkButtons:self.currentStation];
             [self.scheduleViewController updateCellsManualMode];

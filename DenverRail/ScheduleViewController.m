@@ -12,6 +12,7 @@
 #import "Math.h"
 #import "AppDelegate.h"
 #import "LocalizedStrings.h"
+#import "Constants.h"
 
 //TODO: Possibly look into having this VC use a tableview
 NSString *const MountainTimeZone = @"US/Mountain";
@@ -48,7 +49,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(positionUpdated)
-                                                 name:@"locationUpdated"
+                                                 name:DRNotificationName.locationUpdated
                                                object:nil];
 }
 

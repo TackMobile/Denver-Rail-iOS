@@ -7,7 +7,7 @@
 
 #import "LocationManager.h"
 #import "AppDelegate.h"
-
+#import "Constants.h"
 @interface LocationManager()
 
 @property (strong) CLLocation *location;
@@ -53,7 +53,7 @@ static LocationManager *sharedSingleton;
 // Updates the heading for location 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     self.heading = newHeading;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"headingUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.headingUpdated object:nil];
     
 }
 
@@ -70,7 +70,7 @@ static LocationManager *sharedSingleton;
         i++;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"locationUpdated" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationUpdated object:nil];
 
 }
 
@@ -130,22 +130,25 @@ static LocationManager *sharedSingleton;
 
 - (void)locationServicesNotAvailable {
 	
-	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"locationDenied"];
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:DRUserDefaultKey.locationDenied];
 	[sharedSingleton.locationManager stopUpdatingHeading];
 	[sharedSingleton.locationManager stopUpdatingLocation];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"locationDenied" object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationDenied object:nil];
 	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Note" message:@"The application cannot determine your location. Auto mode is disabled."
-												   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Note"
+                                                    message:@"The application cannot determine your location. Auto mode is disabled."
+												   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
 	[alert show];
 }
 
 - (void)locationServicesAvailable {
 	
-	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"locationDenied"];
+	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:DRUserDefaultKey.locationDenied];
 	[sharedSingleton.locationManager startUpdatingLocation];
 	[sharedSingleton.locationManager startUpdatingHeading];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"locationApproved" object:nil];
+	[[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationApproved object:nil];
 }
 
 #pragma mark - Heading and distance methods -
