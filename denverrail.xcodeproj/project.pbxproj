@@ -227,6 +227,7 @@
 		4C7775BD19E3023B004FECD4 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BB19E3023B004FECD4 /* Icon-40@2x.png */; };
 		4C7775BE19E3023B004FECD4 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */; };
 		8C366B951CA9DC1F000E73CD /* LocalizedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C366B941CA9DC1F000E73CD /* LocalizedStrings.m */; };
+		8CA8C89D1CB31F7700D88CFC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8C89C1CB31F7700D88CFC /* Constants.m */; };
 		9672835816B986DD000BECE6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835516B986DD000BECE6 /* Icon-72.png */; };
 		9672835916B986DD000BECE6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835616B986DD000BECE6 /* Icon-72@2x.png */; };
 		9672835A16B986DD000BECE6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835716B986DD000BECE6 /* Icon-Small@2x.png */; };
@@ -494,6 +495,8 @@
 		4C7775BC19E3023B004FECD4 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = SOURCE_ROOT; };
 		8C366B931CA9DC1F000E73CD /* LocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedStrings.h; sourceTree = "<group>"; };
 		8C366B941CA9DC1F000E73CD /* LocalizedStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalizedStrings.m; sourceTree = "<group>"; };
+		8CA8C89B1CB31F7700D88CFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8CA8C89C1CB31F7700D88CFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		9672835516B986DD000BECE6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		9672835616B986DD000BECE6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		9672835716B986DD000BECE6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
@@ -581,6 +584,8 @@
 				3912A92114E5CBE900AEF260 /* LocationManager.m */,
 				8C366B931CA9DC1F000E73CD /* LocalizedStrings.h */,
 				8C366B941CA9DC1F000E73CD /* LocalizedStrings.m */,
+				8CA8C89B1CB31F7700D88CFC /* Constants.h */,
+				8CA8C89C1CB31F7700D88CFC /* Constants.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -952,7 +957,7 @@
 		39E7F0D314DE05F0007C8617 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Tack Mobile";
 				TargetAttributes = {
 					39E7F0DB14DE05F0007C8617 = {
@@ -1225,6 +1230,7 @@
 				39D99D2C152BC56200F3C2AE /* SearchViewController.m in Sources */,
 				EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */,
 				3958FA071535FB42002496B7 /* Common.m in Sources */,
+				8CA8C89D1CB31F7700D88CFC /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1266,8 +1272,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1308,6 +1316,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
