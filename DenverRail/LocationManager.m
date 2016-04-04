@@ -8,6 +8,8 @@
 #import "LocationManager.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "LocalizedStrings.h"
+
 @interface LocationManager()
 
 @property (strong) CLLocation *location;
@@ -135,10 +137,10 @@ static LocationManager *sharedSingleton;
 	[sharedSingleton.locationManager stopUpdatingLocation];
 	[[NSNotificationCenter defaultCenter] postNotificationName:DRNotificationName.locationDenied object:nil];
 	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Note"
-                                                    message:@"The application cannot determine your location. Auto mode is disabled."
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[LocalizedStrings note]
+                                                    message:[LocalizedStrings cannotDetermineLocation]
 												   delegate:nil
-                                          cancelButtonTitle:@"OK"
+                                          cancelButtonTitle:[LocalizedStrings ok]
                                           otherButtonTitles:nil];
 	[alert show];
 }

@@ -24,4 +24,8 @@
 + (NSString *)southbound;
 + (NSString *)eastbound;
 + (NSString *)westbound;
++ (NSString *)note;
++ (NSString *)cannotDetermineLocation;
++ (NSString *)ok;
+
 @end
