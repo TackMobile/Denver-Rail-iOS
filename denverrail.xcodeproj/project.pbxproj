@@ -238,9 +238,6 @@
 		96CD2BEC16C05F5F00CC0DC3 /* list-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEA16C05F5F00CC0DC3 /* list-background.png */; };
 		96CD2BED16C05F5F00CC0DC3 /* list-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEB16C05F5F00CC0DC3 /* list-background@2x.png */; };
 		96CD2BEF16C0613800CC0DC3 /* list-background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */; };
-		96DFA38116B8916F004BB933 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DFA37D16B8916F004BB933 /* libTestFlight.a */; };
-		96DFA38216B8916F004BB933 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37E16B8916F004BB933 /* README.md */; };
-		96DFA38316B8916F004BB933 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 96DFA37F16B8916F004BB933 /* release_notes.md */; };
 		B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B67CD0EA1B6828DD004823B1 /* schedules.sqlite */; };
 		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
@@ -507,10 +504,6 @@
 		96CD2BEA16C05F5F00CC0DC3 /* list-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background.png"; sourceTree = "<group>"; };
 		96CD2BEB16C05F5F00CC0DC3 /* list-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background@2x.png"; sourceTree = "<group>"; };
 		96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background-568h@2x.png"; sourceTree = "<group>"; };
-		96DFA37D16B8916F004BB933 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		96DFA37E16B8916F004BB933 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		96DFA37F16B8916F004BB933 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		96DFA38016B8916F004BB933 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		B67CD0EA1B6828DD004823B1 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
@@ -538,7 +531,6 @@
 				3912A93014E5DB9A00AEF260 /* CoreLocation.framework in Frameworks */,
 				39E7F0E114DE05F0007C8617 /* UIKit.framework in Frameworks */,
 				39E7F0E314DE05F0007C8617 /* Foundation.framework in Frameworks */,
-				96DFA38116B8916F004BB933 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +804,6 @@
 		39E7F0DF14DE05F0007C8617 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96DFA37C16B8916F004BB933 /* TestFlightSDK1 */,
 				39F5807D151BDE3F006661CA /* libz.dylib */,
 				395DFF7814E0683D004E7F58 /* libsqlite3.0.dylib */,
 				EA0F35FA1534C5890079B61B /* AudioToolbox.framework */,
@@ -898,17 +889,6 @@
 				39EC48EF15227D48009D6649 /* Icon-512.png */,
 			);
 			name = "Old Icons & Launch Images";
-			sourceTree = "<group>";
-		};
-		96DFA37C16B8916F004BB933 /* TestFlightSDK1 */ = {
-			isa = PBXGroup;
-			children = (
-				96DFA37D16B8916F004BB933 /* libTestFlight.a */,
-				96DFA37E16B8916F004BB933 /* README.md */,
-				96DFA37F16B8916F004BB933 /* release_notes.md */,
-				96DFA38016B8916F004BB933 /* TestFlight.h */,
-			);
-			path = TestFlightSDK1;
 			sourceTree = "<group>";
 		};
 		EA0915D41533E290000898B9 /* Easter Eggs */ = {
@@ -1145,8 +1125,6 @@
 				F3B279E21533E6C70008E2E3 /* broken-LED.png in Resources */,
 				F3E810EF1537D944007F904D /* broken-LED@2x.png in Resources */,
 				EA544B23153B840500362759 /* Settings.bundle in Resources */,
-				96DFA38216B8916F004BB933 /* README.md in Resources */,
-				96DFA38316B8916F004BB933 /* release_notes.md in Resources */,
 				9672835816B986DD000BECE6 /* Icon-72.png in Resources */,
 				9672835916B986DD000BECE6 /* Icon-72@2x.png in Resources */,
 				9672835A16B986DD000BECE6 /* Icon-Small@2x.png in Resources */,
