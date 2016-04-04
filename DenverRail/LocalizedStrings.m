@@ -94,4 +94,21 @@
                              @"Button title for west option");
 }
 
++ (NSString *)note
+{
+    return NSLocalizedString(@"Note",
+                             @"Title for generic Alert Views");
+}
+
++ (NSString *)cannotDetermineLocation
+{
+    return NSLocalizedString(@"The application cannot determine your location. Auto mode is disabled.",
+                             @"Explanation text for cannot determine location alert");
+}
+
++ (NSString *)ok
+{
+    return NSLocalizedString(@"OK", @"Button title for OK buttons");
+}
+
 @end
