@@ -6,21 +6,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
 
-typedef NS_ENUM(NSUInteger, WhistleBlowerState) {
-    WhistleBlowerStateNoWhistleYet = 0,
-    WhistleBlowerStateOneWhistle,
-    WhistleBlowerStateMultipleWhistles,
-};
+@interface WhistleBlowerController : NSObject
 
-@interface WhistleBlowerController : NSObject<AVAudioPlayerDelegate> {
-    double lastSample;
-    int ticksSinceLastWhistle;
-    BOOL whistlePlaying;
-}
-
-@property WhistleBlowerState currentState;
 @property(nonatomic) BOOL isOn;
 - (void)putYourLipsTogetherAndBlow;
 
