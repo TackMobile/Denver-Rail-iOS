@@ -7,8 +7,15 @@
 
 #import "WhistleBlowerController.h"
 #import <AudioToolbox/AudioServices.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface WhistleBlowerController ()
+typedef NS_ENUM(NSUInteger, WhistleBlowerState) {
+    WhistleBlowerStateNoWhistleYet = 0,
+    WhistleBlowerStateOneWhistle,
+    WhistleBlowerStateMultipleWhistles,
+};
+
+@interface WhistleBlowerController () <AVAudioPlayerDelegate>
 
 @property(nonatomic, strong) AVAudioRecorder *recorder;
 @property(nonatomic, strong) NSTimer *timer;
@@ -17,6 +24,10 @@
 @property(nonatomic, strong) AVAudioPlayer *mediumWhistle;
 @property(nonatomic, strong) AVAudioPlayer *loudLongWhistle;
 @property(nonatomic, strong) AVAudioPlayer *currentPlayer;
+@property (nonatomic) double lastSample;
+@property (nonatomic) int ticksSinceLastWhistle;
+@property (nonatomic) BOOL whistlePlaying;
+@property WhistleBlowerState currentState;
 
 @end
 
@@ -92,7 +103,7 @@ static CGFloat const kWhistleSampleThreshold = 0.66f;
     [self.timer invalidate];
     [self.recorder stop];
     self.timer = nil;
-    lastSample = 0;
+    self.lastSample = 0;
 }
 
 // Checks if the timer is sampling
@@ -102,22 +113,21 @@ static CGFloat const kWhistleSampleThreshold = 0.66f;
 
 // Timer for mic 
 - (void) tick:(NSTimer *)timer {
-    if (ticksSinceLastWhistle >= kTicksBeforeStateReset) {
+    if (self.ticksSinceLastWhistle >= kTicksBeforeStateReset) {
         [self resetState];
-        ticksSinceLastWhistle = 0;
+        self.ticksSinceLastWhistle = 0;
     } else {
-        ticksSinceLastWhistle++;
+        self.ticksSinceLastWhistle++;
     }
-    
     
     [self.recorder updateMeters];
     
 	const double ALPHA = 0.05;
 	double peakPowerForChannel = pow(10, (0.05 * [self.recorder peakPowerForChannel:0]));
-	lastSample = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * lastSample;	
+	self.lastSample = ALPHA * peakPowerForChannel + (1.0 - ALPHA) * self.lastSample;
 	
-	if (lastSample > kWhistleSampleThreshold) {
-        if (self.currentState == WhistleBlowerStateNoWhistleYet || ticksSinceLastWhistle >= kTicksToIngoreInput) {
+	if (self.lastSample > kWhistleSampleThreshold) {
+        if (self.currentState == WhistleBlowerStateNoWhistleYet || self.ticksSinceLastWhistle >= kTicksToIngoreInput) {
             [self putYourLipsTogetherAndBlow];
         }
     }
@@ -125,12 +135,12 @@ static CGFloat const kWhistleSampleThreshold = 0.66f;
 
 // Blow the whistle! 
 - (void) putYourLipsTogetherAndBlow {
-    if (self.isOn && !whistlePlaying) {
+    if (self.isOn && !self.whistlePlaying) {
         [self advanceState];
         [self chooseCurrentWhistle];
         [self.currentPlayer play];
-        whistlePlaying = YES;
-        ticksSinceLastWhistle = 0;
+        self.whistlePlaying = YES;
+        self.ticksSinceLastWhistle = 0;
     }
 }
 
@@ -172,9 +182,9 @@ static CGFloat const kWhistleSampleThreshold = 0.66f;
 
 // Ensure that the audio player is done playing
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    whistlePlaying = NO;
+    self.whistlePlaying = NO;
     self.currentPlayer = nil;
-    lastSample = 0;
+    self.lastSample = 0;
 }
 
 // Ensures that all sounds are initialized
@@ -206,7 +216,6 @@ static CGFloat const kWhistleSampleThreshold = 0.66f;
     }
 }
 
-// Deallocate memory
 - (void) dealloc {
     self.recorder = nil, 
     self.timer = nil,

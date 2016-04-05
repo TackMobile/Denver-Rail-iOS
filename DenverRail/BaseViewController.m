@@ -11,8 +11,9 @@
 #import "ScheduleViewController.h"
 #import "LocationManager.h"
 #import "Constants.h"
+#import "SearchViewController.h"
 
-@interface BaseViewController()
+@interface BaseViewController() <UIPickerViewDelegate, UIPickerViewDataSource, SearchStationDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *buttonDivider;
 @property (strong, nonatomic) IBOutlet UIImageView *whiteBackground;
@@ -52,6 +53,10 @@
 @property (weak) IBOutlet UIWebView *pdfWebView;
 // Search view for when searching for a station
 @property (strong) SearchViewController *searchViewController;
+@property (nonatomic) BOOL isMapMode;
+@property (nonatomic) BOOL isSearchMode;
+@property (nonatomic) BOOL isAutoMode;
+@property (nonatomic) BOOL isNorth;
 
 @end
 
@@ -69,8 +74,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationApproved) name:DRNotificationName.locationApproved object:nil];
 	
     // Default modes
-    isAutoMode = YES;
-    isMapMode = NO;
+    self.isAutoMode = YES;
+    self.isMapMode = NO;
     
     // Add the schedule view to the view
     self.scheduleViewController = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil];
@@ -221,7 +226,7 @@
     float distance = 0.0;
     
     // If in auto locate mode
-    if (isAutoMode) {
+    if (self.isAutoMode) {
         if (self.locationManager.closestStation != self.currentStation) {
             [self changeLightboardTo:self.locationManager.closestStation];
             [self checkButtons:self.locationManager.closestStation];
@@ -251,11 +256,11 @@
 - (void)headingUpdated {
     int stationBearing = 0;
     
-    if (isAutoMode)
+    if (self.isAutoMode) {
         stationBearing = [self.locationManager bearingInDegreesToClosestStation];
-    else 
+    } else {
         stationBearing = [self.locationManager bearingInDegreesToStation:self.currentStation];
-
+    }
     int currentHeading = self.locationManager.heading.trueHeading;
     int relativeBearing = stationBearing - currentHeading;
     [self rotateArrow:relativeBearing];
@@ -318,10 +323,11 @@
     if ([[theTimer userInfo] isKindOfClass:[NSNumber class]])
         [self animateLightboard];
     else
-        if (isSearchMode)
+        if (self.isSearchMode) {
             [self changeLightboardTo:nil];
-        else 
+        } else {
             [self changeLightboardTo:[theTimer userInfo]];
+        }
 }
 
 // Change the lightboard to a specific station name
@@ -464,39 +470,37 @@
 
 // When the northbound/westbound button pressed
 -(IBAction)northboundTapped {
-
-    isNorth = YES;
+    self.isNorth = YES;
 
     self.nbButton.selected = YES;
     self.sbButton.selected = NO;
 
-    [self.scheduleViewController updateCellsWithDirection:isNorth];
+    [self.scheduleViewController updateCellsWithDirection:self.isNorth];
 }
 
 // When the southbound/eastbound button pressed
 -(IBAction)southboundTapped {
     
-    isNorth = NO;
+    self.isNorth = NO;
 
     self.sbButton.selected = YES;
     self.nbButton.selected = NO;
-    [self.scheduleViewController updateCellsWithDirection:isNorth];
+    [self.scheduleViewController updateCellsWithDirection:self.isNorth];
 }
 
 // When the map button is pressed
 -(IBAction)mapTapped {
     
     // If we are not in the search mode
-    if (!isSearchMode) {
+    if (!self.isSearchMode) {
         
         // Hide the map
-        if (isMapMode) {
+        if (self.isMapMode) {
             [UIView beginAnimations:nil context:nil];
             self.topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
             [UIView commitAnimations];
             
             [self.mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
-            
         // Show the map
         } else {
             [UIView beginAnimations:nil context:nil];
@@ -506,46 +510,43 @@
             
             [self.mapButton setImage:[UIImage imageNamed:@"map-button-selected"] forState:UIControlStateNormal];
         }
-        isMapMode = !isMapMode;
+        self.isMapMode = !self.isMapMode;
     }
 }
 
 // When the auto button pressed
 -(IBAction)autoTapped {
-    
     // If in map mode 
-    if (!isSearchMode && isMapMode)
+    if (!self.isSearchMode && self.isMapMode)
         [self mapTapped];
     
     // If not in search mode toggle manual mode
-    if (!isSearchMode)
+    if (!self.isSearchMode)
         [self toggleManualMode];
     
     // Checks the buttons to make sure they display the right information
     [self checkButtons:self.currentStation];
-   
 }
 
 // Called when the lightboard is tapped
 -(IBAction)searchTapped {
     
     // Enable manual mode
-    if (isAutoMode) {
+    if (self.isAutoMode) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:DRUserDefaultKey.searchWillAppear];
         [self toggleManualMode];
     }
     
     // Hide the map if map mode
-    if (isMapMode) {
+    if (self.isMapMode) {
         [UIView beginAnimations:nil context:nil];
         self.topLevelSlider.frame = CGRectMake(0, 44, 320, self.topLevelSlider.frame.size.height);
         [UIView commitAnimations];
         
         [self.mapButton setImage:[UIImage imageNamed:@"map-button"] forState:UIControlStateNormal];
-        isMapMode = NO;
+        self.isMapMode = NO;
     }
-    
-    isSearchMode = YES;
+    self.isSearchMode = YES;
     self.pdfWebView.hidden = YES;
     
     [UIView beginAnimations:nil context:nil];
@@ -554,13 +555,12 @@
     
     [self.searchViewController showKeyboard];
     
-    
     [self showSearch];
 }
 
 // Hides the search display
 -(IBAction)hideSearch:(id)sender {
-    isSearchMode = NO;
+    self.isSearchMode = NO;
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDelegate:self];
@@ -584,7 +584,7 @@
     [self checkButtons:_station];
     
     self.scheduleViewController.currentManualStation = _station;
-    [self.scheduleViewController updateCellsWithDirection:isNorth];
+    [self.scheduleViewController updateCellsWithDirection:self.isNorth];
     [self.scheduleViewController updateCellsManualMode];
 }
 
@@ -600,7 +600,7 @@
      cause the app to freeze in database lookup.
      */
     if (_station.southOnly) {
-        isNorth = NO;
+        self.isNorth = NO;
         self.sbButton.selected = YES;
         self.nbButton.selected = NO;
         
@@ -610,7 +610,7 @@
         [self.sbButton setUserInteractionEnabled:YES];
         [self.sbButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     } else if (_station.northOnly) {
-        isNorth = YES;
+        self.isNorth = YES;
         self.sbButton.selected = NO;
         self.nbButton.selected = YES;
         
@@ -666,8 +666,8 @@
     }
     
     // Switch to manual mode
-    if (isAutoMode) {
-        isAutoMode = NO;
+    if (self.isAutoMode) {
+        self.isAutoMode = NO;
         self.scheduleViewController.isAutoMode = NO;
         
         BOOL searchWillAppear = [[NSUserDefaults standardUserDefaults] boolForKey:DRUserDefaultKey.searchWillAppear];
@@ -711,7 +711,7 @@
         
     // Switch to auto mode
     } else if (!locationDenied) {
-        isAutoMode = YES;
+        self.isAutoMode = YES;
         self.scheduleViewController.isAutoMode = YES;
 
         [self hidePickerView];
@@ -737,7 +737,6 @@
         [self changeLightboardTo:self.locationManager.closestStation];
         [self checkButtons:self.locationManager.closestStation];
     }
-
 }
 
 #pragma mark - Time Picker -

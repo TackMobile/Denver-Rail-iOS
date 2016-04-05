@@ -9,6 +9,7 @@
 #import "TimetableSearchUtility.h"
 #import "WhistleBlowerController.h"
 #import <AudioToolbox/AudioServices.h>
+#import <AVFoundation/AVFoundation.h>
 
 static NSString *const kPlaySoundsKey = @"playSoundsKey";
 static NSString *const kPreferencesSetKey = @"prefsSet";
