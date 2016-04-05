@@ -51,7 +51,6 @@ NSString *const MountainTimeZone = @"US/Mountain";
                                              selector:@selector(positionUpdated)
                                                  name:DRNotificationName.locationUpdated
                                                object:nil];
-    [self updateCellsManualMode];
 }
 
 // Stay in same mode
@@ -70,8 +69,10 @@ NSString *const MountainTimeZone = @"US/Mountain";
 - (void)positionUpdated {
     
     // Set the initial manual station to the current location if it hasn't been set before
-    if (!self.currentManualStation)
+    if (!self.currentManualStation) {
         self.currentManualStation = sharedLocationManager.closestStation;
+        [self updateCellsAutoMode];
+    }
 }
 
 /**
