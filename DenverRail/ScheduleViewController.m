@@ -51,6 +51,7 @@ NSString *const MountainTimeZone = @"US/Mountain";
                                              selector:@selector(positionUpdated)
                                                  name:DRNotificationName.locationUpdated
                                                object:nil];
+    [self updateCellsManualMode];
 }
 
 // Stay in same mode
