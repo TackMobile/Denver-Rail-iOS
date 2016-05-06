@@ -48,19 +48,17 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 	[AVAudioSession sharedInstance];
     self.whistleBlower = [[WhistleBlowerController alloc] init];
     [self configureAudioSession];
-	NSError *error = [[NSError alloc] init];
-	[[AVAudioSession sharedInstance] setActive:YES error:&error];
+	[[AVAudioSession sharedInstance] setActive:YES error:nil];
 }
 
 // Configures the audio session
 - (void) configureAudioSession {
 	BOOL isPlayingWithOthers = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
-	NSError *error = [[NSError alloc] init];
     
     if (isPlayingWithOthers && self.playSounds) {
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&error];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
     } else if (self.playSounds) {
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:&error];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:nil];
     }
     
     self.whistleBlower.isOn = NO;
