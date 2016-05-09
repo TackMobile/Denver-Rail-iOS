@@ -19,3 +19,7 @@ const struct DRNotificationName DRNotificationName = {
     .locationUpdated = @"locationUpdated",
     .headingUpdated = @"headingUpdated",
 };
+
+const struct DRFontName DRFontName = {
+    .lightboard = @"Lightboard",
+};
