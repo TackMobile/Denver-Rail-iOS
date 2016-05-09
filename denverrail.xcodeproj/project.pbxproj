@@ -13,28 +13,6 @@
 		27F49DB31742A62E0064BFA0 /* w-line-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DAF1742A62E0064BFA0 /* w-line-circle@2x.png */; };
 		27F49DB41742A62E0064BFA0 /* w-line-square.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DB01742A62E0064BFA0 /* w-line-square.png */; };
 		27F49DB51742A62E0064BFA0 /* w-line-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27F49DB11742A62E0064BFA0 /* w-line-square@2x.png */; };
-		371FE56C175948B60066BFD5 /* lakewood-wadsworth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE56B175948B60066BFD5 /* lakewood-wadsworth@2x.png */; };
-		371FE56E175948C00066BFD5 /* sheridan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE56D175948C00066BFD5 /* sheridan@2x.png */; };
-		371FE570175948D90066BFD5 /* sheridan.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE56F175948D90066BFD5 /* sheridan.png */; };
-		371FE572175948E10066BFD5 /* red-rocks-college@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE571175948E10066BFD5 /* red-rocks-college@2x.png */; };
-		371FE574175948E60066BFD5 /* red-rocks-college.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE573175948E60066BFD5 /* red-rocks-college.png */; };
-		371FE576175948F90066BFD5 /* perry@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE575175948F90066BFD5 /* perry@2x.png */; };
-		371FE578175948FE0066BFD5 /* perry.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE577175948FE0066BFD5 /* perry.png */; };
-		371FE57A175949030066BFD5 /* oak@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE579175949030066BFD5 /* oak@2x.png */; };
-		371FE57C175949090066BFD5 /* oak.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE57B175949090066BFD5 /* oak.png */; };
-		371FE57E175949110066BFD5 /* lamar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE57D175949110066BFD5 /* lamar@2x.png */; };
-		371FE580175949190066BFD5 /* lamar.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE57F175949190066BFD5 /* lamar.png */; };
-		371FE5821759491F0066BFD5 /* lakewood-wadsworth.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE5811759491F0066BFD5 /* lakewood-wadsworth.png */; };
-		371FE584175949290066BFD5 /* knox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE583175949290066BFD5 /* knox@2x.png */; };
-		371FE586175949310066BFD5 /* knox.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE585175949310066BFD5 /* knox.png */; };
-		371FE5881759493A0066BFD5 /* jeffco-golden@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE5871759493A0066BFD5 /* jeffco-golden@2x.png */; };
-		371FE58A175949400066BFD5 /* jeffco-golden.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE589175949400066BFD5 /* jeffco-golden.png */; };
-		371FE58C175949460066BFD5 /* garrison@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE58B175949460066BFD5 /* garrison@2x.png */; };
-		371FE58E1759494B0066BFD5 /* garrison.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE58D1759494B0066BFD5 /* garrison.png */; };
-		371FE590175949530066BFD5 /* federal-center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE58F175949530066BFD5 /* federal-center@2x.png */; };
-		371FE592175949580066BFD5 /* federal-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE591175949580066BFD5 /* federal-center.png */; };
-		371FE5941759495D0066BFD5 /* decatur-federal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE5931759495D0066BFD5 /* decatur-federal@2x.png */; };
-		371FE596175949620066BFD5 /* decatur-federal.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE595175949620066BFD5 /* decatur-federal.png */; };
 		371FE59C175949E50066BFD5 /* bottom-bar-right-button-selected-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE598175949E50066BFD5 /* bottom-bar-right-button-selected-568h@2x.png */; };
 		371FE59D175949E50066BFD5 /* bottom-bar-left-button-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE599175949E50066BFD5 /* bottom-bar-left-button-568h@2x.png */; };
 		371FE59E175949E50066BFD5 /* bottom-bar-left-button-selected-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 371FE59A175949E50066BFD5 /* bottom-bar-left-button-selected-568h@2x.png */; };
@@ -78,12 +56,6 @@
 		39A13C68152F9DB1005CB307 /* white-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A13C66152F9DB1005CB307 /* white-background.png */; };
 		39A13C6A152FAEFE005CB307 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A13C69152FAEFE005CB307 /* Default.png */; };
 		39A13C6C152FAF3F005CB307 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A13C6B152FAF3F005CB307 /* Default@2x.png */; };
-		39D2F4E1152E5CE5003C11F7 /* 10th-osage.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D2F4DF152E5CE5003C11F7 /* 10th-osage.png */; };
-		39D2F4E2152E5CE5003C11F7 /* 10th-osage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D2F4E0152E5CE5003C11F7 /* 10th-osage@2x.png */; };
-		39D2F4E5152E5CF6003C11F7 /* union-station.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D2F4E3152E5CF6003C11F7 /* union-station.png */; };
-		39D2F4E6152E5CF6003C11F7 /* union-station@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D2F4E4152E5CF6003C11F7 /* union-station@2x.png */; };
-		39D2F4E9152E5F0C003C11F7 /* dayton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D2F4E7152E5F0C003C11F7 /* dayton.png */; };
-		39D2F4EA152E5F0C003C11F7 /* dayton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39D2F4E8152E5F0C003C11F7 /* dayton@2x.png */; };
 		39D99D2C152BC56200F3C2AE /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D99D2A152BC56200F3C2AE /* SearchViewController.m */; };
 		39D99D2D152BC56200F3C2AE /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D99D2B152BC56200F3C2AE /* SearchViewController.xib */; };
 		39DF566F14E8BC800075CE8D /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DF566E14E8BC800075CE8D /* Icon-57.png */; };
@@ -139,71 +111,6 @@
 		39E6391814E38D79006FC1D6 /* auto-off-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E6391214E38D6C006FC1D6 /* auto-off-button.png */; };
 		39E6391B14E38D79006FC1D6 /* auto-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E6391514E38D76006FC1D6 /* auto-button@2x.png */; };
 		39E6391C14E38D79006FC1D6 /* auto-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E6391614E38D77006FC1D6 /* auto-button.png */; };
-		39E7329714E4A1080051CBF3 /* 16th-california.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325114E4A1080051CBF3 /* 16th-california.png */; };
-		39E7329814E4A1080051CBF3 /* 16th-california@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325214E4A1080051CBF3 /* 16th-california@2x.png */; };
-		39E7329914E4A1080051CBF3 /* 16th-stout.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325314E4A1080051CBF3 /* 16th-stout.png */; };
-		39E7329A14E4A1080051CBF3 /* 16th-stout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325414E4A1080051CBF3 /* 16th-stout@2x.png */; };
-		39E7329B14E4A1080051CBF3 /* 18th-california.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325514E4A1080051CBF3 /* 18th-california.png */; };
-		39E7329C14E4A1080051CBF3 /* 18th-california@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325614E4A1080051CBF3 /* 18th-california@2x.png */; };
-		39E7329D14E4A1080051CBF3 /* 18th-stout.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325714E4A1080051CBF3 /* 18th-stout.png */; };
-		39E7329E14E4A1080051CBF3 /* 18th-stout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325814E4A1080051CBF3 /* 18th-stout@2x.png */; };
-		39E7329F14E4A1080051CBF3 /* 20th-welton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325914E4A1080051CBF3 /* 20th-welton.png */; };
-		39E732A014E4A1080051CBF3 /* 20th-welton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325A14E4A1080051CBF3 /* 20th-welton@2x.png */; };
-		39E732A114E4A1080051CBF3 /* 25th-welton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325B14E4A1080051CBF3 /* 25th-welton.png */; };
-		39E732A214E4A1080051CBF3 /* 25th-welton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325C14E4A1080051CBF3 /* 25th-welton@2x.png */; };
-		39E732A314E4A1080051CBF3 /* 27th-welton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325D14E4A1080051CBF3 /* 27th-welton.png */; };
-		39E732A414E4A1080051CBF3 /* 27th-welton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325E14E4A1080051CBF3 /* 27th-welton@2x.png */; };
-		39E732A514E4A1080051CBF3 /* 29th-welton.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7325F14E4A1080051CBF3 /* 29th-welton.png */; };
-		39E732A614E4A1080051CBF3 /* 29th-welton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326014E4A1080051CBF3 /* 29th-welton@2x.png */; };
-		39E732A714E4A1080051CBF3 /* 30th-downing.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326114E4A1080051CBF3 /* 30th-downing.png */; };
-		39E732A814E4A1080051CBF3 /* 30th-downing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326214E4A1080051CBF3 /* 30th-downing@2x.png */; };
-		39E732A914E4A1080051CBF3 /* alameda.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326314E4A1080051CBF3 /* alameda.png */; };
-		39E732AA14E4A1080051CBF3 /* alameda@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326414E4A1080051CBF3 /* alameda@2x.png */; };
-		39E732AB14E4A1080051CBF3 /* arapahoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326514E4A1080051CBF3 /* arapahoe.png */; };
-		39E732AC14E4A1080051CBF3 /* arapahoe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326614E4A1080051CBF3 /* arapahoe@2x.png */; };
-		39E732AD14E4A1080051CBF3 /* auraria-west.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326714E4A1080051CBF3 /* auraria-west.png */; };
-		39E732AE14E4A1080051CBF3 /* auraria-west@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326814E4A1080051CBF3 /* auraria-west@2x.png */; };
-		39E732AF14E4A1080051CBF3 /* belleview.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326914E4A1080051CBF3 /* belleview.png */; };
-		39E732B014E4A1080051CBF3 /* belleview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326A14E4A1080051CBF3 /* belleview@2x.png */; };
-		39E732B114E4A1080051CBF3 /* colfax-auraria.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326B14E4A1080051CBF3 /* colfax-auraria.png */; };
-		39E732B214E4A1080051CBF3 /* colfax-auraria@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326C14E4A1080051CBF3 /* colfax-auraria@2x.png */; };
-		39E732B314E4A1080051CBF3 /* colorado.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326D14E4A1080051CBF3 /* colorado.png */; };
-		39E732B414E4A1080051CBF3 /* colorado@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326E14E4A1080051CBF3 /* colorado@2x.png */; };
-		39E732B514E4A1080051CBF3 /* convention-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7326F14E4A1080051CBF3 /* convention-center.png */; };
-		39E732B614E4A1080051CBF3 /* convention-center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327014E4A1080051CBF3 /* convention-center@2x.png */; };
-		39E732B714E4A1080051CBF3 /* county-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327114E4A1080051CBF3 /* county-line.png */; };
-		39E732B814E4A1080051CBF3 /* county-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327214E4A1080051CBF3 /* county-line@2x.png */; };
-		39E732BB14E4A1080051CBF3 /* dry-creek.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327514E4A1080051CBF3 /* dry-creek.png */; };
-		39E732BC14E4A1080051CBF3 /* dry-creek@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327614E4A1080051CBF3 /* dry-creek@2x.png */; };
-		39E732BD14E4A1080051CBF3 /* englewood.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327714E4A1080051CBF3 /* englewood.png */; };
-		39E732BE14E4A1080051CBF3 /* englewood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327814E4A1080051CBF3 /* englewood@2x.png */; };
-		39E732BF14E4A1080051CBF3 /* evans.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327914E4A1080051CBF3 /* evans.png */; };
-		39E732C014E4A1080051CBF3 /* evans@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327A14E4A1080051CBF3 /* evans@2x.png */; };
-		39E732C114E4A1080051CBF3 /* hampden-southmoor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327B14E4A1080051CBF3 /* hampden-southmoor@2x.png */; };
-		39E732C214E4A1080051CBF3 /* i25-broadway.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327C14E4A1080051CBF3 /* i25-broadway.png */; };
-		39E732C314E4A1080051CBF3 /* i25-broadway@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327D14E4A1080051CBF3 /* i25-broadway@2x.png */; };
-		39E732C414E4A1080051CBF3 /* lincoln.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327E14E4A1080051CBF3 /* lincoln.png */; };
-		39E732C514E4A1080051CBF3 /* lincoln@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7327F14E4A1080051CBF3 /* lincoln@2x.png */; };
-		39E732C614E4A1080051CBF3 /* littleton-downtown.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328014E4A1080051CBF3 /* littleton-downtown.png */; };
-		39E732C714E4A1080051CBF3 /* littleton-downtown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328114E4A1080051CBF3 /* littleton-downtown@2x.png */; };
-		39E732C814E4A1080051CBF3 /* littleton-mineral.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328214E4A1080051CBF3 /* littleton-mineral.png */; };
-		39E732C914E4A1080051CBF3 /* littleton-mineral@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328314E4A1080051CBF3 /* littleton-mineral@2x.png */; };
-		39E732CA14E4A1080051CBF3 /* louisiana-pearl.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328414E4A1080051CBF3 /* louisiana-pearl.png */; };
-		39E732CB14E4A1080051CBF3 /* louisiana-pearl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328514E4A1080051CBF3 /* louisiana-pearl@2x.png */; };
-		39E732CC14E4A1080051CBF3 /* mile-high@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328614E4A1080051CBF3 /* mile-high@2x.png */; };
-		39E732CD14E4A1080051CBF3 /* nine-mile.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328714E4A1080051CBF3 /* nine-mile.png */; };
-		39E732CE14E4A1080051CBF3 /* nine-mile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328814E4A1080051CBF3 /* nine-mile@2x.png */; };
-		39E732CF14E4A1080051CBF3 /* orchard.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328914E4A1080051CBF3 /* orchard.png */; };
-		39E732D014E4A1080051CBF3 /* orchard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328A14E4A1080051CBF3 /* orchard@2x.png */; };
-		39E732D114E4A1080051CBF3 /* oxford-sheridan.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328B14E4A1080051CBF3 /* oxford-sheridan.png */; };
-		39E732D214E4A1080051CBF3 /* oxford-sheridan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328C14E4A1080051CBF3 /* oxford-sheridan@2x.png */; };
-		39E732D314E4A1080051CBF3 /* pepsi-center.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328D14E4A1080051CBF3 /* pepsi-center.png */; };
-		39E732D414E4A1080051CBF3 /* pepsi-center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7328E14E4A1080051CBF3 /* pepsi-center@2x.png */; };
-		39E732D714E4A1080051CBF3 /* university.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7329114E4A1080051CBF3 /* university.png */; };
-		39E732D814E4A1080051CBF3 /* university@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7329214E4A1080051CBF3 /* university@2x.png */; };
-		39E732D914E4A1080051CBF3 /* yale.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7329314E4A1080051CBF3 /* yale.png */; };
-		39E732DA14E4A1080051CBF3 /* yale@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E7329414E4A1080051CBF3 /* yale@2x.png */; };
-		39E732DC14E4A1CD0051CBF3 /* mile-high.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E732DB14E4A1CD0051CBF3 /* mile-high.png */; };
 		39E7F0E114DE05F0007C8617 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E7F0E014DE05F0007C8617 /* UIKit.framework */; };
 		39E7F0E314DE05F0007C8617 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E7F0E214DE05F0007C8617 /* Foundation.framework */; };
 		39E7F0E514DE05F0007C8617 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E7F0E414DE05F0007C8617 /* CoreGraphics.framework */; };
@@ -262,28 +169,6 @@
 		27F49DAF1742A62E0064BFA0 /* w-line-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle@2x.png"; sourceTree = "<group>"; };
 		27F49DB01742A62E0064BFA0 /* w-line-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square.png"; sourceTree = "<group>"; };
 		27F49DB11742A62E0064BFA0 /* w-line-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-square@2x.png"; sourceTree = "<group>"; };
-		371FE56B175948B60066BFD5 /* lakewood-wadsworth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lakewood-wadsworth@2x.png"; sourceTree = "<group>"; };
-		371FE56D175948C00066BFD5 /* sheridan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sheridan@2x.png"; sourceTree = "<group>"; };
-		371FE56F175948D90066BFD5 /* sheridan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheridan.png; sourceTree = "<group>"; };
-		371FE571175948E10066BFD5 /* red-rocks-college@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-rocks-college@2x.png"; sourceTree = "<group>"; };
-		371FE573175948E60066BFD5 /* red-rocks-college.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-rocks-college.png"; sourceTree = "<group>"; };
-		371FE575175948F90066BFD5 /* perry@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "perry@2x.png"; sourceTree = "<group>"; };
-		371FE577175948FE0066BFD5 /* perry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perry.png; sourceTree = "<group>"; };
-		371FE579175949030066BFD5 /* oak@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oak@2x.png"; sourceTree = "<group>"; };
-		371FE57B175949090066BFD5 /* oak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oak.png; sourceTree = "<group>"; };
-		371FE57D175949110066BFD5 /* lamar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lamar@2x.png"; sourceTree = "<group>"; };
-		371FE57F175949190066BFD5 /* lamar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lamar.png; sourceTree = "<group>"; };
-		371FE5811759491F0066BFD5 /* lakewood-wadsworth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lakewood-wadsworth.png"; sourceTree = "<group>"; };
-		371FE583175949290066BFD5 /* knox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "knox@2x.png"; sourceTree = "<group>"; };
-		371FE585175949310066BFD5 /* knox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knox.png; sourceTree = "<group>"; };
-		371FE5871759493A0066BFD5 /* jeffco-golden@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jeffco-golden@2x.png"; sourceTree = "<group>"; };
-		371FE589175949400066BFD5 /* jeffco-golden.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jeffco-golden.png"; sourceTree = "<group>"; };
-		371FE58B175949460066BFD5 /* garrison@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "garrison@2x.png"; sourceTree = "<group>"; };
-		371FE58D1759494B0066BFD5 /* garrison.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = garrison.png; sourceTree = "<group>"; };
-		371FE58F175949530066BFD5 /* federal-center@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "federal-center@2x.png"; sourceTree = "<group>"; };
-		371FE591175949580066BFD5 /* federal-center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "federal-center.png"; sourceTree = "<group>"; };
-		371FE5931759495D0066BFD5 /* decatur-federal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "decatur-federal@2x.png"; sourceTree = "<group>"; };
-		371FE595175949620066BFD5 /* decatur-federal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "decatur-federal.png"; sourceTree = "<group>"; };
 		371FE598175949E50066BFD5 /* bottom-bar-right-button-selected-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bar-right-button-selected-568h@2x.png"; sourceTree = "<group>"; };
 		371FE599175949E50066BFD5 /* bottom-bar-left-button-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bar-left-button-568h@2x.png"; sourceTree = "<group>"; };
 		371FE59A175949E50066BFD5 /* bottom-bar-left-button-selected-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-bar-left-button-selected-568h@2x.png"; sourceTree = "<group>"; };
@@ -333,12 +218,6 @@
 		39A13C66152F9DB1005CB307 /* white-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-background.png"; sourceTree = "<group>"; };
 		39A13C69152FAEFE005CB307 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		39A13C6B152FAF3F005CB307 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
-		39D2F4DF152E5CE5003C11F7 /* 10th-osage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10th-osage.png"; sourceTree = "<group>"; };
-		39D2F4E0152E5CE5003C11F7 /* 10th-osage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10th-osage@2x.png"; sourceTree = "<group>"; };
-		39D2F4E3152E5CF6003C11F7 /* union-station.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "union-station.png"; sourceTree = "<group>"; };
-		39D2F4E4152E5CF6003C11F7 /* union-station@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "union-station@2x.png"; sourceTree = "<group>"; };
-		39D2F4E7152E5F0C003C11F7 /* dayton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dayton.png; sourceTree = "<group>"; };
-		39D2F4E8152E5F0C003C11F7 /* dayton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dayton@2x.png"; sourceTree = "<group>"; };
 		39D99D29152BC56200F3C2AE /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		39D99D2A152BC56200F3C2AE /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		39D99D2B152BC56200F3C2AE /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -399,71 +278,6 @@
 		39E6391414E38D71006FC1D6 /* map-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-button.png"; sourceTree = "<group>"; };
 		39E6391514E38D76006FC1D6 /* auto-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auto-button@2x.png"; sourceTree = "<group>"; };
 		39E6391614E38D77006FC1D6 /* auto-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auto-button.png"; sourceTree = "<group>"; };
-		39E7325114E4A1080051CBF3 /* 16th-california.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16th-california.png"; sourceTree = "<group>"; };
-		39E7325214E4A1080051CBF3 /* 16th-california@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16th-california@2x.png"; sourceTree = "<group>"; };
-		39E7325314E4A1080051CBF3 /* 16th-stout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16th-stout.png"; sourceTree = "<group>"; };
-		39E7325414E4A1080051CBF3 /* 16th-stout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16th-stout@2x.png"; sourceTree = "<group>"; };
-		39E7325514E4A1080051CBF3 /* 18th-california.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18th-california.png"; sourceTree = "<group>"; };
-		39E7325614E4A1080051CBF3 /* 18th-california@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18th-california@2x.png"; sourceTree = "<group>"; };
-		39E7325714E4A1080051CBF3 /* 18th-stout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18th-stout.png"; sourceTree = "<group>"; };
-		39E7325814E4A1080051CBF3 /* 18th-stout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "18th-stout@2x.png"; sourceTree = "<group>"; };
-		39E7325914E4A1080051CBF3 /* 20th-welton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20th-welton.png"; sourceTree = "<group>"; };
-		39E7325A14E4A1080051CBF3 /* 20th-welton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20th-welton@2x.png"; sourceTree = "<group>"; };
-		39E7325B14E4A1080051CBF3 /* 25th-welton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "25th-welton.png"; sourceTree = "<group>"; };
-		39E7325C14E4A1080051CBF3 /* 25th-welton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "25th-welton@2x.png"; sourceTree = "<group>"; };
-		39E7325D14E4A1080051CBF3 /* 27th-welton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "27th-welton.png"; sourceTree = "<group>"; };
-		39E7325E14E4A1080051CBF3 /* 27th-welton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "27th-welton@2x.png"; sourceTree = "<group>"; };
-		39E7325F14E4A1080051CBF3 /* 29th-welton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29th-welton.png"; sourceTree = "<group>"; };
-		39E7326014E4A1080051CBF3 /* 29th-welton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29th-welton@2x.png"; sourceTree = "<group>"; };
-		39E7326114E4A1080051CBF3 /* 30th-downing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30th-downing.png"; sourceTree = "<group>"; };
-		39E7326214E4A1080051CBF3 /* 30th-downing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30th-downing@2x.png"; sourceTree = "<group>"; };
-		39E7326314E4A1080051CBF3 /* alameda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alameda.png; sourceTree = "<group>"; };
-		39E7326414E4A1080051CBF3 /* alameda@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alameda@2x.png"; sourceTree = "<group>"; };
-		39E7326514E4A1080051CBF3 /* arapahoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arapahoe.png; sourceTree = "<group>"; };
-		39E7326614E4A1080051CBF3 /* arapahoe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arapahoe@2x.png"; sourceTree = "<group>"; };
-		39E7326714E4A1080051CBF3 /* auraria-west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auraria-west.png"; sourceTree = "<group>"; };
-		39E7326814E4A1080051CBF3 /* auraria-west@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auraria-west@2x.png"; sourceTree = "<group>"; };
-		39E7326914E4A1080051CBF3 /* belleview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = belleview.png; sourceTree = "<group>"; };
-		39E7326A14E4A1080051CBF3 /* belleview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "belleview@2x.png"; sourceTree = "<group>"; };
-		39E7326B14E4A1080051CBF3 /* colfax-auraria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colfax-auraria.png"; sourceTree = "<group>"; };
-		39E7326C14E4A1080051CBF3 /* colfax-auraria@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colfax-auraria@2x.png"; sourceTree = "<group>"; };
-		39E7326D14E4A1080051CBF3 /* colorado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorado.png; sourceTree = "<group>"; };
-		39E7326E14E4A1080051CBF3 /* colorado@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colorado@2x.png"; sourceTree = "<group>"; };
-		39E7326F14E4A1080051CBF3 /* convention-center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "convention-center.png"; sourceTree = "<group>"; };
-		39E7327014E4A1080051CBF3 /* convention-center@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "convention-center@2x.png"; sourceTree = "<group>"; };
-		39E7327114E4A1080051CBF3 /* county-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "county-line.png"; sourceTree = "<group>"; };
-		39E7327214E4A1080051CBF3 /* county-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "county-line@2x.png"; sourceTree = "<group>"; };
-		39E7327514E4A1080051CBF3 /* dry-creek.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dry-creek.png"; sourceTree = "<group>"; };
-		39E7327614E4A1080051CBF3 /* dry-creek@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dry-creek@2x.png"; sourceTree = "<group>"; };
-		39E7327714E4A1080051CBF3 /* englewood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = englewood.png; sourceTree = "<group>"; };
-		39E7327814E4A1080051CBF3 /* englewood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "englewood@2x.png"; sourceTree = "<group>"; };
-		39E7327914E4A1080051CBF3 /* evans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evans.png; sourceTree = "<group>"; };
-		39E7327A14E4A1080051CBF3 /* evans@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "evans@2x.png"; sourceTree = "<group>"; };
-		39E7327B14E4A1080051CBF3 /* hampden-southmoor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hampden-southmoor@2x.png"; sourceTree = "<group>"; };
-		39E7327C14E4A1080051CBF3 /* i25-broadway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "i25-broadway.png"; sourceTree = "<group>"; };
-		39E7327D14E4A1080051CBF3 /* i25-broadway@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "i25-broadway@2x.png"; sourceTree = "<group>"; };
-		39E7327E14E4A1080051CBF3 /* lincoln.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lincoln.png; sourceTree = "<group>"; };
-		39E7327F14E4A1080051CBF3 /* lincoln@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lincoln@2x.png"; sourceTree = "<group>"; };
-		39E7328014E4A1080051CBF3 /* littleton-downtown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "littleton-downtown.png"; sourceTree = "<group>"; };
-		39E7328114E4A1080051CBF3 /* littleton-downtown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "littleton-downtown@2x.png"; sourceTree = "<group>"; };
-		39E7328214E4A1080051CBF3 /* littleton-mineral.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "littleton-mineral.png"; sourceTree = "<group>"; };
-		39E7328314E4A1080051CBF3 /* littleton-mineral@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "littleton-mineral@2x.png"; sourceTree = "<group>"; };
-		39E7328414E4A1080051CBF3 /* louisiana-pearl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "louisiana-pearl.png"; sourceTree = "<group>"; };
-		39E7328514E4A1080051CBF3 /* louisiana-pearl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "louisiana-pearl@2x.png"; sourceTree = "<group>"; };
-		39E7328614E4A1080051CBF3 /* mile-high@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mile-high@2x.png"; sourceTree = "<group>"; };
-		39E7328714E4A1080051CBF3 /* nine-mile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nine-mile.png"; sourceTree = "<group>"; };
-		39E7328814E4A1080051CBF3 /* nine-mile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nine-mile@2x.png"; sourceTree = "<group>"; };
-		39E7328914E4A1080051CBF3 /* orchard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orchard.png; sourceTree = "<group>"; };
-		39E7328A14E4A1080051CBF3 /* orchard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orchard@2x.png"; sourceTree = "<group>"; };
-		39E7328B14E4A1080051CBF3 /* oxford-sheridan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oxford-sheridan.png"; sourceTree = "<group>"; };
-		39E7328C14E4A1080051CBF3 /* oxford-sheridan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oxford-sheridan@2x.png"; sourceTree = "<group>"; };
-		39E7328D14E4A1080051CBF3 /* pepsi-center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pepsi-center.png"; sourceTree = "<group>"; };
-		39E7328E14E4A1080051CBF3 /* pepsi-center@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pepsi-center@2x.png"; sourceTree = "<group>"; };
-		39E7329114E4A1080051CBF3 /* university.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = university.png; sourceTree = "<group>"; };
-		39E7329214E4A1080051CBF3 /* university@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "university@2x.png"; sourceTree = "<group>"; };
-		39E7329314E4A1080051CBF3 /* yale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yale.png; sourceTree = "<group>"; };
-		39E7329414E4A1080051CBF3 /* yale@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yale@2x.png"; sourceTree = "<group>"; };
-		39E732DB14E4A1CD0051CBF3 /* mile-high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mile-high.png"; sourceTree = "<group>"; };
 		39E7F0DC14DE05F0007C8617 /* denverrail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = denverrail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E7F0E014DE05F0007C8617 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		39E7F0E214DE05F0007C8617 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -699,99 +513,6 @@
 			children = (
 				3967516C15338D06002DF8C4 /* tap-to-edit.png */,
 				3967516D15338D06002DF8C4 /* tap-to-edit@2x.png */,
-				39D2F4DF152E5CE5003C11F7 /* 10th-osage.png */,
-				39D2F4E0152E5CE5003C11F7 /* 10th-osage@2x.png */,
-				39E7325114E4A1080051CBF3 /* 16th-california.png */,
-				39E7325214E4A1080051CBF3 /* 16th-california@2x.png */,
-				39E7325314E4A1080051CBF3 /* 16th-stout.png */,
-				39E7325414E4A1080051CBF3 /* 16th-stout@2x.png */,
-				39E7325514E4A1080051CBF3 /* 18th-california.png */,
-				39E7325614E4A1080051CBF3 /* 18th-california@2x.png */,
-				39E7325714E4A1080051CBF3 /* 18th-stout.png */,
-				39E7325814E4A1080051CBF3 /* 18th-stout@2x.png */,
-				39E7325914E4A1080051CBF3 /* 20th-welton.png */,
-				39E7325A14E4A1080051CBF3 /* 20th-welton@2x.png */,
-				39E7325B14E4A1080051CBF3 /* 25th-welton.png */,
-				39E7325C14E4A1080051CBF3 /* 25th-welton@2x.png */,
-				39E7325D14E4A1080051CBF3 /* 27th-welton.png */,
-				39E7325E14E4A1080051CBF3 /* 27th-welton@2x.png */,
-				39E7325F14E4A1080051CBF3 /* 29th-welton.png */,
-				39E7326014E4A1080051CBF3 /* 29th-welton@2x.png */,
-				39E7326114E4A1080051CBF3 /* 30th-downing.png */,
-				39E7326214E4A1080051CBF3 /* 30th-downing@2x.png */,
-				39E7326314E4A1080051CBF3 /* alameda.png */,
-				39E7326414E4A1080051CBF3 /* alameda@2x.png */,
-				39E7326514E4A1080051CBF3 /* arapahoe.png */,
-				39E7326614E4A1080051CBF3 /* arapahoe@2x.png */,
-				39E7326714E4A1080051CBF3 /* auraria-west.png */,
-				39E7326814E4A1080051CBF3 /* auraria-west@2x.png */,
-				39E7326914E4A1080051CBF3 /* belleview.png */,
-				39E7326A14E4A1080051CBF3 /* belleview@2x.png */,
-				39E7326B14E4A1080051CBF3 /* colfax-auraria.png */,
-				39E7326C14E4A1080051CBF3 /* colfax-auraria@2x.png */,
-				39E7326D14E4A1080051CBF3 /* colorado.png */,
-				39E7326E14E4A1080051CBF3 /* colorado@2x.png */,
-				39E7326F14E4A1080051CBF3 /* convention-center.png */,
-				39E7327014E4A1080051CBF3 /* convention-center@2x.png */,
-				39E7327114E4A1080051CBF3 /* county-line.png */,
-				39E7327214E4A1080051CBF3 /* county-line@2x.png */,
-				39D2F4E7152E5F0C003C11F7 /* dayton.png */,
-				39D2F4E8152E5F0C003C11F7 /* dayton@2x.png */,
-				39E7327514E4A1080051CBF3 /* dry-creek.png */,
-				39E7327614E4A1080051CBF3 /* dry-creek@2x.png */,
-				39E7327714E4A1080051CBF3 /* englewood.png */,
-				39E7327814E4A1080051CBF3 /* englewood@2x.png */,
-				39E7327914E4A1080051CBF3 /* evans.png */,
-				39E7327A14E4A1080051CBF3 /* evans@2x.png */,
-				39E7327B14E4A1080051CBF3 /* hampden-southmoor@2x.png */,
-				39E7327C14E4A1080051CBF3 /* i25-broadway.png */,
-				39E7327D14E4A1080051CBF3 /* i25-broadway@2x.png */,
-				371FE595175949620066BFD5 /* decatur-federal.png */,
-				371FE5931759495D0066BFD5 /* decatur-federal@2x.png */,
-				371FE58B175949460066BFD5 /* garrison@2x.png */,
-				371FE58D1759494B0066BFD5 /* garrison.png */,
-				371FE591175949580066BFD5 /* federal-center.png */,
-				371FE58F175949530066BFD5 /* federal-center@2x.png */,
-				371FE5871759493A0066BFD5 /* jeffco-golden@2x.png */,
-				371FE589175949400066BFD5 /* jeffco-golden.png */,
-				371FE583175949290066BFD5 /* knox@2x.png */,
-				371FE585175949310066BFD5 /* knox.png */,
-				371FE57F175949190066BFD5 /* lamar.png */,
-				371FE57D175949110066BFD5 /* lamar@2x.png */,
-				371FE5811759491F0066BFD5 /* lakewood-wadsworth.png */,
-				371FE56B175948B60066BFD5 /* lakewood-wadsworth@2x.png */,
-				371FE57B175949090066BFD5 /* oak.png */,
-				371FE579175949030066BFD5 /* oak@2x.png */,
-				371FE577175948FE0066BFD5 /* perry.png */,
-				371FE575175948F90066BFD5 /* perry@2x.png */,
-				371FE573175948E60066BFD5 /* red-rocks-college.png */,
-				371FE571175948E10066BFD5 /* red-rocks-college@2x.png */,
-				371FE56D175948C00066BFD5 /* sheridan@2x.png */,
-				371FE56F175948D90066BFD5 /* sheridan.png */,
-				39E7327E14E4A1080051CBF3 /* lincoln.png */,
-				39E7327F14E4A1080051CBF3 /* lincoln@2x.png */,
-				39E7328014E4A1080051CBF3 /* littleton-downtown.png */,
-				39E7328114E4A1080051CBF3 /* littleton-downtown@2x.png */,
-				39E7328214E4A1080051CBF3 /* littleton-mineral.png */,
-				39E7328314E4A1080051CBF3 /* littleton-mineral@2x.png */,
-				39E7328414E4A1080051CBF3 /* louisiana-pearl.png */,
-				39E7328514E4A1080051CBF3 /* louisiana-pearl@2x.png */,
-				39E732DB14E4A1CD0051CBF3 /* mile-high.png */,
-				39E7328614E4A1080051CBF3 /* mile-high@2x.png */,
-				39E7328714E4A1080051CBF3 /* nine-mile.png */,
-				39E7328814E4A1080051CBF3 /* nine-mile@2x.png */,
-				39E7328914E4A1080051CBF3 /* orchard.png */,
-				39E7328A14E4A1080051CBF3 /* orchard@2x.png */,
-				39E7328B14E4A1080051CBF3 /* oxford-sheridan.png */,
-				39E7328C14E4A1080051CBF3 /* oxford-sheridan@2x.png */,
-				39E7328D14E4A1080051CBF3 /* pepsi-center.png */,
-				39E7328E14E4A1080051CBF3 /* pepsi-center@2x.png */,
-				39D2F4E3152E5CF6003C11F7 /* union-station.png */,
-				39D2F4E4152E5CF6003C11F7 /* union-station@2x.png */,
-				39E7329114E4A1080051CBF3 /* university.png */,
-				39E7329214E4A1080051CBF3 /* university@2x.png */,
-				39E7329314E4A1080051CBF3 /* yale.png */,
-				39E7329414E4A1080051CBF3 /* yale@2x.png */,
 			);
 			path = stations;
 			sourceTree = "<group>";
@@ -1038,71 +759,6 @@
 				39E6391814E38D79006FC1D6 /* auto-off-button.png in Resources */,
 				39E6391B14E38D79006FC1D6 /* auto-button@2x.png in Resources */,
 				39E6391C14E38D79006FC1D6 /* auto-button.png in Resources */,
-				39E7329714E4A1080051CBF3 /* 16th-california.png in Resources */,
-				39E7329814E4A1080051CBF3 /* 16th-california@2x.png in Resources */,
-				39E7329914E4A1080051CBF3 /* 16th-stout.png in Resources */,
-				39E7329A14E4A1080051CBF3 /* 16th-stout@2x.png in Resources */,
-				39E7329B14E4A1080051CBF3 /* 18th-california.png in Resources */,
-				39E7329C14E4A1080051CBF3 /* 18th-california@2x.png in Resources */,
-				39E7329D14E4A1080051CBF3 /* 18th-stout.png in Resources */,
-				39E7329E14E4A1080051CBF3 /* 18th-stout@2x.png in Resources */,
-				39E7329F14E4A1080051CBF3 /* 20th-welton.png in Resources */,
-				39E732A014E4A1080051CBF3 /* 20th-welton@2x.png in Resources */,
-				39E732A114E4A1080051CBF3 /* 25th-welton.png in Resources */,
-				39E732A214E4A1080051CBF3 /* 25th-welton@2x.png in Resources */,
-				39E732A314E4A1080051CBF3 /* 27th-welton.png in Resources */,
-				39E732A414E4A1080051CBF3 /* 27th-welton@2x.png in Resources */,
-				39E732A514E4A1080051CBF3 /* 29th-welton.png in Resources */,
-				39E732A614E4A1080051CBF3 /* 29th-welton@2x.png in Resources */,
-				39E732A714E4A1080051CBF3 /* 30th-downing.png in Resources */,
-				39E732A814E4A1080051CBF3 /* 30th-downing@2x.png in Resources */,
-				39E732A914E4A1080051CBF3 /* alameda.png in Resources */,
-				39E732AA14E4A1080051CBF3 /* alameda@2x.png in Resources */,
-				39E732AB14E4A1080051CBF3 /* arapahoe.png in Resources */,
-				39E732AC14E4A1080051CBF3 /* arapahoe@2x.png in Resources */,
-				39E732AD14E4A1080051CBF3 /* auraria-west.png in Resources */,
-				39E732AE14E4A1080051CBF3 /* auraria-west@2x.png in Resources */,
-				39E732AF14E4A1080051CBF3 /* belleview.png in Resources */,
-				39E732B014E4A1080051CBF3 /* belleview@2x.png in Resources */,
-				39E732B114E4A1080051CBF3 /* colfax-auraria.png in Resources */,
-				39E732B214E4A1080051CBF3 /* colfax-auraria@2x.png in Resources */,
-				39E732B314E4A1080051CBF3 /* colorado.png in Resources */,
-				39E732B414E4A1080051CBF3 /* colorado@2x.png in Resources */,
-				39E732B514E4A1080051CBF3 /* convention-center.png in Resources */,
-				39E732B614E4A1080051CBF3 /* convention-center@2x.png in Resources */,
-				39E732B714E4A1080051CBF3 /* county-line.png in Resources */,
-				39E732B814E4A1080051CBF3 /* county-line@2x.png in Resources */,
-				39E732BB14E4A1080051CBF3 /* dry-creek.png in Resources */,
-				39E732BC14E4A1080051CBF3 /* dry-creek@2x.png in Resources */,
-				39E732BD14E4A1080051CBF3 /* englewood.png in Resources */,
-				39E732BE14E4A1080051CBF3 /* englewood@2x.png in Resources */,
-				39E732BF14E4A1080051CBF3 /* evans.png in Resources */,
-				39E732C014E4A1080051CBF3 /* evans@2x.png in Resources */,
-				39E732C114E4A1080051CBF3 /* hampden-southmoor@2x.png in Resources */,
-				39E732C214E4A1080051CBF3 /* i25-broadway.png in Resources */,
-				39E732C314E4A1080051CBF3 /* i25-broadway@2x.png in Resources */,
-				39E732C414E4A1080051CBF3 /* lincoln.png in Resources */,
-				39E732C514E4A1080051CBF3 /* lincoln@2x.png in Resources */,
-				39E732C614E4A1080051CBF3 /* littleton-downtown.png in Resources */,
-				39E732C714E4A1080051CBF3 /* littleton-downtown@2x.png in Resources */,
-				39E732C814E4A1080051CBF3 /* littleton-mineral.png in Resources */,
-				39E732C914E4A1080051CBF3 /* littleton-mineral@2x.png in Resources */,
-				39E732CA14E4A1080051CBF3 /* louisiana-pearl.png in Resources */,
-				39E732CB14E4A1080051CBF3 /* louisiana-pearl@2x.png in Resources */,
-				39E732CC14E4A1080051CBF3 /* mile-high@2x.png in Resources */,
-				39E732CD14E4A1080051CBF3 /* nine-mile.png in Resources */,
-				39E732CE14E4A1080051CBF3 /* nine-mile@2x.png in Resources */,
-				39E732CF14E4A1080051CBF3 /* orchard.png in Resources */,
-				39E732D014E4A1080051CBF3 /* orchard@2x.png in Resources */,
-				39E732D114E4A1080051CBF3 /* oxford-sheridan.png in Resources */,
-				39E732D214E4A1080051CBF3 /* oxford-sheridan@2x.png in Resources */,
-				39E732D314E4A1080051CBF3 /* pepsi-center.png in Resources */,
-				39E732D414E4A1080051CBF3 /* pepsi-center@2x.png in Resources */,
-				39E732D714E4A1080051CBF3 /* university.png in Resources */,
-				39E732D814E4A1080051CBF3 /* university@2x.png in Resources */,
-				39E732D914E4A1080051CBF3 /* yale.png in Resources */,
-				39E732DA14E4A1080051CBF3 /* yale@2x.png in Resources */,
-				39E732DC14E4A1CD0051CBF3 /* mile-high.png in Resources */,
 				3912A93514E5E06400AEF260 /* ScheduleViewController.xib in Resources */,
 				39DF566F14E8BC800075CE8D /* Icon-57.png in Resources */,
 				39DF567114E8BC840075CE8D /* Icon-114.png in Resources */,
@@ -1121,13 +777,7 @@
 				399C26FA152CBEE6008EC58F /* white-button.png in Resources */,
 				399C26FB152CBEE6008EC58F /* station-icon@2x.png in Resources */,
 				399C26FC152CBEE6008EC58F /* station-icon.png in Resources */,
-				39D2F4E1152E5CE5003C11F7 /* 10th-osage.png in Resources */,
-				39D2F4E2152E5CE5003C11F7 /* 10th-osage@2x.png in Resources */,
-				39D2F4E5152E5CF6003C11F7 /* union-station.png in Resources */,
-				39D2F4E6152E5CF6003C11F7 /* union-station@2x.png in Resources */,
-				39D2F4E9152E5F0C003C11F7 /* dayton.png in Resources */,
 				8C7014351CDD0B5F00DE99B0 /* a-line-square@2x.png in Resources */,
-				39D2F4EA152E5F0C003C11F7 /* dayton@2x.png in Resources */,
 				39A13C63152F9B5C005CB307 /* search.png in Resources */,
 				39A13C64152F9B5C005CB307 /* search@2x.png in Resources */,
 				39A13C67152F9DB1005CB307 /* white-background@2x.png in Resources */,
@@ -1174,30 +824,8 @@
 				37A853AC17459CA500CBA36B /* bottom-bar-right-button-selected.png in Resources */,
 				37A853AD17459CA500CBA36B /* bottom-bar-right-button-selected@2x.png in Resources */,
 				3799E57D1759481C0096865E /* map.pdf in Resources */,
-				371FE56C175948B60066BFD5 /* lakewood-wadsworth@2x.png in Resources */,
-				371FE56E175948C00066BFD5 /* sheridan@2x.png in Resources */,
-				371FE570175948D90066BFD5 /* sheridan.png in Resources */,
-				371FE572175948E10066BFD5 /* red-rocks-college@2x.png in Resources */,
-				371FE574175948E60066BFD5 /* red-rocks-college.png in Resources */,
-				371FE576175948F90066BFD5 /* perry@2x.png in Resources */,
-				371FE578175948FE0066BFD5 /* perry.png in Resources */,
-				371FE57A175949030066BFD5 /* oak@2x.png in Resources */,
-				371FE57C175949090066BFD5 /* oak.png in Resources */,
-				371FE57E175949110066BFD5 /* lamar@2x.png in Resources */,
-				371FE580175949190066BFD5 /* lamar.png in Resources */,
-				371FE5821759491F0066BFD5 /* lakewood-wadsworth.png in Resources */,
-				371FE584175949290066BFD5 /* knox@2x.png in Resources */,
-				371FE586175949310066BFD5 /* knox.png in Resources */,
-				371FE5881759493A0066BFD5 /* jeffco-golden@2x.png in Resources */,
-				371FE58A175949400066BFD5 /* jeffco-golden.png in Resources */,
-				371FE58C175949460066BFD5 /* garrison@2x.png in Resources */,
-				371FE58E1759494B0066BFD5 /* garrison.png in Resources */,
-				371FE590175949530066BFD5 /* federal-center@2x.png in Resources */,
 				393F638D19E2FC0E00F5C250 /* Icon-60.png in Resources */,
-				371FE592175949580066BFD5 /* federal-center.png in Resources */,
-				371FE5941759495D0066BFD5 /* decatur-federal@2x.png in Resources */,
 				8C7014341CDD0B5F00DE99B0 /* a-line-square.png in Resources */,
-				371FE596175949620066BFD5 /* decatur-federal.png in Resources */,
 				371FE59C175949E50066BFD5 /* bottom-bar-right-button-selected-568h@2x.png in Resources */,
 				371FE59D175949E50066BFD5 /* bottom-bar-left-button-568h@2x.png in Resources */,
 				371FE59E175949E50066BFD5 /* bottom-bar-left-button-selected-568h@2x.png in Resources */,
