@@ -211,7 +211,6 @@
 		39E7F0ED14DE05F0007C8617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E7F0EC14DE05F0007C8617 /* main.m */; };
 		39E7F0F114DE05F0007C8617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E7F0F014DE05F0007C8617 /* AppDelegate.m */; };
 		39E7F0F414DE05F0007C8617 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E7F0F314DE05F0007C8617 /* BaseViewController.m */; };
-		39E7F0F714DE05F0007C8617 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E7F0F514DE05F0007C8617 /* BaseViewController.xib */; };
 		39E7F10314DE45D9007C8617 /* TimetableSearchUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E7F10214DE45D9007C8617 /* TimetableSearchUtility.m */; };
 		39E7F10614DE4646007C8617 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E7F10514DE4646007C8617 /* Station.m */; };
 		39EA31871532440900DAD220 /* flips3.aac in Resources */ = {isa = PBXBuildFile; fileRef = 39EA31861532440900DAD220 /* flips3.aac */; };
@@ -476,7 +475,6 @@
 		39E7F0F014DE05F0007C8617 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		39E7F0F214DE05F0007C8617 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		39E7F0F314DE05F0007C8617 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		39E7F0F614DE05F0007C8617 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BaseViewController.xib; sourceTree = "<group>"; };
 		39E7F10114DE45D9007C8617 /* TimetableSearchUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetableSearchUtility.h; sourceTree = "<group>"; };
 		39E7F10214DE45D9007C8617 /* TimetableSearchUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetableSearchUtility.m; sourceTree = "<group>"; };
 		39E7F10414DE4646007C8617 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -871,7 +869,6 @@
 			children = (
 				39E7F0F214DE05F0007C8617 /* BaseViewController.h */,
 				39E7F0F314DE05F0007C8617 /* BaseViewController.m */,
-				39E7F0F514DE05F0007C8617 /* BaseViewController.xib */,
 				967E536916BC2B49000463A0 /* MainStoryboard.storyboard */,
 				3912A93114E5E06400AEF260 /* ScheduleViewController.h */,
 				3912A93214E5E06400AEF260 /* ScheduleViewController.m */,
@@ -982,7 +979,6 @@
 				39E638FF14E3462C006FC1D6 /* map-button@2x.png in Resources */,
 				39E6390014E3462C006FC1D6 /* map-button.png in Resources */,
 				39E7F0EB14DE05F0007C8617 /* InfoPlist.strings in Resources */,
-				39E7F0F714DE05F0007C8617 /* BaseViewController.xib in Resources */,
 				39E638D714E3462C006FC1D6 /* e-line-square@2x.png in Resources */,
 				39E638D814E3462C006FC1D6 /* f-line-square@2x.png in Resources */,
 				39E638D914E3462C006FC1D6 /* h-line-square@2x.png in Resources */,
@@ -1237,14 +1233,6 @@
 				39E7F0EA14DE05F0007C8617 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		39E7F0F514DE05F0007C8617 /* BaseViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39E7F0F614DE05F0007C8617 /* en */,
-			);
-			name = BaseViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
