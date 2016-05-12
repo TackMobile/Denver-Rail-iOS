@@ -18,9 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIView *buttonDivider;
 @property (strong, nonatomic) IBOutlet UIImageView *whiteBackground;
 
-@property (strong, nonatomic) IBOutlet UIImageView *listBackground;
 @property (strong, nonatomic) IBOutlet UIImageView *bottomCapImageView;
-@property (strong, nonatomic) IBOutlet UIImageView * shadowAboveButtons;
+@property (strong, nonatomic) IBOutlet UIImageView *shadowAboveButtons;
 /**
  Store all content in this subview that will adjust if statusbar is there or not
  */
@@ -37,7 +36,6 @@
 @property (weak) IBOutlet UIButton *nbButton;
 @property (weak) IBOutlet UIButton *sbButton;
 @property (weak) IBOutlet UIView *topLevelSlider;
-@property (weak) IBOutlet UIScrollView *mapScrollView;
 @property (weak) IBOutlet UIPickerView *datePicker;
 // Schedule view class for displaying times
 @property (strong) ScheduleViewController *scheduleViewController;
@@ -93,7 +91,6 @@
     [self.contentSubView insertSubview:self.searchViewController.view belowSubview:self.pdfWebView];
     
     // Load the map
-    self.mapScrollView.contentSize = CGSizeMake(600, 822);
     NSString *path = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"pdf"];
     
     NSURL *url = [NSURL fileURLWithPath:path];
@@ -338,10 +335,17 @@
 
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.text = _station.columnName ?: @"";
-    nameLabel.font = [UIFont fontWithName:DRFontName.lightboard size:26];
-    UIColor *orangeColor = [UIColor colorWithRed:(255/255.0) green:(128/255.0) blue:(0/255.0) alpha:1];
-    nameLabel.textColor = [UIColor orangeColor];
-    nameLabel.layer.shadowColor = orangeColor.CGColor;
+    nameLabel.font = [UIFont fontWithName:DRFontName.lightboard size:28];
+    UIColor *lightboardOrange = [UIColor colorWithRed:(255/255.0)
+                                                green:(130/255.0)
+                                                 blue:(14/255.0)
+                                                alpha:1];
+    nameLabel.textColor = lightboardOrange;
+    nameLabel.layer.shadowColor = lightboardOrange.CGColor;
+    nameLabel.layer.shadowRadius = 9.0f;
+    nameLabel.layer.shadowOpacity = 1;
+    nameLabel.layer.shadowOffset = CGSizeZero;
+    nameLabel.layer.masksToBounds = NO;
     [nameLabel sizeToFit];
     
     // Either center the label if it will fit, or scroll it horizontally if not
@@ -966,7 +970,6 @@
 // Remove view 
 - (void)viewDidUnload {
     [self setWhiteBackground:nil];
-    [self setListBackground:nil];
     [self setBottomCapImageView:nil];
     [self setButtonDivider:nil];
     [self setShadowAboveButtons:nil];
