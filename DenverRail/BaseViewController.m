@@ -18,9 +18,8 @@
 @property (strong, nonatomic) IBOutlet UIView *buttonDivider;
 @property (strong, nonatomic) IBOutlet UIImageView *whiteBackground;
 
-@property (strong, nonatomic) IBOutlet UIImageView *listBackground;
 @property (strong, nonatomic) IBOutlet UIImageView *bottomCapImageView;
-@property (strong, nonatomic) IBOutlet UIImageView * shadowAboveButtons;
+@property (strong, nonatomic) IBOutlet UIImageView *shadowAboveButtons;
 /**
  Store all content in this subview that will adjust if statusbar is there or not
  */
@@ -30,14 +29,13 @@
 @property (weak) IBOutlet UIImageView *arrow;
 @property (weak) IBOutlet UIImageView *middleSection;
 @property (weak) IBOutlet UIView *stationNameView;
-@property (weak) UIView *stationNameImageViewToAnimate;
+@property (weak) UIView *stationNameLabelToAnimate;
 @property (weak) IBOutlet UIView *topSection;
 @property (weak) IBOutlet UIButton *autoButton;
 @property (weak) IBOutlet UIButton *mapButton;
 @property (weak) IBOutlet UIButton *nbButton;
 @property (weak) IBOutlet UIButton *sbButton;
 @property (weak) IBOutlet UIView *topLevelSlider;
-@property (weak) IBOutlet UIScrollView *mapScrollView;
 @property (weak) IBOutlet UIPickerView *datePicker;
 // Schedule view class for displaying times
 @property (strong) ScheduleViewController *scheduleViewController;
@@ -93,7 +91,6 @@
     [self.contentSubView insertSubview:self.searchViewController.view belowSubview:self.pdfWebView];
     
     // Load the map
-    self.mapScrollView.contentSize = CGSizeMake(600, 822);
     NSString *path = [[NSBundle mainBundle] pathForResource:@"map" ofType:@"pdf"];
     
     NSURL *url = [NSURL fileURLWithPath:path];
@@ -335,24 +332,40 @@
     [self clearLightboard];
     
     // Nil station means show search
-    UIImageView *lightboardStationImageView = lightboardStationImageView = [[UIImageView alloc] initWithImage:_station.lightboardImage];
 
-    // Either center the image if it will fit, or scroll it horizontally if not
-    if (lightboardStationImageView.frame.size.width <= 182) {
-        
+    UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.text = _station.columnName ?: @"";
+    nameLabel.font = [UIFont fontWithName:DRFontName.lightboard size:32];
+    UIColor *lightboardOrange = [UIColor colorWithRed:(255/255.0)
+                                                green:(130/255.0)
+                                                 blue:(14/255.0)
+                                                alpha:1];
+    nameLabel.textColor = lightboardOrange;
+    nameLabel.layer.shadowColor = lightboardOrange.CGColor;
+    nameLabel.layer.shadowRadius = 9.0f;
+    nameLabel.layer.shadowOpacity = 1;
+    nameLabel.layer.shadowOffset = CGSizeZero;
+    nameLabel.layer.masksToBounds = NO;
+    [nameLabel sizeToFit];
+    
+    // Either center the label if it will fit, or scroll it horizontally if not
+    if (nameLabel.frame.size.width <= 182) {
         // Center it
-        int x = (182 - lightboardStationImageView.frame.size.width) / 2;
-        lightboardStationImageView.frame = CGRectMake(x, lightboardStationImageView.frame.origin.y,
-                                                      lightboardStationImageView.frame.size.width, lightboardStationImageView.frame.size.height);
+        int x = (182 - nameLabel.frame.size.width) / 2;
+        nameLabel.frame = CGRectMake(x,
+                                     nameLabel.frame.origin.y,
+                                     nameLabel.frame.size.width,
+                                     nameLabel.frame.size.height);
     } else {
-        
         // Scroll it
-        self.stationNameImageViewToAnimate = lightboardStationImageView;
+        self.stationNameLabelToAnimate = nameLabel;
         self.currentTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerFireMethod:)
                                                            userInfo:[NSNumber numberWithBool:YES] repeats:NO];
     }
     
-    [self.stationNameView addSubview:lightboardStationImageView];
+    [self.stationNameView addSubview:nameLabel];
+    //Center nameLabel inside of stationNameView
+    nameLabel.center = CGPointMake(self.stationNameView.frame.size.width / 2, self.stationNameView.frame.size.height / 2);
     
     self.currentStation = _station;
     
@@ -376,14 +389,14 @@
 
 // Resets and returns NO if it's already at the left side
 -(BOOL)moveLightboardLeftOneLED {
-    
-    if (fabs(self.stationNameImageViewToAnimate.frame.origin.x - 2) <
-       (self.stationNameImageViewToAnimate.frame.size.width - self.stationNameView.frame.size.width)) {
+    //stationNameImageViewToAnimate is nil here
+    if (fabs(self.stationNameLabelToAnimate.frame.origin.x - 2) <
+       (self.stationNameLabelToAnimate.frame.size.width - self.stationNameView.frame.size.width)) {
         
-        self.stationNameImageViewToAnimate.frame = CGRectMake(self.stationNameImageViewToAnimate.frame.origin.x - 4,
-                                                              self.stationNameImageViewToAnimate.frame.origin.y,
-                                                              self.stationNameImageViewToAnimate.frame.size.width,
-                                                              self.stationNameImageViewToAnimate.frame.size.height);
+        self.stationNameLabelToAnimate.frame = CGRectMake(self.stationNameLabelToAnimate.frame.origin.x - 4,
+                                                              self.stationNameLabelToAnimate.frame.origin.y,
+                                                              self.stationNameLabelToAnimate.frame.size.width,
+                                                              self.stationNameLabelToAnimate.frame.size.height);
         return YES;
     } else {
         return NO;
@@ -392,18 +405,18 @@
 
 // Resets the lightboard animation part 1. 
 -(void)resetAnimation {
-    self.stationNameImageViewToAnimate.hidden = YES;
+    self.stationNameLabelToAnimate.hidden = YES;
     
     self.currentTimer = [NSTimer scheduledTimerWithTimeInterval:.25 target:self selector:@selector(resetAnimationPart2) userInfo:nil repeats:NO];
 }
 
 // Second part of the reset animation
 -(void)resetAnimationPart2 {
-    self.stationNameImageViewToAnimate.frame = CGRectMake(0,
-                                                          self.stationNameImageViewToAnimate.frame.origin.y,
-                                                          self.stationNameImageViewToAnimate.frame.size.width,
-                                                          self.stationNameImageViewToAnimate.frame.size.height);
-    self.stationNameImageViewToAnimate.hidden = NO;
+    self.stationNameLabelToAnimate.frame = CGRectMake(0,
+                                                      self.stationNameLabelToAnimate.frame.origin.y,
+                                                      self.stationNameLabelToAnimate.frame.size.width,
+                                                      self.stationNameLabelToAnimate.frame.size.height);
+    self.stationNameLabelToAnimate.hidden = NO;
     
     self.currentTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(animateLightboard) userInfo:nil repeats:NO];
 }
@@ -957,7 +970,6 @@
 // Remove view 
 - (void)viewDidUnload {
     [self setWhiteBackground:nil];
-    [self setListBackground:nil];
     [self setBottomCapImageView:nil];
     [self setButtonDivider:nil];
     [self setShadowAboveButtons:nil];

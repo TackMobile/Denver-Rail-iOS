@@ -19,3 +19,7 @@ FOUNDATION_EXPORT const struct DRNotificationName {
     __unsafe_unretained NSString *locationUpdated;
     __unsafe_unretained NSString *headingUpdated;
 } DRNotificationName;
+
+FOUNDATION_EXPORT const struct DRFontName {
+    __unsafe_unretained NSString *lightboard;
+} DRFontName;

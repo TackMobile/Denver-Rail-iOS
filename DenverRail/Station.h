@@ -17,14 +17,12 @@
 @property double longitude;
 @property (strong, nonatomic) NSString *columnName;
 @property (strong) CLLocation *location;
-@property (strong) UIImage *lightboardImage;
 
-- (id)initWithImageName:(NSString *)imageName
-             columnName:(NSString *)columnName
-               latitude:(double)latitude
-              longitude:(double)longitude
-              southOnly:(BOOL)southOnly
-              northOnly:(BOOL)northOnly
-               eastWest:(BOOL)eastWest;
+- (id)initWithColumnName:(NSString *)columnName
+                latitude:(double)latitude
+               longitude:(double)longitude
+               southOnly:(BOOL)southOnly
+               northOnly:(BOOL)northOnly
+                eastWest:(BOOL)eastWest;
 
 @end
