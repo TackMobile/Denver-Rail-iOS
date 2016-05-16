@@ -27,13 +27,14 @@
     NSInteger weekday = [dateComponents weekday];
 
     NSString *scheduleCode = @"MT";
-    
-    if (weekday == 7)
+
+    if (weekday == 7) {
         scheduleCode = @"SA";
-    else if (weekday == 6)
+    } else if (weekday == 6) {
         scheduleCode = @"FR";
-    else if (weekday == 1 || [TimetableSearchUtility isHoliday:date])
+    } else if (weekday == 1 || [TimetableSearchUtility isHoliday:date]) {
         scheduleCode = @"SU";
+    }
   
     int timeInt = [TimetableSearchUtility convertDateToInt:date];
   
@@ -55,7 +56,13 @@
       return nil; // If location is not initialized return empty set
     }
     
-    FMResultSet *rs = [db executeQueryWithFormat:@"SELECT departure_time, route_id, stop_id FROM schedule WHERE stop_name = %@ AND direction_id = %i AND departure_time > %i AND service_id = %@ ORDER BY departure_time LIMIT %@", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode, limit];
+    FMResultSet *rs = [db executeQueryWithFormat:
+                       @"SELECT departure_time, route_id, stop_id "
+                       "FROM schedule WHERE stop_name = %@ " //station.columnName
+                       "AND direction_id = %i "//isNorth
+                       "AND departure_time > %i "//timeInt
+                       "AND service_id = %@ "//schedule code
+                       "ORDER BY departure_time LIMIT %@", station.columnName, isNorth ? 0 : 1, timeInt, scheduleCode, limit];
     
     NSMutableArray *stops = [NSMutableArray new];
     while ([rs next]) {
@@ -65,16 +72,19 @@
         BOOL isHighlighted = NO;
       
         RailLine line = kCLine;
-        if ([routeString contains:@"D"])
+        if ([routeString contains:@"D"]) {
             line = kDLine;
-        else if ([routeString contains:@"E"])
+        } else if ([routeString contains:@"E"]) {
             line = kELine;
-        else if ([routeString contains:@"F"])
+        } else if ([routeString contains:@"F"]) {
             line = kFLine;
-        else if ([routeString contains:@"H"])
+        } else if ([routeString contains:@"H"]) {
             line = kHLine;
-        else if ([routeString contains:@"W"])
+        } else if ([routeString contains:@"W"]) {
             line = kWLine;
+        } else if ([routeString contains:@"A"]) {
+            line = kAline;
+        }
       
         NSDate *dbDate = [TimetableSearchUtility convertDBDateIntToDate:timeInt withCalendar:calendar];
       
@@ -113,8 +123,9 @@
         }
     }
     
-    if ([stops count] > 0)
+    if ([stops count] > 0) {
         return stops;
+    }
     return nil;
 }
 
