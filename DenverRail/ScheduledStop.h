@@ -14,7 +14,8 @@ typedef NS_ENUM(NSUInteger, RailLine) {
     kELine,
     kFLine,
     kHLine,
-    kWLine
+    kWLine,
+    kAline,
 };
 
 @interface ScheduledStop : NSObject

@@ -139,6 +139,7 @@
 		8C7014351CDD0B5F00DE99B0 /* a-line-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C7014311CDD0B5F00DE99B0 /* a-line-square@2x.png */; };
 		8C7014381CDD0E7F00DE99B0 /* lightboard.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C7014371CDD0E5C00DE99B0 /* lightboard.ttf */; };
 		8CA8C89D1CB31F7700D88CFC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8C89C1CB31F7700D88CFC /* Constants.m */; };
+		8CD8AA981CEA6CB000972334 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8CD8AA961CEA6C8100972334 /* schedules.sqlite */; };
 		9672835816B986DD000BECE6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835516B986DD000BECE6 /* Icon-72.png */; };
 		9672835916B986DD000BECE6 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835616B986DD000BECE6 /* Icon-72@2x.png */; };
 		9672835A16B986DD000BECE6 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835716B986DD000BECE6 /* Icon-Small@2x.png */; };
@@ -149,7 +150,6 @@
 		96CD2BEC16C05F5F00CC0DC3 /* list-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEA16C05F5F00CC0DC3 /* list-background.png */; };
 		96CD2BED16C05F5F00CC0DC3 /* list-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEB16C05F5F00CC0DC3 /* list-background@2x.png */; };
 		96CD2BEF16C0613800CC0DC3 /* list-background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */; };
-		B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = B67CD0EA1B6828DD004823B1 /* schedules.sqlite */; };
 		EA0915D81533E309000898B9 /* WhistleBlowerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0915D71533E309000898B9 /* WhistleBlowerController.m */; };
 		EA0F35FB1534C5890079B61B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0F35FA1534C5890079B61B /* AudioToolbox.framework */; };
 		EA544B23153B840500362759 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EA544B22153B840500362759 /* Settings.bundle */; };
@@ -162,7 +162,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F4EAD381C86038B00CA8D13 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		27476071173D6A4300302EAF /* updating denverrail tables.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "updating denverrail tables.rtfd"; sourceTree = "<group>"; };
 		27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "FMDB-MIT-License.txt"; sourceTree = "<group>"; };
 		27F49DAE1742A62E0064BFA0 /* w-line-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "w-line-circle.png"; sourceTree = "<group>"; };
@@ -316,6 +315,7 @@
 		8C7014371CDD0E5C00DE99B0 /* lightboard.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lightboard.ttf; sourceTree = "<group>"; };
 		8CA8C89B1CB31F7700D88CFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8CA8C89C1CB31F7700D88CFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		8CD8AA961CEA6C8100972334 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		9672835516B986DD000BECE6 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
 		9672835616B986DD000BECE6 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
 		9672835716B986DD000BECE6 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../Icon-Small@2x.png"; sourceTree = "<group>"; };
@@ -326,7 +326,6 @@
 		96CD2BEA16C05F5F00CC0DC3 /* list-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background.png"; sourceTree = "<group>"; };
 		96CD2BEB16C05F5F00CC0DC3 /* list-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background@2x.png"; sourceTree = "<group>"; };
 		96CD2BEE16C0613800CC0DC3 /* list-background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list-background-568h@2x.png"; sourceTree = "<group>"; };
-		B67CD0EA1B6828DD004823B1 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
 		EA0915D61533E309000898B9 /* WhistleBlowerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhistleBlowerController.h; sourceTree = "<group>"; };
 		EA0915D71533E309000898B9 /* WhistleBlowerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhistleBlowerController.m; sourceTree = "<group>"; };
 		EA0F35FA1534C5890079B61B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -570,16 +569,15 @@
 			isa = PBXGroup;
 			children = (
 				8C7014361CDD0E5300DE99B0 /* Fonts */,
-				1F4EAD381C86038B00CA8D13 /* schedules.sqlite */,
 				4C7775B819E2FD7F004FECD4 /* Images.xcassets */,
 				4C7775BA19E301FE004FECD4 /* Old Icons & Launch Images */,
 				EADBE1CA15368EDF00D88451 /* Audio */,
 				39EA31861532440900DAD220 /* flips3.aac */,
+				8CD8AA961CEA6C8100972334 /* schedules.sqlite */,
 				27F49DAC174285550064BFA0 /* FMDB-MIT-License.txt */,
 				39E7F0E814DE05F0007C8617 /* DenverRail-Info.plist */,
 				39E7F0E914DE05F0007C8617 /* InfoPlist.strings */,
 				39E7F0EC14DE05F0007C8617 /* main.m */,
-				B67CD0EA1B6828DD004823B1 /* schedules.sqlite */,
 				27476071173D6A4300302EAF /* updating denverrail tables.rtfd */,
 				39EFA083153535DE00A2A9E0 /* Common.m */,
 				39E7F0EE14DE05F0007C8617 /* DenverRail-Prefix.pch */,
@@ -708,6 +706,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD8AA981CEA6CB000972334 /* schedules.sqlite in Resources */,
 				8C7014381CDD0E7F00DE99B0 /* lightboard.ttf in Resources */,
 				39E638FF14E3462C006FC1D6 /* map-button@2x.png in Resources */,
 				39E6390014E3462C006FC1D6 /* map-button.png in Resources */,
@@ -789,7 +788,6 @@
 				39EA31871532440900DAD220 /* flips3.aac in Resources */,
 				3967516E15338D06002DF8C4 /* tap-to-edit.png in Resources */,
 				3967516F15338D06002DF8C4 /* tap-to-edit@2x.png in Resources */,
-				B67CD0EB1B6828DD004823B1 /* schedules.sqlite in Resources */,
 				EADBE1C515368EDB00D88451 /* loud_long_whistle.caf in Resources */,
 				EADBE1C615368EDB00D88451 /* medium_whistle.caf in Resources */,
 				8C7014331CDD0B5F00DE99B0 /* a-line-circle@2x.png in Resources */,

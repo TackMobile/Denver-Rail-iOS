@@ -202,6 +202,9 @@ NSString *const MountainTimeZone = @"US/Mountain";
             case kWLine:
                 line = @"w";
                 break;
+            case kAline:
+                line = @"a";
+                break;
         }
         
         NSString *lineGraphicName = [NSString stringWithFormat:@"%@-line-%@", line, _isNorth ? @"circle": @"square"];
