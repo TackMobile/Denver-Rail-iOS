@@ -70,98 +70,98 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
  */
 - (void)initStations {
 	self.stations = [NSMutableArray new];
-    
-	[self.stations addObject:[[Station alloc] initWithImageName:@"10th-osage" columnName:@"10th & Osage Station"
-                                                       latitude:39.7318 longitude:-105.0056 southOnly:NO northOnly:NO eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"16th-california" columnName:@"16th & California Station"
+
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"10th & Osage Station"
+                                                        latitude:39.7318 longitude:-105.0056 southOnly:NO northOnly:NO eastWest:NO]];
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"16th & California Station"
                                                         latitude:39.744919 longitude:-104.992428 southOnly:NO northOnly:YES eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"16th-stout" columnName:@"16th & Stout Station"
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"16th & Stout Station"
                                                         latitude:39.746166 longitude:-104.992759 southOnly:YES northOnly:NO eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"18th-california" columnName:@"18th & California Station"
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"18th & California Station"
                                                         latitude:39.746767 longitude:-104.990028 southOnly:NO northOnly:YES eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"18th-stout" columnName:@"18th & Stout Station"
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"18th & Stout Station"
                                                         latitude:39.748018 longitude:-104.990404 southOnly:YES northOnly:NO eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"20th-welton" columnName:@"20th & Welton Station"
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"20th & Welton Station"
                                                         latitude:39.747926 longitude:-104.986889 southOnly:NO northOnly:NO eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"25th-welton" columnName:@"25th & Welton Station"
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"25th & Welton Station"
                                                         latitude:39.753392 longitude:-104.979764 southOnly:NO northOnly:NO eastWest:NO]];
-     [self.stations addObject:[[Station alloc] initWithImageName:@"27th-welton" columnName:@"27th & Welton Station"
+     [self.stations addObject:[[Station alloc] initWithColumnName:@"27th & Welton Station"
                                                        latitude:39.755233 longitude:-104.977370 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"30th-downing" columnName:@"30th & Downing Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"30th & Downing Station"
                                                          latitude:39.758800 longitude:-104.973572 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"alameda" columnName:@"Alameda Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Alameda Station"
                                                          latitude:39.7084 longitude:-104.9929 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"arapahoe" columnName:@"Arapahoe at Village Center Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Arapahoe at Village Center Station"
                                                          latitude:39.6002 longitude:-104.8884 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"auraria-west" columnName:@"Auraria West Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Auraria West Station"
                                                          latitude:39.741300 longitude:-105.008970 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"belleview" columnName:@"Belleview Station"
+    [self.stations addObject:[[Station alloc] initWithColumnName:@"Belleview Station"
                                                          latitude:39.6275 longitude:-104.9043 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"colfax-auraria" columnName:@"Colfax at Auraria Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Colfax at Auraria Station"
                                                          latitude:39.7403 longitude:-105.0019 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"colorado" columnName:@"Colorado Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Colorado Station"
                                                          latitude:39.6796 longitude:-104.9377 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"county-line" columnName:@"County Line Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"County Line Station"
                                                          latitude:39.5617 longitude:-104.8722 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"dayton" columnName:@"Dayton Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Dayton Station"
                                                          latitude:39.6430 longitude:-104.8779 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"decatur-federal" columnName:@"Decatur / Federal Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Decatur / Federal Station"
                                                         latitude:39.735687 longitude:-105.024452 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"dry-creek" columnName:@"Dry Creek Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Dry Creek Station"
                                                          latitude:39.5788 longitude:-104.8765 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"englewood" columnName:@"Englewood Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Englewood Station"
                                                          latitude:39.6556 longitude:-104.9999 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"evans" columnName:@"Evans Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Evans Station"
                                                          latitude:39.6776 longitude:-104.9928 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"federal-center" columnName:@"Federal Center Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Federal Center Station"
                                                          latitude:39.711852 longitude:-105.125347 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"garrison" columnName:@"Garrison Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Garrison Station"
                                                          latitude:39.736608 longitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"i25-broadway" columnName:@"I-25 & Broadway Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"I-25 & Broadway Station"
                                                          latitude:39.701523 longitude:-104.990158 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"jeffco-golden" columnName:@"Jeffco Government Center Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Jeffco Government Center Station"
                                                          latitude:39.726640 longitude:-105.201728 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"knox" columnName:@"Knox Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Knox Station"
                                                          latitude:39.735687 longitude:-105.033303 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"lamar" columnName:@"Lamar Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Lamar Station"
                                                          latitude:39.736683 longitude:-105.066872 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"lincoln" columnName:@"Lincoln Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Lincoln Station"
                                                          latitude:39.5459 longitude:-104.8696 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"littleton-downtown" columnName:@"Littleton / Downtown Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Littleton / Downtown Station"
                                                          latitude:39.6119 longitude:-105.0149 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"littleton-mineral" columnName:@"Littleton / Mineral Ave Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Littleton / Mineral Ave Station"
                                                          latitude:39.5801 longitude:-105.0250 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"louisiana-pearl" columnName:@"Louisiana & Pearl Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Louisiana & Pearl Station"
                                                          latitude:39.6928 longitude:-104.9782 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"nine-mile" columnName:@"Nine Mile Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Nine Mile Station"
                                                          latitude:39.6575 longitude:-104.8450 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"oak" columnName:@"Oak Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Oak Station"
                                                          latitude:39.737400 longitude:-105.120463 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"orchard" columnName:@"Orchard Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Orchard Station"
                                                          latitude:39.6134 longitude:-104.8961 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"oxford-sheridan" columnName:@"Oxford - City of Sheridan Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Oxford - City of Sheridan Station"
                                                          latitude:39.6429 longitude:-105.0048 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"pepsi-center" columnName:@"Pepsi Center / Elitch Gardens Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Pepsi Center / Elitch Gardens Station"
                                                          latitude:39.7486 longitude:-105.0096 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"perry" columnName:@"Perry Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Perry Station"
                                                          latitude:39.734790 longitude:-105.040409 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"red-rocks-college" columnName:@"Red Rocks Community College Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Red Rocks Community College Station"
                                                          latitude:39.725078 longitude:-105.152812 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"sheridan" columnName:@"Sheridan Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Sheridan Station"
                                                          latitude:39.735147 longitude:-105.053616 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"hampden-southmoor" columnName:@"Southmoor Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Southmoor Station"
                                                        latitude:39.6485 longitude:-104.91628 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"mile-high" columnName:@"Sports Authority Field at Mile High Stat"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Sports Authority Field at Mile High Stat"
                                                        latitude:39.7434 longitude:-105.0131 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"convention-center" columnName:@"Theatre District/Convention Ctr Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Theatre District/Convention Ctr Station"
                                                        latitude:39.7437 longitude:-104.9963 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"union-station" columnName:@"Union Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Union Station"
                                                          latitude:39.7526 longitude:-105.0008 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"university"columnName:@"University of Denver Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"University of Denver Station"
                                                          latitude:39.6852 longitude:-104.9648 southOnly:NO northOnly:NO eastWest:NO]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"lakewood-wadsworth" columnName:@"Wadsworth Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Wadsworth Station"
                                                          latitude:39.736664 longitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
-      [self.stations addObject:[[Station alloc] initWithImageName:@"yale" columnName:@"Yale Station"
+      [self.stations addObject:[[Station alloc] initWithColumnName:@"Yale Station"
                                                          latitude:39.6686 longitude:-104.927 southOnly:NO northOnly:NO eastWest:NO]];
 }
 
