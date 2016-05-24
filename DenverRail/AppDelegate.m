@@ -29,7 +29,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
     [self initializeAudioPreferences];
     [self initializeAudio];
     [self initStations];
@@ -40,28 +40,6 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
 // Checks sound when application comes from foreground 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [self initializeAudioPreferences];
-    [self configureAudioSession];
-}
-
-// Initializes the audio for the first time
-- (void)initializeAudio {
-	[AVAudioSession sharedInstance];
-    self.whistleBlower = [[WhistleBlowerController alloc] init];
-    [self configureAudioSession];
-	[[AVAudioSession sharedInstance] setActive:YES error:nil];
-}
-
-// Configures the audio session
-- (void) configureAudioSession {
-	BOOL isPlayingWithOthers = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
-    
-    if (isPlayingWithOthers && self.playSounds) {
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
-    } else if (self.playSounds) {
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient error:nil];
-    }
-    
-    self.whistleBlower.isOn = NO;
 }
 
 /**
@@ -177,6 +155,16 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
                                                         latitude:39.736664 longitude:-105.099811 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Yale Station"
                                                         latitude:39.6686 longitude:-104.927 southOnly:NO northOnly:NO eastWest:NO]];
+}
+
+#pragma mark - Audio -
+
+// Initializes the audio for the first time
+- (void)initializeAudio {
+    [AVAudioSession sharedInstance];
+    self.whistleBlower = [[WhistleBlowerController alloc] init];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    self.whistleBlower.isOn = NO;
 }
 
 - (void)initializeAudioPreferences {
