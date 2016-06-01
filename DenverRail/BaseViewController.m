@@ -337,6 +337,7 @@
     // Nil station means show search
 
     UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.accessibilityIdentifier = @"Station Name Label";
     nameLabel.text = _station.columnName ?: @"";
     nameLabel.font = [UIFont fontWithName:DRFontName.lightboard size:32];
     UIColor *lightboardOrange = [UIColor colorWithRed:(255/255.0)
