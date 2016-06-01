@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="mfC-Sg-xCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="mfC-Sg-xCn">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Base View Controller-->
@@ -27,11 +27,11 @@
                                         </connections>
                                     </webView>
                                     <view contentMode="scaleToFill" id="JbT-s9-p1f">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="436.00000038408854"/>
+                                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="white-background.png" id="KWk-7c-hK3">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="436.00000038408854"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="list-background.png" id="Hgd-X2-gv4">
@@ -56,7 +56,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yUo-2M-IcW">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <accessibility key="accessibilityConfiguration" label="timeSelectTapped"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Open Time Picker" label="timeSelectTapped"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                         <state key="normal" image="timebar.png">
                                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -260,7 +260,7 @@
                                                 <rect key="frame" x="0.0" y="44" width="320" height="216"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <accessibility key="accessibilityConfiguration" label="datePIcker"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Non Auto Time Picker" label="datePIcker"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="mfC-Sg-xCn" id="6zC-Wd-SX2"/>
                                                     <outlet property="delegate" destination="mfC-Sg-xCn" id="81o-7G-by3"/>

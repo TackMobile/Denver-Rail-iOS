@@ -96,6 +96,7 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.pdfWebView loadRequest:request];
+    self.pdfWebView.accessibilityIdentifier = @"Map View";
     
     // Setup and begin the flicker timer
     for (int i=0; i<6; i++) {
@@ -111,7 +112,9 @@
     
     // Set the initial selected buttons
     self.nbButton.selected = YES;
+    self.nbButton.accessibilityIdentifier = @"North Or West Button";
     self.sbButton.selected = NO;
+    self.sbButton.accessibilityIdentifier = @"South Or East Button";
     
 }
 
