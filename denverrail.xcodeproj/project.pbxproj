@@ -138,6 +138,7 @@
 		8C7014341CDD0B5F00DE99B0 /* a-line-square.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C7014301CDD0B5F00DE99B0 /* a-line-square.png */; };
 		8C7014351CDD0B5F00DE99B0 /* a-line-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C7014311CDD0B5F00DE99B0 /* a-line-square@2x.png */; };
 		8C7014381CDD0E7F00DE99B0 /* lightboard.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C7014371CDD0E5C00DE99B0 /* lightboard.ttf */; };
+		8CA25C1B1CFF38340092DBCB /* denverrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA25C1A1CFF38340092DBCB /* denverrailUITests.swift */; };
 		8CA8C89D1CB31F7700D88CFC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8C89C1CB31F7700D88CFC /* Constants.m */; };
 		8CD8AA981CEA6CB000972334 /* schedules.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8CD8AA961CEA6C8100972334 /* schedules.sqlite */; };
 		9672835816B986DD000BECE6 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9672835516B986DD000BECE6 /* Icon-72.png */; };
@@ -160,6 +161,16 @@
 		F3B279E21533E6C70008E2E3 /* broken-LED.png in Resources */ = {isa = PBXBuildFile; fileRef = F3B279E11533E6C70008E2E3 /* broken-LED.png */; };
 		F3E810EF1537D944007F904D /* broken-LED@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E810EE1537D944007F904D /* broken-LED@2x.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8CA25C1D1CFF38340092DBCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39E7F0D314DE05F0007C8617 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39E7F0DB14DE05F0007C8617;
+			remoteInfo = denverrail;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		27476071173D6A4300302EAF /* updating denverrail tables.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "updating denverrail tables.rtfd"; sourceTree = "<group>"; };
@@ -313,6 +324,9 @@
 		8C7014301CDD0B5F00DE99B0 /* a-line-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a-line-square.png"; sourceTree = "<group>"; };
 		8C7014311CDD0B5F00DE99B0 /* a-line-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "a-line-square@2x.png"; sourceTree = "<group>"; };
 		8C7014371CDD0E5C00DE99B0 /* lightboard.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lightboard.ttf; sourceTree = "<group>"; };
+		8CA25C181CFF38340092DBCB /* denverrailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = denverrailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CA25C1A1CFF38340092DBCB /* denverrailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = denverrailUITests.swift; sourceTree = "<group>"; };
+		8CA25C1C1CFF38340092DBCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CA8C89B1CB31F7700D88CFC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		8CA8C89C1CB31F7700D88CFC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		8CD8AA961CEA6C8100972334 /* schedules.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedules.sqlite; sourceTree = "<group>"; };
@@ -352,6 +366,13 @@
 				3912A93014E5DB9A00AEF260 /* CoreLocation.framework in Frameworks */,
 				39E7F0E114DE05F0007C8617 /* UIKit.framework in Frameworks */,
 				39E7F0E314DE05F0007C8617 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CA25C151CFF38340092DBCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				39E7F0E614DE05F0007C8617 /* DenverRail */,
+				8CA25C191CFF38340092DBCB /* denverrailUITests */,
 				39E7F0DF14DE05F0007C8617 /* Frameworks */,
 				39E7F0DD14DE05F0007C8617 /* Products */,
 			);
@@ -529,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				39E7F0DC14DE05F0007C8617 /* denverrail.app */,
+				8CA25C181CFF38340092DBCB /* denverrailUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -630,6 +653,15 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		8CA25C191CFF38340092DBCB /* denverrailUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8CA25C1A1CFF38340092DBCB /* denverrailUITests.swift */,
+				8CA25C1C1CFF38340092DBCB /* Info.plist */,
+			);
+			path = denverrailUITests;
+			sourceTree = "<group>";
+		};
 		EA0915D41533E290000898B9 /* Easter Eggs */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,17 +702,40 @@
 			productReference = 39E7F0DC14DE05F0007C8617 /* denverrail.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8CA25C171CFF38340092DBCB /* denverrailUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CA25C211CFF38340092DBCB /* Build configuration list for PBXNativeTarget "denverrailUITests" */;
+			buildPhases = (
+				8CA25C141CFF38340092DBCB /* Sources */,
+				8CA25C151CFF38340092DBCB /* Frameworks */,
+				8CA25C161CFF38340092DBCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8CA25C1E1CFF38340092DBCB /* PBXTargetDependency */,
+			);
+			name = denverrailUITests;
+			productName = denverrailUITests;
+			productReference = 8CA25C181CFF38340092DBCB /* denverrailUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		39E7F0D314DE05F0007C8617 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Tack Mobile";
 				TargetAttributes = {
 					39E7F0DB14DE05F0007C8617 = {
 						DevelopmentTeam = 9B83N8S7VW;
+					};
+					8CA25C171CFF38340092DBCB = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 39E7F0DB14DE05F0007C8617;
 					};
 				};
 			};
@@ -697,6 +752,7 @@
 			projectRoot = "";
 			targets = (
 				39E7F0DB14DE05F0007C8617 /* denverrail */,
+				8CA25C171CFF38340092DBCB /* denverrailUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -833,6 +889,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8CA25C161CFF38340092DBCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -862,7 +925,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8CA25C141CFF38340092DBCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CA25C1B1CFF38340092DBCB /* denverrailUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8CA25C1E1CFF38340092DBCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39E7F0DB14DE05F0007C8617 /* denverrail */;
+			targetProxy = 8CA25C1D1CFF38340092DBCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		39E7F0E914DE05F0007C8617 /* InfoPlist.strings */ = {
@@ -1004,6 +1083,53 @@
 			};
 			name = Release;
 		};
+		8CA25C1F1CFF38340092DBCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = denverrailUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tack.denverrailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = denverrail;
+			};
+			name = Debug;
+		};
+		8CA25C201CFF38340092DBCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = denverrailUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tack.denverrailUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = denverrail;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1024,6 +1150,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
+		};
+		8CA25C211CFF38340092DBCB /* Build configuration list for PBXNativeTarget "denverrailUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CA25C1F1CFF38340092DBCB /* Debug */,
+				8CA25C201CFF38340092DBCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
