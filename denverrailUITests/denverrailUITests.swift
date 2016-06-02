@@ -72,7 +72,7 @@ class denverrailUITests: XCTestCase {
         let resultCount = searchTableQuery.cells.count
         XCTAssert(resultCount == 1)
         
-        //Select Yale to dismiss search and check Yale was selected
+        //Select Union to dismiss search and check Union was selected
         app.tables.staticTexts["Union "].tap()
         
         let stationNameQuery:XCUIElementQuery = app.descendantsMatchingType(.Any)
@@ -83,12 +83,19 @@ class denverrailUITests: XCTestCase {
     func testNowButton () {
         //Get time test is being run
         let now:NSDate = NSDate()
-        let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)
-        calendar?.timeZone = NSTimeZone.init(name:"US/Mountain")!
+        guard let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian) else {
+            //Could not initialize calendar
+            return
+        }
+        guard let mountainTime = NSTimeZone.init(name:"US/Mountain") else {
+            //Could not initialize Mountain time
+            return
+        }
+        calendar.timeZone = mountainTime
         let unitFlags: NSCalendarUnit = [ .Hour, .Minute]
-        let nowComponents = calendar?.components(unitFlags, fromDate: now)
+        let nowComponents = calendar.components(unitFlags, fromDate: now)
         
-        var hour = nowComponents!.hour
+        var hour = nowComponents.hour
         let isPM : Bool
         if hour > 12 {
             isPM = true
@@ -98,7 +105,7 @@ class denverrailUITests: XCTestCase {
         } else {
             isPM = false
         }
-        let minute = nowComponents!.minute
+        let minute = nowComponents.minute
         let minuteString : String
         if minute < 10 {
             minuteString = "0" + String(minute)
