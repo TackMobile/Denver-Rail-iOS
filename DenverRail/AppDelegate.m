@@ -68,13 +68,13 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self.stations addObject:[[Station alloc] initWithColumnName:@"30th & Downing Station"
                                                          latitude:39.758800 longitude:-104.973572 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"38th & Blake Station"
-                                                        latitude:39.46145 longitude:-104.58256 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.770923 longitude:-104.973076 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"40th & Colorado Station"
-                                                        latitude:39.46338 longitude:-104.56333 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.775912 longitude:-104.942201 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"40th Ave & Airport Blvd - Gateway Park S"
-                                                        latitude:39.769905 longitude:-104.786605 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.769905 longitude:-104.787682 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"61st & Pena Station"
-                                                        latitude:39.46249 longitude:-104.47026 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.806895 longitude:-104.783999 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Alameda Station"
                                                          latitude:39.7084 longitude:-104.9929 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Arapahoe at Village Center Station"
@@ -84,7 +84,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Belleview Station"
                                                          latitude:39.6275 longitude:-104.9043 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Central Park Station"
-                                                        latitude:39.46133 longitude:-104.53299 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.770646 longitude:-104.891652 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Colfax at Auraria Station"
                                                          latitude:39.7403 longitude:-105.0019 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Colorado Station"
@@ -96,7 +96,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Decatur / Federal Station"
                                                         latitude:39.735687 longitude:-105.024452 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Denver Airport Station"
-                                                        latitude:39.5046 longitude:-104.4026 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.847468 longitude:-104.673853 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Dry Creek Station"
                                                          latitude:39.5788 longitude:-104.8765 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Englewood Station"
@@ -132,7 +132,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Oxford - City of Sheridan Station"
                                                         latitude:39.6429 longitude:-105.0048 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Peoria Station"
-                                                        latitude:39.46032 longitude:-104.51015 southOnly:NO northOnly:NO eastWest:YES]];
+                                                        latitude:39.767553 longitude:-104.850501 southOnly:NO northOnly:NO eastWest:YES]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Pepsi Center / Elitch Gardens Station"
                                                         latitude:39.7486 longitude:-105.0096 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Perry Station"
@@ -148,7 +148,7 @@ static NSString *const kPreferencesSetValue = @"prefsSet";
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Theatre District/Convention Ctr Station"
                                                         latitude:39.7437 longitude:-104.9963 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Union Station"
-                                                        latitude:39.7526 longitude:-105.0008 southOnly:NO northOnly:NO eastWest:NO]];
+                                                        latitude:39.755403 longitude:-105.002900 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"University of Denver Station"
                                                         latitude:39.6852 longitude:-104.9648 southOnly:NO northOnly:NO eastWest:NO]];
     [self.stations addObject:[[Station alloc] initWithColumnName:@"Wadsworth Station"
